@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovenantProfileGenerator", "CovenantProfileGenerator\CovenantProfileGenerator.csproj", "{7D4ED5AC-B705-4043-AB53-B75C19B21EE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D4ED5AC-B705-4043-AB53-B75C19B21EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4ED5AC-B705-4043-AB53-B75C19B21EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4ED5AC-B705-4043-AB53-B75C19B21EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4ED5AC-B705-4043-AB53-B75C19B21EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C807CA0F-780F-4938-A1B6-036F1DE12D9B}
+	EndGlobalSection
+EndGlobal
