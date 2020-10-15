@@ -1,0 +1,8 @@
+mage=baseline
+spec=frost
+role=spell
+race=human
+position=back
+talents=2032021
+
+#external_buffs.focus_magic=1

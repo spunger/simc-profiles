@@ -1,0 +1,8 @@
+mage=baseline
+spec=fire
+role=spell
+race=human
+position=back
+talents=3231122
+
+#external_buffs.focus_magic=1

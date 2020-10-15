@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGenerateProfiles = new System.Windows.Forms.Button();
             this.gbOutput = new System.Windows.Forms.GroupBox();
             this.btnSelectPathResult = new System.Windows.Forms.Button();
             this.btnSelectPathProfiles = new System.Windows.Forms.Button();
@@ -52,7 +54,6 @@
             this.tbPathTemplate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnGenerateProfiles = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.gbOutput.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // tabGeneral
             // 
+            this.tabGeneral.Controls.Add(this.textBox1);
             this.tabGeneral.Controls.Add(this.btnGenerateProfiles);
             this.tabGeneral.Controls.Add(this.gbOutput);
             this.tabGeneral.Controls.Add(this.gbOptions);
@@ -83,6 +85,25 @@
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(252, 501);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(517, 90);
+            this.textBox1.TabIndex = 2;
+            // 
+            // btnGenerateProfiles
+            // 
+            this.btnGenerateProfiles.Location = new System.Drawing.Point(6, 563);
+            this.btnGenerateProfiles.Name = "btnGenerateProfiles";
+            this.btnGenerateProfiles.Size = new System.Drawing.Size(112, 23);
+            this.btnGenerateProfiles.TabIndex = 1;
+            this.btnGenerateProfiles.Text = "Generate Profiles";
+            this.btnGenerateProfiles.UseVisualStyleBackColor = true;
+            this.btnGenerateProfiles.Click += new System.EventHandler(this.BtnGenerateProfiles_Click);
             // 
             // gbOutput
             // 
@@ -112,7 +133,7 @@
             this.btnSelectPathResult.TabIndex = 3;
             this.btnSelectPathResult.Text = "...";
             this.btnSelectPathResult.UseVisualStyleBackColor = true;
-            this.btnSelectPathResult.Click += new System.EventHandler(this.btnSelectPathResult_Click);
+            this.btnSelectPathResult.Click += new System.EventHandler(this.BtnSelectPathResult_Click);
             // 
             // btnSelectPathProfiles
             // 
@@ -122,7 +143,7 @@
             this.btnSelectPathProfiles.TabIndex = 3;
             this.btnSelectPathProfiles.Text = "...";
             this.btnSelectPathProfiles.UseVisualStyleBackColor = true;
-            this.btnSelectPathProfiles.Click += new System.EventHandler(this.btnSelectPathProfiles_Click);
+            this.btnSelectPathProfiles.Click += new System.EventHandler(this.BtnSelectPathProfiles_Click);
             // 
             // cbOutputJson
             // 
@@ -243,7 +264,7 @@
             this.btnSelectPathTemplate.TabIndex = 3;
             this.btnSelectPathTemplate.Text = "...";
             this.btnSelectPathTemplate.UseVisualStyleBackColor = true;
-            this.btnSelectPathTemplate.Click += new System.EventHandler(this.btnSelectPathTemplate_Click);
+            this.btnSelectPathTemplate.Click += new System.EventHandler(this.BtnSelectPathTemplate_Click);
             // 
             // tbOptionsRankConduits
             // 
@@ -267,7 +288,7 @@
             0,
             0,
             0});
-            this.tbOptionsRankConduits.Leave += new System.EventHandler(this.tbOptionsRankConduits_Leave);
+            this.tbOptionsRankConduits.Leave += new System.EventHandler(this.TbOptionsRankConduits_Leave);
             // 
             // tbOptionsGlobal
             // 
@@ -313,16 +334,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Global";
             // 
-            // btnGenerateProfiles
-            // 
-            this.btnGenerateProfiles.Location = new System.Drawing.Point(6, 563);
-            this.btnGenerateProfiles.Name = "btnGenerateProfiles";
-            this.btnGenerateProfiles.Size = new System.Drawing.Size(112, 23);
-            this.btnGenerateProfiles.TabIndex = 1;
-            this.btnGenerateProfiles.Text = "Generate Profiles";
-            this.btnGenerateProfiles.UseVisualStyleBackColor = true;
-            this.btnGenerateProfiles.Click += new System.EventHandler(this.btnGenerateProfiles_Click);
-            // 
             // CovenantProfileGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,9 +341,10 @@
             this.ClientSize = new System.Drawing.Size(1096, 620);
             this.Controls.Add(this.tcMain);
             this.Name = "CovenantProfileGenerator";
-            this.Text = "Form1";
+            this.Text = "Covenant Profile Generator";
             this.tcMain.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
+            this.tabGeneral.PerformLayout();
             this.gbOutput.ResumeLayout(false);
             this.gbOutput.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
@@ -369,6 +381,7 @@
         private System.Windows.Forms.TextBox tbPathTemplate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGenerateProfiles;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

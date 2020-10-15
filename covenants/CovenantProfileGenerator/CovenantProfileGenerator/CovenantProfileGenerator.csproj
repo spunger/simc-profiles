@@ -100,5 +100,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Soulbinds\Soulbinds.csproj">
+      <Project>{CB3D0394-DC1B-4E3F-9EA0-CC27DCFFC2EA}</Project>
+      <Name>Soulbinds</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

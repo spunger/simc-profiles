@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CovenantProfileGenerator
 {
@@ -23,7 +18,7 @@ namespace CovenantProfileGenerator
         private const string CODE_COVENANT_FAE = "FAE";
         private const string CODE_COVENANT_VEN = "VEN";
 
-        private string pathTemplate;
+        private readonly string pathTemplate;
         private int rankConduits = 1;
 
         public string Name { get; set; }
@@ -111,7 +106,6 @@ namespace CovenantProfileGenerator
         {
             var files = new List<(string fileName, string content)>();
 
-
             foreach(var specProfile in SpecProfiles)
             {
                 files.Add((
@@ -135,8 +129,8 @@ namespace CovenantProfileGenerator
             string profilePath = $@"{this.PathProfiles}{Path.DirectorySeparatorChar}{this.Name}";
             var di = Directory.CreateDirectory(profilePath);
             
-            foreach (var file in files)
-                File.WriteAllText($@"{di.FullName}{Path.DirectorySeparatorChar}{file.fileName}", file.content);
+            foreach (var (fileName, content) in files)
+                File.WriteAllText($@"{di.FullName}{Path.DirectorySeparatorChar}{fileName}", content);
 
             File.WriteAllText($@"{di.FullName}{Path.DirectorySeparatorChar}runall.bat", BuildBatch(di.FullName));
 
@@ -207,7 +201,6 @@ namespace CovenantProfileGenerator
                 sb.AppendLine($"simc.exe {Path.GetFileName(file)}");
 
             return sb.ToString();
-        }
-        
+        }   
     }
 }

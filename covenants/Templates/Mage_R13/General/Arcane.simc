@@ -1,0 +1,8 @@
+mage=baseline
+spec=arcane
+role=spell
+race=human
+position=back
+talents=1032021
+
+#external_buffs.focus_magic=1

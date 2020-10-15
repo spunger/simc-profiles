@@ -1,13 +1,11 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
+﻿using CovenantProfileGenerator.Soulbinds;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CovenantProfileGenerator
@@ -20,8 +18,32 @@ namespace CovenantProfileGenerator
         public CovenantProfileGenerator()
         {
             InitializeComponent();
+            TestSoulbinds();
+        }
+        private void TestSoulbinds()
+        {
+            var soulbinds = Data.GetSoulbinds();
 
+            var options = new SoulbindPathOptions()
+            {
+                Class = "Mage",
+                Spec = "Frost",
+                Renown = 13,
+                RankConduits = 7,
+                IgnoredSoulbindAbilities = null,
+                AllowedFinesseConduits = Data.GetConduits().Where(x => x.Id == "29"),
+                AllowedEnduranceConduits = null,
+                IgnoredPotencyConduits = null,
+                //MustHavePotencyConduits = Data.GetConduits().Where(x => x.Id == "21")
+                MustHavePotencyConduits = null
+            };
 
+            StringBuilder sb = new StringBuilder();
+            foreach (var soulbind in soulbinds)
+                foreach (var path in soulbind.GetSoulbindPaths(options))
+                    sb.AppendLine(path.SimcProfilesetString);
+
+            textBox1.Text = sb.ToString();
         }
         private void InitProfile()
         {
@@ -51,10 +73,12 @@ namespace CovenantProfileGenerator
         private void AddSpecProfileTabPage(SpecProfile specProfile)
         {
             var tabPage = new TabPage(specProfile.Name);
-            var specProfileUserControl = new SpecProfileUserControl();
-            specProfileUserControl.Dock = DockStyle.Fill;
-            specProfileUserControl.SpecProfile = specProfile;
-            specProfileUserControl.Parent = tabPage;
+            var specProfileUserControl = new SpecProfileUserControl
+            {
+                Dock = DockStyle.Fill,
+                SpecProfile = specProfile,
+                Parent = tabPage
+            };
             specUserControls.Add(specProfileUserControl);
             tcMain.TabPages.Add(tabPage);
         }
@@ -73,21 +97,21 @@ namespace CovenantProfileGenerator
             return null;
         }
 
-        private void btnSelectPathTemplate_Click(object sender, EventArgs e)
+        private void BtnSelectPathTemplate_Click(object sender, EventArgs e)
         {
             tbPathTemplate.Text = SelectFolder(ConfigurationManager.AppSettings["defaultPathTemplate"]);
             InitProfile();
         }
-        private void btnSelectPathProfiles_Click(object sender, EventArgs e)
+        private void BtnSelectPathProfiles_Click(object sender, EventArgs e)
         {
             tbPathProfiles.Text = SelectFolder(ConfigurationManager.AppSettings["defaultPathProfile"]);
         }
-        private void btnSelectPathResult_Click(object sender, EventArgs e)
+        private void BtnSelectPathResult_Click(object sender, EventArgs e)
         {
             tbPathResult.Text = SelectFolder(ConfigurationManager.AppSettings["defaultPathResults"]);
         }
 
-        private void tbOptionsRankConduits_Leave(object sender, EventArgs e)
+        private void TbOptionsRankConduits_Leave(object sender, EventArgs e)
         {
             if (profile == null)
                 return;
@@ -95,7 +119,7 @@ namespace CovenantProfileGenerator
             specUserControls.ForEach((x) => x.RefreshSpecProfile());
         }
 
-        private void btnGenerateProfiles_Click(object sender, EventArgs e)
+        private void BtnGenerateProfiles_Click(object sender, EventArgs e)
         {
             if (profile == null)
                 return;
