@@ -1,18 +1,18 @@
-﻿Id,SpellId,Name,Code,Class,Spec,Type
-17,336460,Unrelenting Cold,UC,Mage,Frost,pc
-18,336472,Shivering Core,SC,Mage,Frost,pc
-20,336522,Icy Propulsion,IP,Mage,Frost,pc
-21,336569,Ice Bite,IB,Mage,Frost,pc
-29,336777,Grounding Surge,GS,Mage,All,fc
-30,336821,Infernal Cascade,IC,Mage,Fire,pc
-32,336852,Master Flame,MF,Mage,Fire,pc
-34,336873,Arcane Prodigy,AP,Mage,Arcane,pc
-36,336886,Nether Precision,NP,Mage,Arcane,pc
-38,336992,Discipline of the Grove,DG,Covenant,Night Fae,pc
-39,336999,Gift of the Lich,GL,Covenant,Necrolord,pc
-40,337058,Ire of the Ascended,IA,Covenant,Kyrian,pc
-43,337087,Siphoned Malice,SM,Covenant,Venthyr,pc
-51,337192,Magi's Brand,MB,Mage,Arcane,pc
-53,337224,Flame Accretion,FA,Mage,Fire,pc
-55,337240,Artifice of the Archmage,AA,Mage,Arcane,pc
-264,340719,Controlled Destruction,CD,Mage,Fire,pc
+﻿Id,SpellId,Name,Code,Class,Spec,Type,MusthaveDefault,AllowedDefault,IgnoredDefault
+17,336460,Unrelenting Cold,UC,Mage,Frost,pc,0,0,0
+18,336472,Shivering Core,SC,Mage,Frost,pc,0,0,0
+20,336522,Icy Propulsion,IP,Mage,Frost,pc,0,0,0
+21,336569,Ice Bite,IB,Mage,Frost,pc,1,0,0
+29,336777,Grounding Surge,GS,Mage,All,fc,0,1,0
+30,336821,Infernal Cascade,IC,Mage,Fire,pc,0,0,0
+32,336852,Master Flame,MF,Mage,Fire,pc,0,0,1
+34,336873,Arcane Prodigy,AP,Mage,Arcane,pc,0,0,0
+36,336886,Nether Precision,NP,Mage,Arcane,pc,0,0,0
+38,336992,Discipline of the Grove,DG,Covenant,Night Fae,pc,0,0,0
+39,336999,Gift of the Lich,GL,Covenant,Necrolord,pc,0,0,0
+40,337058,Ire of the Ascended,IA,Covenant,Kyrian,pc,0,0,0
+43,337087,Siphoned Malice,SM,Covenant,Venthyr,pc,0,0,0
+51,337192,Magi's Brand,MB,Mage,Arcane,pc,0,0,0
+53,337224,Flame Accretion,FA,Mage,Fire,pc,0,0,0
+55,337240,Artifice of the Archmage,AA,Mage,Arcane,pc,0,0,0
+264,340719,Controlled Destruction,CD,Mage,Fire,pc,0,0,0

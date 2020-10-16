@@ -12,6 +12,9 @@ namespace CovenantProfileGenerator.Soulbinds
         public int Rank { get; internal set; }
         public string Class { get; internal set; }
         public string Spec { get; internal set; }
+        public bool IgnoredDefault { get; set; }
+        public bool AllowedDefault { get; set; }
+        public bool MusthaveDefault { get; set; }
 
         public override bool Equals(object obj)
         {

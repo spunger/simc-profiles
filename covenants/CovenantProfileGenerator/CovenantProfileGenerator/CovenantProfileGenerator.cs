@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -28,14 +29,13 @@ namespace CovenantProfileGenerator
             {
                 Class = "Mage",
                 Spec = "Frost",
-                Renown = 13,
+                Renown = 39,
                 RankConduits = 7,
-                IgnoredSoulbindAbilities = null,
-                AllowedFinesseConduits = Data.GetConduits().Where(x => x.Id == "29"),
-                AllowedEnduranceConduits = null,
-                IgnoredPotencyConduits = null,
-                //MustHavePotencyConduits = Data.GetConduits().Where(x => x.Id == "21")
-                MustHavePotencyConduits = null
+                IgnoredSoulbindAbilities = Data.GetSoulbindAbilities().Where(a => a.IgnoredDefault),
+                AllowedFinesseConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.FinesseConduit),
+                AllowedEnduranceConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.EnduranceConduit),
+                IgnoredPotencyConduits = Data.GetConduits().Where(x => x.IgnoredDefault && x.Type == SoulbindAbilityType.PotencyConduit),
+                MustHavePotencyConduits = Data.GetConduits().Where(x => x.MusthaveDefault && x.Type == SoulbindAbilityType.PotencyConduit)
             };
 
             StringBuilder sb = new StringBuilder();

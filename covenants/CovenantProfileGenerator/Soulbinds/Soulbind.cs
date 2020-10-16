@@ -22,7 +22,9 @@ namespace CovenantProfileGenerator.Soulbinds
             options.IgnoredPotencyConduits = options.IgnoredPotencyConduits ?? Enumerable.Empty<Conduit>();
             options.IgnoredSoulbindAbilities = options.IgnoredSoulbindAbilities ?? Enumerable.Empty<SoulbindAbility>();
 
-            var pathsGeneric = GetSoulbindPathsGeneric(options.Renown);
+            //var ignoredSoulbindAbilities = options.IgnoredSoulbindAbilities.Where(a => a.SoulbindCode == Code);
+
+            var pathsGeneric = GetSoulbindPathsGeneric(options.Renown).Where(a=>!options.IgnoredSoulbindAbilities.Intersect(a).Any());
 
             var conduits = Data.GetPotencyConduitsBySpec(Covenant.Name, options.Class, options.Spec, options.RankConduits)
                 .AsEnumerable()
@@ -30,13 +32,15 @@ namespace CovenantProfileGenerator.Soulbinds
                 .Union(Data.GetFinesseConduitsByClass(options.Class, options.RankConduits).Intersect(options.AllowedFinesseConduits))
                 .Union(options.AllowedEnduranceConduits);
 
+            var mustHaveConduits = conduits.Intersect(options.MustHavePotencyConduits);
+
             var paths = new List<SoulbindPath>();
 
             foreach (var pathGeneric in pathsGeneric)
             {
                 var combinations = GetSoulbindConduitCombinations(pathGeneric.Where(a => a.Type != SoulbindAbilityType.Soulbind),
                                                                   conduits)
-                    .Where(c => !options.MustHavePotencyConduits.Except(c).Any());
+                    .Where(c => !mustHaveConduits.Except(c).Any());
 
                 foreach (var combination in combinations)
                 {
@@ -129,10 +133,14 @@ namespace CovenantProfileGenerator.Soulbinds
                     Class = conduit.Class,
                     Type = conduit.Type,
                     SpellId = conduit.SpellId,
+                    AllowedDefault = conduit.AllowedDefault,
+                    IgnoredDefault = conduit.IgnoredDefault,
+                    MusthaveDefault = conduit.MusthaveDefault,
                     ParentId = ability.ParentId,
                     Renown = ability.Renown,
                     Tier = ability.Tier,
-                    SoulbindCode = ability.SoulbindCode
+                    SoulbindCode = ability.SoulbindCode,
+                    
                 };
             else
                 return null;

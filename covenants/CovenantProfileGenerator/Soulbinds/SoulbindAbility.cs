@@ -13,6 +13,7 @@ namespace CovenantProfileGenerator.Soulbinds
         public int Renown { get; internal set; }
         public string SoulbindCode { get; internal set; }
         public string ParentId { get; internal set; }
+        public bool IgnoredDefault { get; set; }
         public override string ToString()
             => Code ?? base.ToString();
         public virtual string SimcString => Id;

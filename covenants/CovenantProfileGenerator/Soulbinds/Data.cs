@@ -126,6 +126,7 @@ namespace CovenantProfileGenerator.Soulbinds
             Map(m => m.Renown);
             Map(m => m.SoulbindCode);
             Map(m => m.ParentId);
+            Map(m => m.IgnoredDefault);
         }
     }
     sealed class ConduitsMap : ClassMap<Conduit>
@@ -133,13 +134,15 @@ namespace CovenantProfileGenerator.Soulbinds
         public ConduitsMap()
         {
             Map(m => m.Id);
-            Map(m => m.Code);
-            Map(m => m.Name);
-            Map(m => m.Type).ConvertUsing(row => Data.GetAbilityTypeFromText(row.GetField("Type")));
             Map(m => m.SpellId);
-            Map(m => m.Rank);
+            Map(m => m.Name);
+            Map(m => m.Code);
             Map(m => m.Class);
             Map(m => m.Spec);
+            Map(m => m.Type).ConvertUsing(row => Data.GetAbilityTypeFromText(row.GetField("Type")));
+            Map(m => m.MusthaveDefault);
+            Map(m => m.AllowedDefault);
+            Map(m => m.IgnoredDefault);
         }
     }
 }

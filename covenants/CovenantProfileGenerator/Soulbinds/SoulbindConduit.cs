@@ -6,6 +6,8 @@
         public int Rank { get; internal set; }
         public string Class { get; internal set; }
         public string Spec { get; internal set; }
+        public bool AllowedDefault { get; internal set; }
+        public bool MusthaveDefault { get; internal set; }
 
         public override string ToString()
             => $"{Code}:{Rank}";
