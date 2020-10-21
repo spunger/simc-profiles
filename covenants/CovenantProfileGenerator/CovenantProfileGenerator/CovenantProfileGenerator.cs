@@ -1,13 +1,17 @@
 ﻿using CovenantProfileGenerator.Soulbinds;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
+using CsvHelper;
+using System.Globalization;
 
 namespace CovenantProfileGenerator
 {
@@ -19,31 +23,86 @@ namespace CovenantProfileGenerator
         public CovenantProfileGenerator()
         {
             InitializeComponent();
-            TestSoulbinds();
+
+            //var options = new SoulbindPathOptions()
+            //{
+            //    Class = "Mage", // forgot to define class
+            //    Spec = "Arcane",
+            //    Renown = 39,
+            //    RankConduits = 7,
+            //    IgnoredSoulbindAbilities = Data.GetSoulbindAbilities().Where(a => a.IgnoredDefault),
+            //    AllowedFinesseConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.FinesseConduit),
+            //    AllowedEnduranceConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.EnduranceConduit),
+            //    IgnoredPotencyConduits = Data.GetConduits().Where(x => x.IgnoredDefault && x.Type == SoulbindAbilityType.PotencyConduit),
+            //    MustHavePotencyConduits = Data.GetConduits().Where(x => x.MusthaveDefault && x.Type == SoulbindAbilityType.PotencyConduit)
+            //};
+
+            //var soulbind = Data.GetSoulbinds().Where(x => x.Code == "Mari").First();
+            //var paths = soulbind.GetSoulbindPaths(options).ToList();
+            //TestSoulbinds();
         }
         private void TestSoulbinds()
         {
-            var soulbinds = Data.GetSoulbinds();
+            var dir = @"C:\Users\spung\repos\simc-profiles\covenants\Results\3T_RenMax_R7";
+            var files = Directory.GetFiles(dir, "*.json*");
 
-            var options = new SoulbindPathOptions()
+            var results = new List<Result>();
+
+            foreach (var file in files)
             {
-                Class = "Mage",
-                Spec = "Frost",
-                Renown = 39,
-                RankConduits = 7,
-                IgnoredSoulbindAbilities = Data.GetSoulbindAbilities().Where(a => a.IgnoredDefault),
-                AllowedFinesseConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.FinesseConduit),
-                AllowedEnduranceConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.EnduranceConduit),
-                IgnoredPotencyConduits = Data.GetConduits().Where(x => x.IgnoredDefault && x.Type == SoulbindAbilityType.PotencyConduit),
-                MustHavePotencyConduits = Data.GetConduits().Where(x => x.MusthaveDefault && x.Type == SoulbindAbilityType.PotencyConduit)
-            };
+                string fileTxt = $"{Path.GetDirectoryName(file)}{Path.DirectorySeparatorChar}{Path.GetFileNameWithoutExtension(file)}.txt";
+                var linesTxt = File.ReadAllLines(fileTxt);
+                var talents = linesTxt.Where(l => l.Contains("Talents:")).FirstOrDefault()?.Trim().Replace("Talents: ", "");
+                var resultJson = File.ReadAllText(file);
+                var simcResult = JsonConvert.DeserializeObject<SimcResult>(resultJson);
+                var spec = Path.GetFileNameWithoutExtension(file).Split('_')[0];
+                var covenant = Path.GetFileNameWithoutExtension(file).Split('_')[1];
+                var intellect = 1250;
+                var haste = 750;
+                var crit = 700;
+                var mastery = 200;
+                var versatility = 200;
+                string legendary = "none";
+                var targets = simcResult.sim.targets.Count();
 
-            StringBuilder sb = new StringBuilder();
-            foreach (var soulbind in soulbinds)
-                foreach (var path in soulbind.GetSoulbindPaths(options))
-                    sb.AppendLine(path.SimcProfilesetString);
+                //switch (spec)
+                //{
+                //    case "Fire":
+                //        legendary = "Firestorm";
+                //        break;
+                //    case "Arcane":
+                //        legendary = "Harmony";
+                //        break;
+                //    case "Frost":
+                //        legendary = "Split Ice";
+                //        break;
+                //}
+                
+                foreach(var profileset in simcResult.sim.profilesets.results)
+                {
+                    results.Add(new Result()
+                    {
+                        NameProfileset = profileset.name,
+                        DpsMedian = profileset.median,
+                        Spec = spec,
+                        Covenant = covenant,
+                        Talents = talents,
+                        Targets = targets,
+                        Legendary = legendary,
+                        Int = intellect,
+                        Crit = crit,
+                        Mastery = mastery,
+                        Haste = haste,
+                        Versatility = versatility
+                    }); 
+                }
 
-            textBox1.Text = sb.ToString();
+            }
+            using (var writer = new StreamWriter($"{dir}{Path.DirectorySeparatorChar}summary.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.CurrentCulture))
+            {
+                csv.WriteRecords(results.OrderByDescending(r=>r.DpsMedian));
+            }
         }
         private void InitProfile()
         {

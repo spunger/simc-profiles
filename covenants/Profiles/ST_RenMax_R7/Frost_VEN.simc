@@ -26,7 +26,7 @@ gear_mastery_rating=200
 gear_versatility_rating=200
 
 # SKB
-wrist=cold_front,bonus_id=6828
+# wrist=cold_front,bonus_id=6828
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226
@@ -147,35 +147,38 @@ actions.movement+=/fire_blast
 actions.movement+=/ice_lance
 
 covenant=venthyr
-profileset."Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=332756/319973/319978/340159/20:7/21:7/29:7
-profileset."Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/SMalice:7/IBite:7/GSurge:7"+=soulbind=332756/319973/319978/340159/43:7/21:7/29:7
-profileset."Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/UCold:7/IBite:7/GSurge:7"+=soulbind=332756/319973/319978/340159/17:7/21:7/29:7
-profileset."Venthyr_Draven-ELeader/BfWar/MAOne/SIStone/IBite:7/GSurge:7"+=soulbind=332756/319973/319982/340159/21:7/29:7
-profileset."Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/IPropulsion:7/IBite:7"+=soulbind=332756/332754/319978/340159/43:7/20:7/21:7
-profileset."Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/UCold:7/IBite:7"+=soulbind=332756/332754/319978/340159/43:7/17:7/21:7
-profileset."Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/UCold:7/IPropulsion:7/IBite:7"+=soulbind=332756/332754/319978/340159/17:7/20:7/21:7
-profileset."Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/IPropulsion:7/IBite:7"+=soulbind=332756/332754/319982/340159/20:7/21:7
-profileset."Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/SMalice:7/IBite:7"+=soulbind=332756/332754/319982/340159/43:7/21:7
-profileset."Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/UCold:7/IBite:7"+=soulbind=332756/332754/319982/340159/17:7/21:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331584/331586/20:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/SMalice:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331584/331586/43:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/UCold:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331584/331586/17:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331580/331586/20:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/UCold:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331580/331586/17:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331582/331586/43:7/20:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/UCold:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331582/331586/43:7/17:7/21:7/29:7
-profileset."Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/UCold:7/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=331576/331579/331582/331586/17:7/20:7/21:7/29:7
-profileset."Venthyr_Theotar-LGait/RPalate/EIngredients/WProp/IBite:7/GSurge:7"+=soulbind=336147/336243/336184/319983/21:7/29:7
-profileset."Venthyr_Theotar-LGait/SShade/EIngredients/WProp/IBite:7/GSurge:7"+=soulbind=336147/336239/336184/319983/21:7/29:7
-profileset."Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=336147/336245/336184/319983/20:7/21:7/29:7
-profileset."Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/SMalice:7/IBite:7/GSurge:7"+=soulbind=336147/336245/336184/319983/43:7/21:7/29:7
-profileset."Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/UCold:7/IBite:7/GSurge:7"+=soulbind=336147/336245/336184/319983/17:7/21:7/29:7
-profileset."Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/IPropulsion:7/IBite:7"+=soulbind=336140/336243/336184/319983/20:7/21:7
-profileset."Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/SMalice:7/IBite:7"+=soulbind=336140/336243/336184/319983/43:7/21:7
-profileset."Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/UCold:7/IBite:7"+=soulbind=336140/336243/336184/319983/17:7/21:7
-profileset."Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=336140/336239/336184/319983/20:7/21:7/29:7
-profileset."Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/SMalice:7/IBite:7/GSurge:7"+=soulbind=336140/336239/336184/319983/43:7/21:7/29:7
-profileset."Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/UCold:7/IBite:7/GSurge:7"+=soulbind=336140/336239/336184/319983/17:7/21:7/29:7
-profileset."Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/IPropulsion:7/IBite:7"+=soulbind=336140/336245/336184/319983/43:7/20:7/21:7
-profileset."Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/UCold:7/IBite:7"+=soulbind=336140/336245/336184/319983/43:7/17:7/21:7
-profileset."Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/UCold:7/IPropulsion:7/IBite:7"+=soulbind=336140/336245/336184/319983/17:7/20:7/21:7
+profileset."Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/UC:7/IB:7/GS:7"+=soulbind=331576/331579/331582/331586/17:7/21:7/29:7
+profileset."Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/IP:7/IB:7/GS:7"+=soulbind=331576/331579/331582/331586/20:7/21:7/29:7
+profileset."Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/IB:7/SM:7/GS:7"+=soulbind=331576/331579/331582/331586/21:7/43:7/29:7
+profileset."Nadjia - AChaos/FiLPlaces/DDuelist/TSeeker/IB:7/GS:7"+=soulbind=331576/331579/331584/331586/21:7/29:7
+profileset."Nadjia - AChaos/FiLPlaces/EPreparation/TSeeker/IB:7/GS:7"+=soulbind=331576/331579/331580/331586/21:7/29:7
+profileset."Theotar - LGait/ToApprec/LotParty/WProp/UC:7/IB:7/GS:7"+=soulbind=336147/336245/336247/319983/17:7/21:7/29:7
+profileset."Theotar - LGait/ToApprec/LotParty/WProp/IP:7/IB:7/GS:7"+=soulbind=336147/336245/336247/319983/20:7/21:7/29:7
+profileset."Theotar - LGait/ToApprec/LotParty/WProp/IB:7/SM:7/GS:7"+=soulbind=336147/336245/336247/319983/21:7/43:7/29:7
+profileset."Theotar - LGait/RPalate/LotParty/WProp/IB:7/GS:7"+=soulbind=336147/336243/336247/319983/21:7/29:7
+profileset."Theotar - LGait/SShade/LotParty/WProp/IB:7/GS:7"+=soulbind=336147/336239/336247/319983/21:7/29:7
+profileset."Theotar - LGait/ToApprec/LotParty/WProp/UC:7/IB:7/GS:7"+=soulbind=336147/336245/336247/319983/17:7/21:7/29:7
+profileset."Theotar - LGait/ToApprec/LotParty/WProp/IP:7/IB:7/GS:7"+=soulbind=336147/336245/336247/319983/20:7/21:7/29:7
+profileset."Theotar - LGait/ToApprec/LotParty/WProp/IB:7/SM:7/GS:7"+=soulbind=336147/336245/336247/319983/21:7/43:7/29:7
+profileset."Theotar - LGait/RPalate/LotParty/WProp/IB:7/GS:7"+=soulbind=336147/336243/336247/319983/21:7/29:7
+profileset."Theotar - LGait/SShade/LotParty/WProp/IB:7/GS:7"+=soulbind=336147/336239/336247/319983/21:7/29:7
+profileset."Draven - ELeader/HYGround/MAOne/SIStone/UC:7/IB:7"+=soulbind=332756/332754/319982/340159/17:7/21:7
+profileset."Draven - ELeader/HYGround/MAOne/SIStone/IP:7/IB:7"+=soulbind=332756/332754/319982/340159/20:7/21:7
+profileset."Draven - ELeader/HYGround/MAOne/SIStone/IB:7/SM:7"+=soulbind=332756/332754/319982/340159/21:7/43:7
+profileset."Draven - ELeader/HYGround/EGloom/SIStone/UC:7/IB:7/GS:7"+=soulbind=332756/332754/319978/340159/17:7/21:7/29:7
+profileset."Draven - ELeader/HYGround/EGloom/SIStone/IP:7/IB:7/GS:7"+=soulbind=332756/332754/319978/340159/20:7/21:7/29:7
+profileset."Draven - ELeader/HYGround/EGloom/SIStone/IB:7/SM:7/GS:7"+=soulbind=332756/332754/319978/340159/21:7/43:7/29:7
+profileset."Draven - ELeader/STactics/MAOne/SIStone/IB:7"+=soulbind=332756/332753/319982/340159/21:7
+profileset."Draven - ELeader/STactics/EGloom/SIStone/IB:7/GS:7"+=soulbind=332756/332753/319978/340159/21:7/29:7
+profileset."Draven - ELeader/BfWar/MAOne/SIStone/IB:7/GS:7"+=soulbind=332756/319973/319982/340159/21:7/29:7
+profileset."Draven - ELeader/BfWar/EGloom/SIStone/IB:7/GS:7"+=soulbind=332756/319973/319978/340159/21:7/29:7
+profileset."Draven - ELeader/HYGround/MAOne/SIStone/UC:7/IB:7"+=soulbind=332756/332754/319982/340159/17:7/21:7
+profileset."Draven - ELeader/HYGround/MAOne/SIStone/IP:7/IB:7"+=soulbind=332756/332754/319982/340159/20:7/21:7
+profileset."Draven - ELeader/HYGround/MAOne/SIStone/IB:7/SM:7"+=soulbind=332756/332754/319982/340159/21:7/43:7
+profileset."Draven - ELeader/HYGround/EGloom/SIStone/UC:7/IB:7/GS:7"+=soulbind=332756/332754/319978/340159/17:7/21:7/29:7
+profileset."Draven - ELeader/HYGround/EGloom/SIStone/IP:7/IB:7/GS:7"+=soulbind=332756/332754/319978/340159/20:7/21:7/29:7
+profileset."Draven - ELeader/HYGround/EGloom/SIStone/IB:7/SM:7/GS:7"+=soulbind=332756/332754/319978/340159/21:7/43:7/29:7
+profileset."Draven - ELeader/STactics/MAOne/SIStone/IB:7"+=soulbind=332756/332753/319982/340159/21:7
+profileset."Draven - ELeader/STactics/EGloom/SIStone/IB:7/GS:7"+=soulbind=332756/332753/319978/340159/21:7/29:7
+profileset."Draven - ELeader/BfWar/MAOne/SIStone/IB:7/GS:7"+=soulbind=332756/319973/319982/340159/21:7/29:7
+profileset."Draven - ELeader/BfWar/EGloom/SIStone/IB:7/GS:7"+=soulbind=332756/319973/319978/340159/21:7/29:7

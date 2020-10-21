@@ -25,7 +25,7 @@ gear_crit_rating=700
 gear_mastery_rating=200
 gear_versatility_rating=200
 # Arcane Harmony
-shoulder=arcane_harmony,bonus_id=6926
+# shoulder=arcane_harmony,bonus_id=6926
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226
@@ -93,7 +93,6 @@ actions.precombat+=/arcane_intellect
 actions.precombat+=/conjure_mana_gem
 actions.precombat+=/snapshot_stats
 actions.precombat+=/mirror_image
-actions.precombat+=/potion
 actions.precombat+=/frostbolt,if=variable.prepull_evo=0
 actions.precombat+=/evocation,if=variable.prepull_evo=1
 
@@ -106,10 +105,12 @@ actions+=/call_action_list,name=cooldowns
 actions+=/call_action_list,name=rotation,if=variable.final_burn=0
 actions+=/call_action_list,name=final_burn,if=variable.final_burn=1
 actions+=/call_action_list,name=movement
+actions+=/call_action_list,name=items
 
 #BfA - Remove Later
 actions.essences=blood_of_the_enemy,if=cooldown.touch_of_the_magi.remains=0&buff.arcane_charge.stack<=2&cooldown.arcane_power.remains<=gcd|target.time_to_die<cooldown.arcane_power.remains
 actions.essences+=/blood_of_the_enemy,if=cooldown.arcane_power.remains=0&(!talent.enlightened.enabled|(talent.enlightened.enabled&mana.pct>=70))&((cooldown.touch_of_the_magi.remains>10&buff.arcane_charge.stack=buff.arcane_charge.max_stack)|(cooldown.touch_of_the_magi.remains=0&buff.arcane_charge.stack=0))&buff.rune_of_power.down&mana.pct>=variable.ap_minimum_mana_pct
+actions.essences+=/worldvein_resonance,if=cooldown.arcane_power.remains>=50&cooldown.touch_of_the_magi.remains<=gcd&buff.arcane_charge.stack<=2&talent.rune_of_power.enabled&cooldown.rune_of_power.remains<=gcd&cooldown.arcane_power.remains>variable.totm_max_delay
 actions.essences+=/worldvein_resonance,if=cooldown.touch_of_the_magi.remains=0&buff.arcane_charge.stack<=2&cooldown.arcane_power.remains<=gcd|target.time_to_die<cooldown.arcane_power.remains
 actions.essences+=/worldvein_resonance,if=cooldown.arcane_power.remains=0&(!talent.enlightened.enabled|(talent.enlightened.enabled&mana.pct>=70))&((cooldown.touch_of_the_magi.remains>10&buff.arcane_charge.stack=buff.arcane_charge.max_stack)|(cooldown.touch_of_the_magi.remains=0&buff.arcane_charge.stack=0))&buff.rune_of_power.down&mana.pct>=variable.ap_minimum_mana_pct
 actions.essences+=/guardian_of_azeroth,if=cooldown.touch_of_the_magi.remains=0&buff.arcane_charge.stack<=2&cooldown.arcane_power.remains<=gcd|target.time_to_die<cooldown.arcane_power.remains
@@ -125,7 +126,8 @@ actions.essences+=/memory_of_lucid_dreams,if=buff.arcane_power.down&buff.rune_of
 actions.opener=variable,name=have_opened,op=set,value=1,if=prev_gcd.1.evocation
 actions.opener+=/lights_judgment,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
 actions.opener+=/bag_of_tricks,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
-actions.opener+=/use_items,if=buff.arcane_power.up
+actions.opener+=/call_action_list,name=items,if=buff.arcane_power.up
+actions.opener+=/potion,if=buff.arcane_power.up
 actions.opener+=/berserking,if=buff.arcane_power.up
 actions.opener+=/blood_fury,if=buff.arcane_power.up
 actions.opener+=/fireblood,if=buff.arcane_power.up
@@ -135,14 +137,13 @@ actions.opener+=/frost_nova,if=runeforge.grisly_icicle.equipped&mana.pct>95
 actions.opener+=/mirrors_of_torment
 actions.opener+=/deathborne
 actions.opener+=/radiant_spark,if=mana.pct>40
-actions.opener+=/cancel_action,if=action.shifting_power.channeling
+actions.opener+=/cancel_action,if=action.shifting_power.channeling&gcd.remains=0
 actions.opener+=/shifting_power,if=soulbind.field_of_blossoms.enabled
 actions.opener+=/touch_of_the_magi
 actions.opener+=/arcane_power
 actions.opener+=/rune_of_power,if=buff.rune_of_power.down
 actions.opener+=/use_mana_gem,if=(talent.enlightened.enabled&mana.pct<=80&mana.pct>=65)|(!talent.enlightened.enabled&mana.pct<=85)
-actions.opener+=/berserking,if=buff.arcane_power.up
-actions.opener+=/time_warp,if=runeforge.temporal_warp.equipped
+actions.opener+=/time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up
 actions.opener+=/presence_of_mind,if=debuff.touch_of_the_magi.up&debuff.touch_of_the_magi.remains<=buff.presence_of_mind.max_stack*action.arcane_blast.execute_time
 actions.opener+=/arcane_blast,if=dot.radiant_spark.remains>5|debuff.radiant_spark_vulnerability.stack>0
 actions.opener+=/arcane_blast,if=buff.presence_of_mind.up&debuff.touch_of_the_magi.up&debuff.touch_of_the_magi.remains<=action.arcane_blast.execute_time
@@ -156,7 +157,8 @@ actions.opener+=/arcane_barrage
 
 actions.cooldowns=lights_judgment,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
 actions.cooldowns+=/bag_of_tricks,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
-actions.cooldowns+=/use_items,if=buff.arcane_power.up
+actions.cooldowns+=/call_action_list,name=items,if=buff.arcane_power.up
+actions.cooldowns+=/potion,if=buff.arcane_power.up
 actions.cooldowns+=/berserking,if=buff.arcane_power.up
 actions.cooldowns+=/blood_fury,if=buff.arcane_power.up
 actions.cooldowns+=/fireblood,if=buff.arcane_power.up
@@ -195,7 +197,9 @@ actions.cooldowns+=/presence_of_mind,if=debuff.touch_of_the_magi.up&!covenant.ky
 actions.cooldowns+=/use_mana_gem,if=cooldown.evocation.remains>0&((talent.enlightened.enabled&mana.pct<=80&mana.pct>=65)|(!talent.enlightened.enabled&mana.pct<=85))
 
 actions.rotation=variable,name=final_burn,op=set,value=1,if=buff.arcane_charge.stack=buff.arcane_charge.max_stack&!buff.rule_of_threes.up&target.time_to_die<=((mana%action.arcane_blast.cost)*action.arcane_blast.execute_time)
-actions.rotation+=/arcane_barrage,if=debuff.radiant_spark_vulnerability.stack=debuff.radiant_spark_vulnerability.max_stack&(buff.rune_of_power.down|buff.rune_of_power.remains<=gcd)
+#TODO: Optimize rs bug 
+actions.rotation+=/strict_sequence,if=debuff.radiant_spark_vulnerability.stack=debuff.radiant_spark_vulnerability.max_stack&buff.arcane_power.down&buff.rune_of_power.down,name=last_spark_stack:arcane_blast:arcane_barrage
+actions.rotation+=/arcane_barrage,if=debuff.radiant_spark_vulnerability.stack=debuff.radiant_spark_vulnerability.max_stack&(buff.arcane_power.down|buff.arcane_power.remains<=gcd)&(buff.rune_of_power.down|buff.rune_of_power.remains<=gcd)
 actions.rotation+=/arcane_blast,if=dot.radiant_spark.remains>5|debuff.radiant_spark_vulnerability.stack>0
 actions.rotation+=/arcane_blast,if=buff.presence_of_mind.up&debuff.touch_of_the_magi.up&debuff.touch_of_the_magi.remains<=action.arcane_blast.execute_time
 actions.rotation+=/arcane_missiles,if=debuff.touch_of_the_magi.up&talent.arcane_echo.enabled&buff.deathborne.down&(debuff.touch_of_the_magi.remains>action.arcane_missiles.execute_time|cooldown.presence_of_mind.remains>0|covenant.kyrian.enabled),chain=1
@@ -226,12 +230,13 @@ actions.final_burn+=/arcane_barrage
 actions.aoe=use_mana_gem,if=(talent.enlightened.enabled&mana.pct<=80&mana.pct>=65)|(!talent.enlightened.enabled&mana.pct<=85)
 actions.aoe+=/lights_judgment,if=buff.arcane_power.down
 actions.aoe+=/bag_of_tricks,if=buff.arcane_power.down
-actions.aoe+=/use_items,if=buff.arcane_power.up
+actions.aoe+=/call_action_list,name=items,if=buff.arcane_power.up
+actions.aoe+=/potion,if=buff.arcane_power.up
 actions.aoe+=/berserking,if=buff.arcane_power.up
 actions.aoe+=/blood_fury,if=buff.arcane_power.up
 actions.aoe+=/fireblood,if=buff.arcane_power.up
 actions.aoe+=/ancestral_call,if=buff.arcane_power.up
-actions.aoe+=/time_warp,if=runeforge.temporal_warp.equipped
+actions.aoe+=/time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up
 actions.aoe+=/frostbolt,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_frost.down&(buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down)&cooldown.touch_of_the_magi.remains=0&(buff.arcane_charge.stack<=variable.aoe_totm_charges&((talent.rune_of_power.enabled&cooldown.rune_of_power.remains<=gcd&cooldown.arcane_power.remains>variable.totm_max_delay)|(!talent.rune_of_power.enabled&cooldown.arcane_power.remains>variable.totm_max_delay)|cooldown.arcane_power.remains<=gcd))
 actions.aoe+=/fire_blast,if=(runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down&prev_gcd.1.frostbolt)|(runeforge.disciplinary_command.equipped&time=0)
 actions.aoe+=/frost_nova,if=runeforge.grisly_icicle.equipped&cooldown.arcane_power.remains>30&cooldown.touch_of_the_magi.remains=0&(buff.arcane_charge.stack<=variable.aoe_totm_charges&((talent.rune_of_power.enabled&cooldown.rune_of_power.remains<=gcd&cooldown.arcane_power.remains>variable.totm_max_delay)|(!talent.rune_of_power.enabled&cooldown.arcane_power.remains>variable.totm_max_delay)|cooldown.arcane_power.remains<=gcd))
@@ -255,89 +260,209 @@ actions.aoe+=/supernova
 actions.aoe+=/arcane_orb,if=buff.arcane_charge.stack=0
 actions.aoe+=/nether_tempest,if=(refreshable|!ticking)&buff.arcane_charge.stack=buff.arcane_charge.max_stack
 actions.aoe+=/shifting_power,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down&cooldown.arcane_power.remains>0&cooldown.touch_of_the_magi.remains>0&(!talent.rune_of_power.enabled|(talent.rune_of_power.enabled&cooldown.rune_of_power.remains>0))
-actions.aoe+=/arcane_missiles,if=buff.clearcasting.react&runeforge.arcane_infinity.equipped&talent.amplification.enabled&active_enemies<4
+actions.aoe+=/arcane_missiles,if=buff.clearcasting.react&runeforge.arcane_infinity.equipped&talent.amplification.enabled&active_enemies<9
+actions.aoe+=/arcane_missiles,if=buff.clearcasting.react&runeforge.arcane_infinity.equipped&active_enemies<6
 actions.aoe+=/arcane_explosion,if=buff.arcane_charge.stack<buff.arcane_charge.max_stack
+actions.aoe+=/arcane_explosion,if=buff.arcane_charge.stack=buff.arcane_charge.max_stack&prev_gcd.1.arcane_barrage
 actions.aoe+=/arcane_barrage,if=buff.arcane_charge.stack=buff.arcane_charge.max_stack
 actions.aoe+=/evocation,interrupt_if=mana.pct>=85,interrupt_immediate=1
 
-actions.movement=shimmer,if=movement.distance>=10
+actions.movement=blink_any,if=movement.distance>=10
 actions.movement+=/presence_of_mind
 actions.movement+=/arcane_missiles,if=movement.distance<10
 actions.movement+=/arcane_orb
+actions.movement+=/fire_blast
+
+actions.items=use_items
 
 covenant=night_fae
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/DotG:7/GSurge:7"+=soulbind=319191/319210/319214/319217/38:7/29:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AProdigy:7/GSurge:7"+=soulbind=319191/319210/319214/319217/34:7/29:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AotArchmage:7/GSurge:7"+=soulbind=319191/319210/319214/319217/55:7/29:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/MBrand:7/GSurge:7"+=soulbind=319191/319210/319214/319217/51:7/29:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/NPrecision:7/GSurge:7"+=soulbind=319191/319210/319214/319217/36:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AProdigy:7/GSurge:7"+=soulbind=319191/319211/319214/319217/38:7/34:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AotArchmage:7/GSurge:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/MBrand:7/GSurge:7"+=soulbind=319191/319211/319214/319217/38:7/51:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/NPrecision:7/GSurge:7"+=soulbind=319191/319211/319214/319217/38:7/36:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AProdigy:7/AotArchmage:7/GSurge:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AProdigy:7/MBrand:7/GSurge:7"+=soulbind=319191/319211/319214/319217/34:7/51:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AProdigy:7/NPrecision:7/GSurge:7"+=soulbind=319191/319211/319214/319217/34:7/36:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AotArchmage:7/MBrand:7/GSurge:7"+=soulbind=319191/319211/319214/319217/55:7/51:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AotArchmage:7/NPrecision:7/GSurge:7"+=soulbind=319191/319211/319214/319217/55:7/36:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/MBrand:7/NPrecision:7/GSurge:7"+=soulbind=319191/319211/319214/319217/51:7/36:7/29:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/DotG:7/AProdigy:7"+=soulbind=319191/319210/319214/319217/38:7/34:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/DotG:7/AotArchmage:7"+=soulbind=319191/319210/319214/319217/38:7/55:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/DotG:7/MBrand:7"+=soulbind=319191/319210/319214/319217/38:7/51:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/DotG:7/NPrecision:7"+=soulbind=319191/319210/319214/319217/38:7/36:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AProdigy:7/AotArchmage:7"+=soulbind=319191/319210/319214/319217/34:7/55:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AProdigy:7/MBrand:7"+=soulbind=319191/319210/319214/319217/34:7/51:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AProdigy:7/NPrecision:7"+=soulbind=319191/319210/319214/319217/34:7/36:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AotArchmage:7/MBrand:7"+=soulbind=319191/319210/319214/319217/55:7/51:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/AotArchmage:7/NPrecision:7"+=soulbind=319191/319210/319214/319217/55:7/36:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/MBrand:7/NPrecision:7"+=soulbind=319191/319210/319214/319217/51:7/36:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AProdigy:7/AotArchmage:7"+=soulbind=319191/319211/319214/319217/38:7/34:7/55:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AProdigy:7/MBrand:7"+=soulbind=319191/319211/319214/319217/38:7/34:7/51:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AProdigy:7/NPrecision:7"+=soulbind=319191/319211/319214/319217/38:7/34:7/36:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AotArchmage:7/MBrand:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/51:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/AotArchmage:7/NPrecision:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/36:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/MBrand:7/NPrecision:7"+=soulbind=319191/319211/319214/319217/38:7/51:7/36:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AProdigy:7/AotArchmage:7/MBrand:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/51:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AProdigy:7/AotArchmage:7/NPrecision:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/36:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AProdigy:7/MBrand:7/NPrecision:7"+=soulbind=319191/319211/319214/319217/34:7/51:7/36:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/AotArchmage:7/MBrand:7/NPrecision:7"+=soulbind=319191/319211/319214/319217/55:7/51:7/36:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/AProdigy:7/AotArchmage:7"+=soulbind=325067/325068/325073/325066/38:7/34:7/55:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/AProdigy:7/MBrand:7"+=soulbind=325067/325068/325073/325066/38:7/34:7/51:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/AProdigy:7/NPrecision:7"+=soulbind=325067/325068/325073/325066/38:7/34:7/36:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/AotArchmage:7/MBrand:7"+=soulbind=325067/325068/325073/325066/38:7/55:7/51:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/AotArchmage:7/NPrecision:7"+=soulbind=325067/325068/325073/325066/38:7/55:7/36:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/MBrand:7/NPrecision:7"+=soulbind=325067/325068/325073/325066/38:7/51:7/36:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/AProdigy:7/AotArchmage:7/MBrand:7"+=soulbind=325067/325068/325073/325066/34:7/55:7/51:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/AProdigy:7/AotArchmage:7/NPrecision:7"+=soulbind=325067/325068/325073/325066/34:7/55:7/36:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/AProdigy:7/MBrand:7/NPrecision:7"+=soulbind=325067/325068/325073/325066/34:7/51:7/36:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/AotArchmage:7/MBrand:7/NPrecision:7"+=soulbind=325067/325068/325073/325066/55:7/51:7/36:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/DotG:7/AProdigy:7"+=soulbind=325067/325069/325073/325066/38:7/34:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/DotG:7/AotArchmage:7"+=soulbind=325067/325069/325073/325066/38:7/55:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/DotG:7/MBrand:7"+=soulbind=325067/325069/325073/325066/38:7/51:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/DotG:7/NPrecision:7"+=soulbind=325067/325069/325073/325066/38:7/36:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/AProdigy:7/AotArchmage:7"+=soulbind=325067/325069/325073/325066/34:7/55:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/AProdigy:7/MBrand:7"+=soulbind=325067/325069/325073/325066/34:7/51:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/AProdigy:7/NPrecision:7"+=soulbind=325067/325069/325073/325066/34:7/36:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/AotArchmage:7/MBrand:7"+=soulbind=325067/325069/325073/325066/55:7/51:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/AotArchmage:7/NPrecision:7"+=soulbind=325067/325069/325073/325066/55:7/36:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/MBrand:7/NPrecision:7"+=soulbind=325067/325069/325073/325066/51:7/36:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/DotG:7/AProdigy:7/GSurge:7"+=soulbind=342270/320659/320687/322721/38:7/34:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/DotG:7/AotArchmage:7/GSurge:7"+=soulbind=342270/320659/320687/322721/38:7/55:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/DotG:7/MBrand:7/GSurge:7"+=soulbind=342270/320659/320687/322721/38:7/51:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/DotG:7/NPrecision:7/GSurge:7"+=soulbind=342270/320659/320687/322721/38:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/AProdigy:7/AotArchmage:7/GSurge:7"+=soulbind=342270/320659/320687/322721/34:7/55:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/AProdigy:7/MBrand:7/GSurge:7"+=soulbind=342270/320659/320687/322721/34:7/51:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/AProdigy:7/NPrecision:7/GSurge:7"+=soulbind=342270/320659/320687/322721/34:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/AotArchmage:7/MBrand:7/GSurge:7"+=soulbind=342270/320659/320687/322721/55:7/51:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/AotArchmage:7/NPrecision:7/GSurge:7"+=soulbind=342270/320659/320687/322721/55:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/MBrand:7/NPrecision:7/GSurge:7"+=soulbind=342270/320659/320687/322721/51:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/AProdigy:7/AotArchmage:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/34:7/55:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/AProdigy:7/MBrand:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/34:7/51:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/AProdigy:7/NPrecision:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/34:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/AotArchmage:7/MBrand:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/55:7/51:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/AotArchmage:7/NPrecision:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/55:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/MBrand:7/NPrecision:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/51:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/AProdigy:7/AotArchmage:7/MBrand:7/GSurge:7"+=soulbind=342270/320660/320687/322721/34:7/55:7/51:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/AProdigy:7/AotArchmage:7/NPrecision:7/GSurge:7"+=soulbind=342270/320660/320687/322721/34:7/55:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/AProdigy:7/MBrand:7/NPrecision:7/GSurge:7"+=soulbind=342270/320660/320687/322721/34:7/51:7/36:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/AotArchmage:7/MBrand:7/NPrecision:7/GSurge:7"+=soulbind=342270/320660/320687/322721/55:7/51:7/36:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/AP:7/GS:7"+=soulbind=342270/320662/320687/322721/34:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/NP:7/GS:7"+=soulbind=342270/320662/320687/322721/36:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/DG:7/GS:7"+=soulbind=342270/320662/320687/322721/38:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/MB:7/GS:7"+=soulbind=342270/320662/320687/322721/51:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/AA:7/GS:7"+=soulbind=342270/320662/320687/322721/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/NP:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/36:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/DG:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/38:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/MB:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/51:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/NP:7/DG:7/GS:7"+=soulbind=342270/320660/320687/322721/36:7/38:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/NP:7/MB:7/GS:7"+=soulbind=342270/320660/320687/322721/36:7/51:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/NP:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/36:7/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/DG:7/MB:7/GS:7"+=soulbind=342270/320660/320687/322721/38:7/51:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/DG:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/38:7/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/MB:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/51:7/55:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/AP:7/GS:7"+=soulbind=342270/320659/320687/322721/34:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/NP:7/GS:7"+=soulbind=342270/320659/320687/322721/36:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/DG:7/GS:7"+=soulbind=342270/320659/320687/322721/38:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/MB:7/GS:7"+=soulbind=342270/320659/320687/322721/51:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/AA:7/GS:7"+=soulbind=342270/320659/320687/322721/55:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/AP:7/GS:7"+=soulbind=342270/320662/320687/322721/34:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/NP:7/GS:7"+=soulbind=342270/320662/320687/322721/36:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/DG:7/GS:7"+=soulbind=342270/320662/320687/322721/38:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/MB:7/GS:7"+=soulbind=342270/320662/320687/322721/51:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/AA:7/GS:7"+=soulbind=342270/320662/320687/322721/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/NP:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/36:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/DG:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/38:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/MB:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/51:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/AP:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/34:7/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/NP:7/DG:7/GS:7"+=soulbind=342270/320660/320687/322721/36:7/38:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/NP:7/MB:7/GS:7"+=soulbind=342270/320660/320687/322721/36:7/51:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/NP:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/36:7/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/DG:7/MB:7/GS:7"+=soulbind=342270/320660/320687/322721/38:7/51:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/DG:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/38:7/55:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/MB:7/AA:7/GS:7"+=soulbind=342270/320660/320687/322721/51:7/55:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/AP:7/GS:7"+=soulbind=342270/320659/320687/322721/34:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/NP:7/GS:7"+=soulbind=342270/320659/320687/322721/36:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/DG:7/GS:7"+=soulbind=342270/320659/320687/322721/38:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/MB:7/GS:7"+=soulbind=342270/320659/320687/322721/51:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/AA:7/GS:7"+=soulbind=342270/320659/320687/322721/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7"+=soulbind=319191/319211/319214/319217/34:7/36:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7"+=soulbind=319191/319211/319214/319217/34:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7"+=soulbind=319191/319211/319214/319217/34:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7"+=soulbind=319191/319211/319214/319217/34:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7"+=soulbind=319191/319211/319214/319217/36:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7"+=soulbind=319191/319211/319214/319217/36:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7"+=soulbind=319191/319211/319214/319217/36:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7"+=soulbind=319191/319211/319214/319217/38:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7"+=soulbind=319191/319211/319214/319217/38:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7"+=soulbind=319191/319211/319214/319217/51:7/55:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7"+=soulbind=319191/319210/319214/319217/34:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7"+=soulbind=319191/319210/319214/319217/36:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7"+=soulbind=319191/319210/319214/319217/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7"+=soulbind=319191/319210/319214/319217/51:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7"+=soulbind=319191/319210/319214/319217/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/36:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/51:7/55:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7/GS:7"+=soulbind=319191/319210/319214/319217/34:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7/GS:7"+=soulbind=319191/319210/319214/319217/36:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7/GS:7"+=soulbind=319191/319210/319214/319217/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7/GS:7"+=soulbind=319191/319210/319214/319217/51:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7/GS:7"+=soulbind=319191/319210/319214/319217/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7"+=soulbind=319191/319211/319214/319217/34:7/36:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7"+=soulbind=319191/319211/319214/319217/34:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7"+=soulbind=319191/319211/319214/319217/34:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7"+=soulbind=319191/319211/319214/319217/34:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7"+=soulbind=319191/319211/319214/319217/36:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7"+=soulbind=319191/319211/319214/319217/36:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7"+=soulbind=319191/319211/319214/319217/36:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7"+=soulbind=319191/319211/319214/319217/38:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7"+=soulbind=319191/319211/319214/319217/38:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7"+=soulbind=319191/319211/319214/319217/51:7/55:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7"+=soulbind=319191/319210/319214/319217/34:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7"+=soulbind=319191/319210/319214/319217/36:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7"+=soulbind=319191/319210/319214/319217/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7"+=soulbind=319191/319210/319214/319217/51:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7"+=soulbind=319191/319210/319214/319217/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/36:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/51:7/55:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7/GS:7"+=soulbind=319191/319210/319214/319217/34:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7/GS:7"+=soulbind=319191/319210/319214/319217/36:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7/GS:7"+=soulbind=319191/319210/319214/319217/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7/GS:7"+=soulbind=319191/319210/319214/319217/51:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7/GS:7"+=soulbind=319191/319210/319214/319217/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7"+=soulbind=319191/319211/319214/319217/34:7/36:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7"+=soulbind=319191/319211/319214/319217/34:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7"+=soulbind=319191/319211/319214/319217/34:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7"+=soulbind=319191/319211/319214/319217/34:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7"+=soulbind=319191/319211/319214/319217/36:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7"+=soulbind=319191/319211/319214/319217/36:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7"+=soulbind=319191/319211/319214/319217/36:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7"+=soulbind=319191/319211/319214/319217/38:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7"+=soulbind=319191/319211/319214/319217/38:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7"+=soulbind=319191/319211/319214/319217/51:7/55:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7"+=soulbind=319191/319210/319214/319217/34:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7"+=soulbind=319191/319210/319214/319217/36:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7"+=soulbind=319191/319210/319214/319217/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7"+=soulbind=319191/319210/319214/319217/51:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7"+=soulbind=319191/319210/319214/319217/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/36:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/51:7/55:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7/GS:7"+=soulbind=319191/319210/319214/319217/34:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7/GS:7"+=soulbind=319191/319210/319214/319217/36:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7/GS:7"+=soulbind=319191/319210/319214/319217/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7/GS:7"+=soulbind=319191/319210/319214/319217/51:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7/GS:7"+=soulbind=319191/319210/319214/319217/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7"+=soulbind=319191/319211/319214/319217/34:7/36:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7"+=soulbind=319191/319211/319214/319217/34:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7"+=soulbind=319191/319211/319214/319217/34:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7"+=soulbind=319191/319211/319214/319217/34:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7"+=soulbind=319191/319211/319214/319217/36:7/38:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7"+=soulbind=319191/319211/319214/319217/36:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7"+=soulbind=319191/319211/319214/319217/36:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7"+=soulbind=319191/319211/319214/319217/38:7/51:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7"+=soulbind=319191/319211/319214/319217/38:7/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7"+=soulbind=319191/319211/319214/319217/51:7/55:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7"+=soulbind=319191/319210/319214/319217/34:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7"+=soulbind=319191/319210/319214/319217/36:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7"+=soulbind=319191/319210/319214/319217/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7"+=soulbind=319191/319210/319214/319217/51:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7"+=soulbind=319191/319210/319214/319217/55:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/NP:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/36:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/AP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/34:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/38:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/NP:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/36:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/MB:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/51:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/DG:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/38:7/55:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/MB:7/AA:7/GS:7"+=soulbind=319191/319211/319214/319217/51:7/55:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AP:7/GS:7"+=soulbind=319191/319210/319214/319217/34:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/NP:7/GS:7"+=soulbind=319191/319210/319214/319217/36:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/DG:7/GS:7"+=soulbind=319191/319210/319214/319217/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/MB:7/GS:7"+=soulbind=319191/319210/319214/319217/51:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/AA:7/GS:7"+=soulbind=319191/319210/319214/319217/55:7/29:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/AP:7"+=soulbind=325067/325069/325073/325066/34:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/NP:7"+=soulbind=325067/325069/325073/325066/36:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/DG:7"+=soulbind=325067/325069/325073/325066/38:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/MB:7"+=soulbind=325067/325069/325073/325066/51:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/AA:7"+=soulbind=325067/325069/325073/325066/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/NP:7"+=soulbind=325067/325068/325073/325066/34:7/36:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/DG:7"+=soulbind=325067/325068/325073/325066/34:7/38:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/MB:7"+=soulbind=325067/325068/325073/325066/34:7/51:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/AA:7"+=soulbind=325067/325068/325073/325066/34:7/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/NP:7/DG:7"+=soulbind=325067/325068/325073/325066/36:7/38:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/NP:7/MB:7"+=soulbind=325067/325068/325073/325066/36:7/51:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/NP:7/AA:7"+=soulbind=325067/325068/325073/325066/36:7/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/DG:7/MB:7"+=soulbind=325067/325068/325073/325066/38:7/51:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/DG:7/AA:7"+=soulbind=325067/325068/325073/325066/38:7/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/MB:7/AA:7"+=soulbind=325067/325068/325073/325066/51:7/55:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/AP:7"+=soulbind=325067/325069/325073/325066/34:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/NP:7"+=soulbind=325067/325069/325073/325066/36:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/DG:7"+=soulbind=325067/325069/325073/325066/38:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/MB:7"+=soulbind=325067/325069/325073/325066/51:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/AA:7"+=soulbind=325067/325069/325073/325066/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/NP:7"+=soulbind=325067/325068/325073/325066/34:7/36:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/DG:7"+=soulbind=325067/325068/325073/325066/34:7/38:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/MB:7"+=soulbind=325067/325068/325073/325066/34:7/51:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/AP:7/AA:7"+=soulbind=325067/325068/325073/325066/34:7/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/NP:7/DG:7"+=soulbind=325067/325068/325073/325066/36:7/38:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/NP:7/MB:7"+=soulbind=325067/325068/325073/325066/36:7/51:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/NP:7/AA:7"+=soulbind=325067/325068/325073/325066/36:7/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/DG:7/MB:7"+=soulbind=325067/325068/325073/325066/38:7/51:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/DG:7/AA:7"+=soulbind=325067/325068/325073/325066/38:7/55:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/MB:7/AA:7"+=soulbind=325067/325068/325073/325066/51:7/55:7

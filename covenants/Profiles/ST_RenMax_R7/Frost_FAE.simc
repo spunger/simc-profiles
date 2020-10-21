@@ -26,7 +26,7 @@ gear_mastery_rating=200
 gear_versatility_rating=200
 
 # SKB
-wrist=cold_front,bonus_id=6828
+# wrist=cold_front,bonus_id=6828
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226
@@ -147,25 +147,53 @@ actions.movement+=/fire_blast
 actions.movement+=/ice_lance
 
 covenant=night_fae
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/DotG:7/IBite:7"+=soulbind=319191/319210/319214/319217/38:7/21:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/IBite:7/GSurge:7"+=soulbind=319191/319210/319214/319217/21:7/29:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/IPropulsion:7/IBite:7"+=soulbind=319191/319210/319214/319217/20:7/21:7
-profileset."Fae_Dream-FoBloss/SBfly/FDust/Ptender/UCold:7/IBite:7"+=soulbind=319191/319210/319214/319217/17:7/21:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/IBite:7/GSurge:7"+=soulbind=319191/319211/319214/319217/38:7/21:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/IPropulsion:7/IBite:7"+=soulbind=319191/319211/319214/319217/38:7/20:7/21:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/DotG:7/UCold:7/IBite:7"+=soulbind=319191/319211/319214/319217/38:7/17:7/21:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=319191/319211/319214/319217/20:7/21:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/UCold:7/IBite:7/GSurge:7"+=soulbind=319191/319211/319214/319217/17:7/21:7/29:7
-profileset."Fae_Dream-FoBloss/SVoice/FDust/Ptender/UCold:7/IPropulsion:7/IBite:7"+=soulbind=319191/319211/319214/319217/17:7/20:7/21:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/DotG:7/IBite:7"+=soulbind=325067/325069/325073/325066/38:7/21:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/IPropulsion:7/IBite:7"+=soulbind=325067/325069/325073/325066/20:7/21:7
-profileset."Fae_Korayn-HotWH/FStrike/GIForm/WHTactics/UCold:7/IBite:7"+=soulbind=325067/325069/325073/325066/17:7/21:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/IPropulsion:7/IBite:7"+=soulbind=325067/325068/325073/325066/38:7/20:7/21:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/DotG:7/UCold:7/IBite:7"+=soulbind=325067/325068/325073/325066/38:7/17:7/21:7
-profileset."Fae_Korayn-HotWH/FYFoes/GIForm/WHTactics/UCold:7/IPropulsion:7/IBite:7"+=soulbind=325067/325068/325073/325066/17:7/20:7/21:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/DotG:7/IBite:7/GSurge:7"+=soulbind=342270/320659/320687/322721/38:7/21:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=342270/320659/320687/322721/20:7/21:7/29:7
-profileset."Fae_Niya-RWTiring/NTBurs/SPatrol/GInvigor/UCold:7/IBite:7/GSurge:7"+=soulbind=342270/320659/320687/322721/17:7/21:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/20:7/21:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/DotG:7/UCold:7/IBite:7/GSurge:7"+=soulbind=342270/320660/320687/322721/38:7/17:7/21:7/29:7
-profileset."Fae_Niya-RWTiring/NTPoison/SPatrol/GInvigor/UCold:7/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=342270/320660/320687/322721/17:7/20:7/21:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/IB:7/GS:7"+=soulbind=342270/320662/320687/322721/21:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/UC:7/IB:7/GS:7"+=soulbind=342270/320660/320687/322721/17:7/21:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/IP:7/IB:7/GS:7"+=soulbind=342270/320660/320687/322721/20:7/21:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/IB:7/DG:7/GS:7"+=soulbind=342270/320660/320687/322721/21:7/38:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/IB:7/GS:7"+=soulbind=342270/320659/320687/322721/21:7/29:7
+profileset."Niya - RWTiring/NTHerbs/SPatrol/GInvigor/IB:7/GS:7"+=soulbind=342270/320662/320687/322721/21:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/UC:7/IB:7/GS:7"+=soulbind=342270/320660/320687/322721/17:7/21:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/IP:7/IB:7/GS:7"+=soulbind=342270/320660/320687/322721/20:7/21:7/29:7
+profileset."Niya - RWTiring/NTPoison/SPatrol/GInvigor/IB:7/DG:7/GS:7"+=soulbind=342270/320660/320687/322721/21:7/38:7/29:7
+profileset."Niya - RWTiring/NTBurs/SPatrol/GInvigor/IB:7/GS:7"+=soulbind=342270/320659/320687/322721/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7"+=soulbind=319191/319211/319214/319217/17:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7"+=soulbind=319191/319211/319214/319217/20:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7"+=soulbind=319191/319211/319214/319217/21:7/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7"+=soulbind=319191/319210/319214/319217/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/17:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/20:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/21:7/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7/GS:7"+=soulbind=319191/319210/319214/319217/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7"+=soulbind=319191/319211/319214/319217/17:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7"+=soulbind=319191/319211/319214/319217/20:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7"+=soulbind=319191/319211/319214/319217/21:7/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7"+=soulbind=319191/319210/319214/319217/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/17:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/20:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/21:7/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7/GS:7"+=soulbind=319191/319210/319214/319217/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7"+=soulbind=319191/319211/319214/319217/17:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7"+=soulbind=319191/319211/319214/319217/20:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7"+=soulbind=319191/319211/319214/319217/21:7/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7"+=soulbind=319191/319210/319214/319217/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/17:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/20:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/21:7/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7/GS:7"+=soulbind=319191/319210/319214/319217/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7"+=soulbind=319191/319211/319214/319217/17:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7"+=soulbind=319191/319211/319214/319217/20:7/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7"+=soulbind=319191/319211/319214/319217/21:7/38:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7"+=soulbind=319191/319210/319214/319217/21:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/UC:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/17:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IP:7/IB:7/GS:7"+=soulbind=319191/319211/319214/319217/20:7/21:7/29:7
+profileset."Dream - FoBloss/SVoice/FDust/Ptender/IB:7/DG:7/GS:7"+=soulbind=319191/319211/319214/319217/21:7/38:7/29:7
+profileset."Dream - FoBloss/SBfly/FDust/Ptender/IB:7/GS:7"+=soulbind=319191/319210/319214/319217/21:7/29:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/IB:7"+=soulbind=325067/325069/325073/325066/21:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/UC:7/IB:7"+=soulbind=325067/325068/325073/325066/17:7/21:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/IP:7/IB:7"+=soulbind=325067/325068/325073/325066/20:7/21:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/IB:7/DG:7"+=soulbind=325067/325068/325073/325066/21:7/38:7
+profileset."Korayn - HotWH/FStrike/GIForm/WHTactics/IB:7"+=soulbind=325067/325069/325073/325066/21:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/UC:7/IB:7"+=soulbind=325067/325068/325073/325066/17:7/21:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/IP:7/IB:7"+=soulbind=325067/325068/325073/325066/20:7/21:7
+profileset."Korayn - HotWH/FYFoes/GIForm/WHTactics/IB:7/DG:7"+=soulbind=325067/325068/325073/325066/21:7/38:7

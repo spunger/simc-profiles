@@ -1,5 +1,5 @@
 ﻿Id,Code,Name,Type,Tier,Renown,SoulbindCode,ParentId,IgnoredDefault
-332755,UBody,Unbreakable Body,sb,1,0,Draven,,0
+332755,UBody,Unbreakable Body,sb,1,0,Draven,,1
 332756,ELeader,Expedition Leader,sb,1,0,Draven,,0
 Draven_end1,Draven_end1,Endurance Conduit,ec,2,0,Draven,,0
 319973,BfWar,Built for War,sb,3,0,Draven,,0
@@ -16,24 +16,24 @@ Draven_fin2,Draven_fin2,Finesse Conduit,fc,7,35,Draven,319978,0
 340159,SIStone,Service In Stone,sb,8,39,Draven,,0
 319191,FoBloss,Field of Blossoms,sb,1,0,Dream,,0
 Dreamweaver_fin1,Dreamweaver_fin1,Finesse Conduit,fc,2,0,Dream,,0
-Dreamweaver_pot1,Dreamweaver_pot1,Potency Conduit,pc,2,0,Dream,,0
-Dreamweaver_end1,Dreamweaver_end1,Endurance Conduit,ec,3,5,Dream,,0
+Dreamweaver_end1,Dreamweaver_end1,Endurance Conduit,ec,2,0,Dream,,0
+Dreamweaver_pot1,Dreamweaver_pot1,Potency Conduit,pc,3,0,Dream,,0
 319210,SBfly,Social Butterfly,sb,4,10,Dream,,0
 319211,SVoice,Soothing Voice,sb,4,10,Dream,,0
-319213,EChrys,Empowered Chrysalis,sb,4,10,Dream,,0
+319213,EChrys,Empowered Chrysalis,sb,4,10,Dream,,1
 Dreamweaver_end2,Dreamweaver_end2,Endurance Conduit,ec,5,13,Dream,319210,0
 Dreamweaver_fin2,Dreamweaver_fin2,Finesse Conduit,fc,5,13,Dream,319213,0
 Dreamweaver_pot2,Dreamweaver_pot2,Potency Conduit,pc,5,13,Dream,319211,0
 Dreamweaver_end3,Dreamweaver_end3,Endurance Conduit,ec,6,28,Dream,,0
 319214,FDust,Faerie Dust,sb,7,32,Dream,,0
-319216,Somnam,Somnambulist,sb,7,32,Dream,,0
+319216,Somnam,Somnambulist,sb,7,32,Dream,,1
 319217,Ptender,Podtender,sb,8,39,Dream,,0
 323921,EMSkin,Emeni's Magnificent Skin,sb,1,0,Emeni,,0
-341650,EAFlesh,Emeni's Ambulatory Flesh,sb,1,0,Emeni,,0
+341650,EAFlesh,Emeni's Ambulatory Flesh,sb,1,0,Emeni,,1
 Emeni_end1,Emeni_end1,Endurance Conduit,ec,2,0,Emeni,341650,0
 Emeni_pot1,Emeni_pot1,Potency Conduit,pc,2,0,Emeni,323921,0
 Emeni_fin1,Emeni_fin1,Finesse Conduit,fc,3,0,Emeni,,0
-323916,SEmission,Sulfuric Emission,sb,4,10,Emeni,,0
+323916,SEmission,Sulfuric Emission,sb,4,10,Emeni,,1
 323918,GrToes,Gristled Toes,sb,4,10,Emeni,,0
 323919,GnChomp,Gnashing Chompers,sb,4,10,Emeni,,0
 Emeni_pot2,Emeni_pot2,Potency Conduit,pc,5,13,Emeni,323918,0
@@ -41,29 +41,29 @@ Emeni_end2,Emeni_end2,Endurance Conduit,ec,5,13,Emeni,323919,0
 Emeni_fin2,Emeni_fin2,Finesse Conduit,fc,5,13,Emeni,323916,0
 Emeni_end3,Emeni_end3,Endurance Conduit,ec,6,28,Emeni,,0
 324440,CLegs,Cartilaginous Legs,sb,7,32,Emeni,,0
-324441,HKidney,Hearth Kidneystone,sb,7,32,Emeni,,0
+324441,HKidney,Hearth Kidneystone,sb,7,32,Emeni,,1
 342156,LbExample,Lead by Example,sb,8,39,Emeni,,0
 331609,FFilter,Forgelite Filter,sb,1,0,Forgelite,,0
-331610,CAdditive,Charged Additive,sb,1,0,Forgelite,,0
-Forgelite_end1,Forgelite_end1,Endurance Conduit,ec,2,0,Forgelite,331609,0
-Forgelite_pot1,Forgelite_pot1,Potency Conduit,pc,2,0,Forgelite,331610,0
+331610,CAdditive,Charged Additive,sb,1,0,Forgelite,,1
+Forgelite_end1,Forgelite_end1,Endurance Conduit,ec,2,0,Forgelite,331610,0
+Forgelite_pot1,Forgelite_pot1,Potency Conduit,pc,2,0,Forgelite,331609,0
 Forgelite_fin1,Forgelite_fin1,Finesse Conduit,fc,3,0,Forgelite,,0
 331611,SClamps,Soulsteel Clamps,sb,4,0,Forgelite,,0
-331612,SDCore,Sparkling Driftglobe Core,sb,4,0,Forgelite,,0
+331612,SDCore,Sparkling Driftglobe Core,sb,4,0,Forgelite,,1
 333935,HoGenesis,Hammer of Genesis,sb,4,0,Forgelite,,0
 Forgelite_end2,Forgelite_end2,Endurance Conduit,ec,5,0,Forgelite,333935,0
 Forgelite_fin2,Forgelite_fin2,Finesse Conduit,fc,5,0,Forgelite,331612,0
-Forgelite_pot2,Forgelite_pot2,Potency Conduit,pc,5,0,Forgelite,333935,0
+Forgelite_pot2,Forgelite_pot2,Potency Conduit,pc,5,0,Forgelite,331611,0
 Forgelite_end3,Forgelite_end3,Endurance Conduit,ec,6,27,Forgelite,,0
 331725,RPlumage,Resilient Plumage,sb,7,35,Forgelite,,0
-331726,RMaterials,Regenerating Materials,sb,7,35,Forgelite,,0
+331726,RMaterials,Regenerating Materials,sb,7,35,Forgelite,,1
 333950,BCtAction,Bron's Call to Action,sb,8,39,Forgelite,,0
 326504,SSpaul,Serrated Spaulders,sb,1,0,Heirmir,,0
 326507,RFlesh,Resourceful Fleshcrafting,sb,1,0,Heirmir,,0
 Heimir_end1,Heimir_end1,Endurance Conduit,ec,2,0,Heirmir,326504,0
 Heimir_pot1,Heimir_pot1,Potency Conduit,pc,2,0,Heirmir,326507,0
 Heimir_fin1,Heimir_fin1,Finesse Conduit,fc,3,0,Heirmir,,0
-326509,HARPen,Heirmir's Arsenal: Ravenous Pendant,sb,4,0,Heirmir,,0
+326509,HARPen,Heirmir's Arsenal: Ravenous Pendant,sb,4,0,Heirmir,,1
 326511,HAGstomp,Heirmir's Arsenal: Gorestompers,sb,4,0,Heirmir,,0
 326572,HAMGemstone,Heirmir's Arsenal: Marrowed Gemstone,sb,4,0,Heirmir,,0
 Heimir_end2,Heimir_end2,Endurance Conduit,ec,5,0,Heirmir,326572,0
@@ -71,51 +71,51 @@ Heimir_fin2,Heimir_fin2,Finesse Conduit,fc,5,0,Heirmir,326509,0
 Heimir_pot2,Heimir_pot2,Potency Conduit,pc,5,0,Heirmir,326511,0
 Heimir_end3,Heimir_end3,Endurance Conduit,ec,6,27,Heirmir,,0
 326512,RSpurs,Runeforged Spurs,sb,7,35,Heirmir,,0
-326513,BSatchel,Bonesmith's Satchel,sb,7,35,Heirmir,,0
+326513,BSatchel,Bonesmith's Satchel,sb,7,35,Heirmir,,1
 326514,FReveries,Forgeborne Reveries,sb,8,39,Heirmir,,0
-329776,AscPhial,Ascendant Phial,sb,1,0,Kleia,,0
+329776,AscPhial,Ascendant Phial,sb,1,0,Kleia,,1
 334066,Mentor,Mentorship,sb,1,0,Kleia,,0
 Kleia_pot1,Kleia_pot1,Potency Conduit,pc,2,0,Kleia,334066,0
 Kleia_end1,Kleia_end1,Endurance Conduit,ec,2,0,Kleia,329776,0
 Kleia_fin1,Kleia_fin1,Finesse Conduit,fc,3,0,Kleia,,0
 329778,PCourage,Pointed Courage,sb,4,10,Kleia,,0
-329779,BPursuit,Bearer's Pursuit,sb,4,10,Kleia,,0
+329779,BPursuit,Bearer's Pursuit,sb,4,10,Kleia,,1
 329781,RAAccolade,Resonant Accolades,sb,4,10,Kleia,,0
 Kleia_end2,Kleia_end2,Endurance Conduit,ec,5,13,Kleia,329779,0
 Kleia_fin2,Kleia_fin2,Finesse Conduit,fc,5,13,Kleia,329778,0
 Kleia_pot2,Kleia_pot2,Potency Conduit,pc,5,13,Kleia,329781,0
 Kleia_end3,Kleia_end3,Endurance Conduit,ec,6,28,Kleia,,0
 328258,EForward,Ever Forward,sb,7,32,Kleia,,0
-329784,CRites,Cleansing Rites,sb,7,32,Kleia,,0
+329784,CRites,Cleansing Rites,sb,7,32,Kleia,,1
 329791,VStrikes,Valiant Strikes,sb,8,39,Kleia,,0
-325065,WHCharge,Wild Hunt's Charge,sb,1,0,Korayn,,0
+325065,WHCharge,Wild Hunt's Charge,sb,1,0,Korayn,,1
 325067,HotWH,Horn of the Wild Hunt,sb,1,0,Korayn,,0
 Koryan_fin1,Koryan_fin1,Finesse Conduit,fc,2,0,Korayn,325065,0
 Koryan_pot1,Koryan_pot1,Potency Conduit,pc,2,0,Korayn,325067,0
 Koryan_end1,Koryan_end1,Endurance Conduit,ec,3,0,Korayn,,0
 325068,FYFoes,Face Your Foes,sb,4,0,Korayn,,0
 325069,FStrike,First Strike,sb,4,0,Korayn,,0
-325601,HtLine,Hold the Line,sb,4,0,Korayn,,0
+325601,HtLine,Hold the Line,sb,4,0,Korayn,,1
 Koryan_end2,Koryan_end2,Endurance Conduit,ec,5,0,Korayn,325069,0
 Koryan_fin2,Koryan_fin2,Finesse Conduit,fc,5,0,Korayn,325601,0
 Koryan_pot2,Koryan_pot2,Potency Conduit,pc,5,0,Korayn,325068,0
 Koryan_end3,Koryan_end3,Endurance Conduit,ec,6,27,Korayn,,0
-325072,VSTechn,Vorkai Sharpening Techniques,sb,7,0,Korayn,,0
-325073,GIForm,Get In Formation,sb,7,0,Korayn,,0
+325072,VSTechn,Vorkai Sharpening Techniques,sb,7,35,Korayn,,1
+325073,GIForm,Get In Formation,sb,7,35,Korayn,,0
 325066,WHTactics,Wild Hunt Tactics,sb,8,39,Korayn,,0
 323074,VSolvvent,Volatile Solvent,sb,1,0,Mari,,0
 Mari_end1,Mari_end1,Endurance Conduit,ec,2,0,Mari,,0
 Mari_fin1,Mari_fin1,Finesse Conduit,fc,2,0,Mari,,0
-Mari_pot1,Mari_pot1,Potency Conduit,pc,3,5,Mari,,0
-323089,TwBloop,Travel with Bloop,sb,4,8,Mari,,0
-323090,PPStrike,Plaguey's Preemptive Strike,sb,4,8,Mari,,0
-323091,OFCoat,Ooz's Frictionless Coating,sb,4,8,Mari,,0
-Mari_fin2,Mari_fin2,Finesse Conduit,fc,5,15,Mari,323090,0
-Mari_pot2,Mari_pot2,Potency Conduit,pc,5,15,Mari,323091,0
-Mari_end2,Mari_end2,Endurance Conduit,ec,5,15,Mari,323089,0
-Mari_end3,Mari_end3,Endurance Conduit,ec,6,25,Mari,,0
-323079,Keyring,Kevin's Keyring,sb,7,31,Mari,,0
-323081,PCSlime,Plagueborn Cleansing Slime,sb,7,31,Mari,,0
+Mari_pot1,Mari_pot1,Potency Conduit,pc,2,0,Mari,,0
+323089,TwBloop,Travel with Bloop,sb,3,5,Mari,Mari_end1,1
+323090,PPStrike,Plaguey's Preemptive Strike,sb,3,5,Mari,Mari_fin1,0
+323091,OFCoat,Ooz's Frictionless Coating,sb,3,5,Mari,Mari_pot1,0
+Mari_pot2,Mari_pot2,Potency Conduit,pc,4,8,Mari,,0
+323079,Keyring,Kevin's Keyring,sb,5,15,Mari,,1
+323081,PCSlime,Plagueborn Cleansing Slime,sb,5,15,Mari,,0
+Mari_end2,Mari_end2,Endurance Conduit,ec,6,25,Mari,,0
+Mari_fin2,Mari_fin2,Finesse Conduit,fc,7,15,Mari,,0
+Mari_end3,Mari_end3,Endurance Conduit,ec,7,31,Mari,,0
 323095,UForm,Ultimate Form,sb,8,39,Mari,,0
 331576,AChaos,Agent of Chaos,sb,1,0,Nadjia,,0
 331577,FFootwork,Fancy Footwork,sb,1,0,Nadjia,,1
@@ -126,12 +126,12 @@ Nadjia_fin1,Nadjia_fin1,Finesse Conduit,fc,3,5,Nadjia,,0
 Nadjia_end2,Nadjia_end2,Endurance Conduit,ec,5,16,Nadjia,,0
 Nadjia_fin2,Nadjia_fin2,Finesse Conduit,fc,5,16,Nadjia,,0
 Nadjia_pot2,Nadjia_pot2,Potency Conduit,pc,5,16,Nadjia,,0
-331580,EPreparation,Exacting Preparation,sb,6,24,Nadjia,Nadjia_end2,1
+331580,EPreparation,Exacting Preparation,sb,6,24,Nadjia,Nadjia_end2,0
 331582,FPredic,Familiar Predicaments,sb,6,24,Nadjia,Nadjia_pot2,0
 331584,DDuelist,Dauntless Duelist,sb,6,24,Nadjia,Nadjia_fin2,0
 Nadjia_end3,Nadjia_end3,Endurance Conduit,ec,7,31,Nadjia,,0
 331586,TSeeker,Thrill Seeker,sb,8,39,Nadjia,,0
-320658,SotMove,Stay on the Move,sb,1,0,Niya,,0
+320658,SotMove,Stay on the Move,sb,1,0,Niya,,1
 342270,RWTiring,Run Without Tiring,sb,1,0,Niya,,0
 Niya_end1,Niya_end1,Endurance Conduit,ec,2,0,Niya,320658,0
 Niya_pot1,Niya_pot1,Potency Conduit,pc,2,0,Niya,342270,0
@@ -143,24 +143,24 @@ Niya_end2,Niya_end2,Endurance Conduit,ec,5,16,Niya,320659,0
 Niya_fin2,Niya_fin2,Finesse Conduit,fc,5,16,Niya,320662,0
 Niya_pot2,Niya_pot2,Potency Conduit,pc,5,16,Niya,320660,0
 Niya_end3,Niya_end3,Endurance Conduit,ec,6,24,Niya,,0
-320668,NSplendor,Nature's Splendor,sb,7,31,Niya,,0
+320668,NSplendor,Nature's Splendor,sb,7,31,Niya,,1
 320687,SPatrol,Swift Patrol,sb,7,31,Niya,,0
 322721,GInvigor,Grove Invigoration,sb,8,39,Niya,,0
 328257,LGtP,Let Go of the Past,sb,1,0,Pelagos,,0
 Pelagos_end1,Pelagos_end1,Endurance Conduit,ec,2,0,Pelagos,,0
 Pelagos_fin1,Pelagos_fin1,Finesse Conduit,fc,2,0,Pelagos,,0
-Pelagos_pot1,Pelagos_pot1,Potency Conduit,pc,3,5,Pelagos,,0
-328261,FMantra,Focusing Mantra,sb,4,8,Pelagos,,0
-329777,PoPatience,Phial of Patience,sb,4,8,Pelagos,,0
-329786,RoTrials,Road of Trials,sb,4,8,Pelagos,,0
-Pelagos_end2,Pelagos_end2,Endurance Conduit,ec,5,15,Pelagos,329786,0
-Pelagos_fin2,Pelagos_fin2,Finesse Conduit,fc,5,15,Pelagos,329777,0
-Pelagos_pot2,Pelagos_pot2,Potency Conduit,pc,5,15,Pelagos,328261,0
-Pelagos_end3,Pelagos_end3,Endurance Conduit,ec,6,25,Pelagos,,0
-328263,CVest,Cleansed Vestments,sb,7,31,Pelagos,,0
-328265,BfFriend,Bond of Friendship,sb,7,31,Pelagos,,0
+Pelagos_pot1,Pelagos_pot1,Potency Conduit,pc,2,5,Pelagos,,0
+328261,FMantra,Focusing Mantra,sb,3,8,Pelagos,Pelagos_pot1,0
+329777,PoPatience,Phial of Patience,sb,3,8,Pelagos,Pelagos_fin1,1
+329786,RoTrials,Road of Trials,sb,3,8,Pelagos,Pelagos_end1,1
+Pelagos_pot2,Pelagos_pot2,Potency Conduit,pc,4,8,Pelagos,,0
+328263,CVest,Cleansed Vestments,sb,5,31,Pelagos,,1
+328265,BfFriend,Bond of Friendship,sb,5,31,Pelagos,,0
+Pelagos_end3,Pelagos_end2,Endurance Conduit,ec,6,25,Pelagos,,0
+Pelagos_end2,Pelagos_end3,Endurance Conduit,ec,7,31,Pelagos,,0
+Pelagos_fin2,Pelagos_fin2,Finesse Conduit,fc,7,31,Pelagos,,0
 328266,CMed,Combat Meditation,sb,8,39,Pelagos,,0
-336140,WtShoes,Watch the Shoes!,sb,1,0,Theotar,,0
+336140,WtShoes,Watch the Shoes!,sb,1,0,Theotar,,1
 336147,LGait,Leisurely Gait,sb,1,0,Theotar,,0
 Theotar_end1,Theotar_end1,Endurance Conduit,ec,2,0,Theotar,336140,0
 Theotar_fin1,Theotar_fin1,Finesse Conduit,fc,2,0,Theotar,336147,0
@@ -172,6 +172,6 @@ Theotar_end2,Theotar_end2,Endurance Conduit,ec,5,13,Theotar,336243,0
 Theotar_fin2,Theotar_fin2,Finesse Conduit,fc,5,13,Theotar,336239,0
 Theotar_pot2,Theotar_pot2,Potency Conduit,pc,5,13,Theotar,336245,0
 Theotar_end3,Theotar_end3,Endurance Conduit,ec,6,28,Theotar,,0
-336184,EIngredients,Exquisite Ingredients,sb,7,32,Theotar,,0
+336184,EIngredients,Exquisite Ingredients,sb,7,32,Theotar,,1
 336247,LotParty,Life of the Party,sb,7,32,Theotar,,0
 319983,WProp,Wasteland Propriety,sb,8,39,Theotar,,0

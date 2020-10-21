@@ -26,7 +26,7 @@ gear_mastery_rating=200
 gear_versatility_rating=200
 
 # SKB
-wrist=cold_front,bonus_id=6828
+# wrist=cold_front,bonus_id=6828
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226
@@ -147,21 +147,43 @@ actions.movement+=/fire_blast
 actions.movement+=/ice_lance
 
 covenant=kyrian
-profileset."Kyrian_Forgelite-FFilter/HoGenesis/RPlumage/BCtAction/IoAsc:7/IBite:7"+=soulbind=331609/333935/331725/333950/40:7/21:7
-profileset."Kyrian_Forgelite-FFilter/HoGenesis/RPlumage/BCtAction/IPropulsion:7/IBite:7"+=soulbind=331609/333935/331725/333950/20:7/21:7
-profileset."Kyrian_Forgelite-FFilter/HoGenesis/RPlumage/BCtAction/UCold:7/IBite:7"+=soulbind=331609/333935/331725/333950/17:7/21:7
-profileset."Kyrian_Forgelite-FFilter/SClamps/RPlumage/BCtAction/IoAsc:7/IPropulsion:7/IBite:7"+=soulbind=331609/331611/331725/333950/40:7/20:7/21:7
-profileset."Kyrian_Forgelite-FFilter/SClamps/RPlumage/BCtAction/IoAsc:7/UCold:7/IBite:7"+=soulbind=331609/331611/331725/333950/40:7/17:7/21:7
-profileset."Kyrian_Forgelite-FFilter/SClamps/RPlumage/BCtAction/UCold:7/IPropulsion:7/IBite:7"+=soulbind=331609/331611/331725/333950/17:7/20:7/21:7
-profileset."Kyrian_Kleia-Mentor/PCourage/CRites/VStrikes/IoAsc:7/IBite:7/GSurge:7"+=soulbind=334066/329778/329784/329791/40:7/21:7/29:7
-profileset."Kyrian_Kleia-Mentor/PCourage/CRites/VStrikes/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=334066/329778/329784/329791/20:7/21:7/29:7
-profileset."Kyrian_Kleia-Mentor/PCourage/CRites/VStrikes/UCold:7/IBite:7/GSurge:7"+=soulbind=334066/329778/329784/329791/17:7/21:7/29:7
-profileset."Kyrian_Kleia-Mentor/RAAccolade/CRites/VStrikes/IoAsc:7/IPropulsion:7/IBite:7"+=soulbind=334066/329781/329784/329791/40:7/20:7/21:7
-profileset."Kyrian_Kleia-Mentor/RAAccolade/CRites/VStrikes/IoAsc:7/UCold:7/IBite:7"+=soulbind=334066/329781/329784/329791/40:7/17:7/21:7
-profileset."Kyrian_Kleia-Mentor/RAAccolade/CRites/VStrikes/UCold:7/IPropulsion:7/IBite:7"+=soulbind=334066/329781/329784/329791/17:7/20:7/21:7
-profileset."Kyrian_Pelagos-LGtP/FMantra/CVest/CMed/IoAsc:7/IBite:7/GSurge:7"+=soulbind=328257/328261/328263/328266/40:7/21:7/29:7
-profileset."Kyrian_Pelagos-LGtP/FMantra/CVest/CMed/IoAsc:7/IPropulsion:7/IBite:7"+=soulbind=328257/328261/328263/328266/40:7/20:7/21:7
-profileset."Kyrian_Pelagos-LGtP/FMantra/CVest/CMed/IoAsc:7/UCold:7/IBite:7"+=soulbind=328257/328261/328263/328266/40:7/17:7/21:7
-profileset."Kyrian_Pelagos-LGtP/FMantra/CVest/CMed/IPropulsion:7/IBite:7/GSurge:7"+=soulbind=328257/328261/328263/328266/20:7/21:7/29:7
-profileset."Kyrian_Pelagos-LGtP/FMantra/CVest/CMed/UCold:7/IBite:7/GSurge:7"+=soulbind=328257/328261/328263/328266/17:7/21:7/29:7
-profileset."Kyrian_Pelagos-LGtP/FMantra/CVest/CMed/UCold:7/IPropulsion:7/IBite:7"+=soulbind=328257/328261/328263/328266/17:7/20:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/17:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/20:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7/GS:7"+=soulbind=328257/328261/328265/328266/21:7/40:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7"+=soulbind=328257/328261/328265/328266/17:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7"+=soulbind=328257/328261/328265/328266/20:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7"+=soulbind=328257/328261/328265/328266/21:7/40:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/17:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/20:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7/GS:7"+=soulbind=328257/328261/328265/328266/21:7/40:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7"+=soulbind=328257/328261/328265/328266/17:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7"+=soulbind=328257/328261/328265/328266/20:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7"+=soulbind=328257/328261/328265/328266/21:7/40:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/17:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/20:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7/GS:7"+=soulbind=328257/328261/328265/328266/21:7/40:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7"+=soulbind=328257/328261/328265/328266/17:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7"+=soulbind=328257/328261/328265/328266/20:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7"+=soulbind=328257/328261/328265/328266/21:7/40:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/17:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7/GS:7"+=soulbind=328257/328261/328265/328266/20:7/21:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7/GS:7"+=soulbind=328257/328261/328265/328266/21:7/40:7/29:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7"+=soulbind=328257/328261/328265/328266/17:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7"+=soulbind=328257/328261/328265/328266/20:7/21:7
+profileset."Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7"+=soulbind=328257/328261/328265/328266/21:7/40:7
+profileset."Kleia - Mentor/RAAccolade/EForward/VStrikes/UC:7/IB:7/GS:7"+=soulbind=334066/329781/328258/329791/17:7/21:7/29:7
+profileset."Kleia - Mentor/RAAccolade/EForward/VStrikes/IP:7/IB:7/GS:7"+=soulbind=334066/329781/328258/329791/20:7/21:7/29:7
+profileset."Kleia - Mentor/RAAccolade/EForward/VStrikes/IB:7/IA:7/GS:7"+=soulbind=334066/329781/328258/329791/21:7/40:7/29:7
+profileset."Kleia - Mentor/PCourage/EForward/VStrikes/IB:7/GS:7"+=soulbind=334066/329778/328258/329791/21:7/29:7
+profileset."Kleia - Mentor/RAAccolade/EForward/VStrikes/UC:7/IB:7/GS:7"+=soulbind=334066/329781/328258/329791/17:7/21:7/29:7
+profileset."Kleia - Mentor/RAAccolade/EForward/VStrikes/IP:7/IB:7/GS:7"+=soulbind=334066/329781/328258/329791/20:7/21:7/29:7
+profileset."Kleia - Mentor/RAAccolade/EForward/VStrikes/IB:7/IA:7/GS:7"+=soulbind=334066/329781/328258/329791/21:7/40:7/29:7
+profileset."Kleia - Mentor/PCourage/EForward/VStrikes/IB:7/GS:7"+=soulbind=334066/329778/328258/329791/21:7/29:7
+profileset."Forgelite - FFilter/HoGenesis/RPlumage/BCtAction/IB:7/GS:7"+=soulbind=331609/333935/331725/333950/21:7/29:7
+profileset."Forgelite - FFilter/SClamps/RPlumage/BCtAction/UC:7/IB:7/GS:7"+=soulbind=331609/331611/331725/333950/17:7/21:7/29:7
+profileset."Forgelite - FFilter/SClamps/RPlumage/BCtAction/IP:7/IB:7/GS:7"+=soulbind=331609/331611/331725/333950/20:7/21:7/29:7
+profileset."Forgelite - FFilter/SClamps/RPlumage/BCtAction/IB:7/IA:7/GS:7"+=soulbind=331609/331611/331725/333950/21:7/40:7/29:7
+profileset."Forgelite - FFilter/HoGenesis/RPlumage/BCtAction/IB:7/GS:7"+=soulbind=331609/333935/331725/333950/21:7/29:7
+profileset."Forgelite - FFilter/SClamps/RPlumage/BCtAction/UC:7/IB:7/GS:7"+=soulbind=331609/331611/331725/333950/17:7/21:7/29:7
+profileset."Forgelite - FFilter/SClamps/RPlumage/BCtAction/IP:7/IB:7/GS:7"+=soulbind=331609/331611/331725/333950/20:7/21:7/29:7
+profileset."Forgelite - FFilter/SClamps/RPlumage/BCtAction/IB:7/IA:7/GS:7"+=soulbind=331609/331611/331725/333950/21:7/40:7/29:7

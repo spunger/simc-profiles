@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnGenerateProfiles = new System.Windows.Forms.Button();
             this.gbOutput = new System.Windows.Forms.GroupBox();
             this.btnSelectPathResult = new System.Windows.Forms.Button();
@@ -48,7 +47,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbOptions = new System.Windows.Forms.GroupBox();
             this.btnSelectPathTemplate = new System.Windows.Forms.Button();
+            this.tbOptionsRenown = new System.Windows.Forms.NumericUpDown();
             this.tbOptionsRankConduits = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbOptionsGlobal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbPathTemplate = new System.Windows.Forms.TextBox();
@@ -59,6 +60,7 @@
             this.gbOutput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.gbOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbOptionsRenown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbOptionsRankConduits)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,35 +71,25 @@
             this.tcMain.Location = new System.Drawing.Point(0, 0);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(1096, 620);
+            this.tcMain.Size = new System.Drawing.Size(1096, 598);
             this.tcMain.TabIndex = 0;
             // 
             // tabGeneral
             // 
-            this.tabGeneral.Controls.Add(this.textBox1);
             this.tabGeneral.Controls.Add(this.btnGenerateProfiles);
             this.tabGeneral.Controls.Add(this.gbOutput);
             this.tabGeneral.Controls.Add(this.gbOptions);
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(1088, 594);
+            this.tabGeneral.Size = new System.Drawing.Size(1088, 572);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(252, 501);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(517, 90);
-            this.textBox1.TabIndex = 2;
-            // 
             // btnGenerateProfiles
             // 
-            this.btnGenerateProfiles.Location = new System.Drawing.Point(6, 563);
+            this.btnGenerateProfiles.Location = new System.Drawing.Point(8, 531);
             this.btnGenerateProfiles.Name = "btnGenerateProfiles";
             this.btnGenerateProfiles.Size = new System.Drawing.Size(112, 23);
             this.btnGenerateProfiles.TabIndex = 1;
@@ -118,7 +110,7 @@
             this.gbOutput.Controls.Add(this.label3);
             this.gbOutput.Controls.Add(this.label2);
             this.gbOutput.Controls.Add(this.label1);
-            this.gbOutput.Location = new System.Drawing.Point(6, 324);
+            this.gbOutput.Location = new System.Drawing.Point(8, 354);
             this.gbOutput.Name = "gbOutput";
             this.gbOutput.Size = new System.Drawing.Size(1063, 171);
             this.gbOutput.TabIndex = 0;
@@ -243,7 +235,9 @@
             // gbOptions
             // 
             this.gbOptions.Controls.Add(this.btnSelectPathTemplate);
+            this.gbOptions.Controls.Add(this.tbOptionsRenown);
             this.gbOptions.Controls.Add(this.tbOptionsRankConduits);
+            this.gbOptions.Controls.Add(this.label7);
             this.gbOptions.Controls.Add(this.tbOptionsGlobal);
             this.gbOptions.Controls.Add(this.label5);
             this.gbOptions.Controls.Add(this.tbPathTemplate);
@@ -251,7 +245,7 @@
             this.gbOptions.Controls.Add(this.label4);
             this.gbOptions.Location = new System.Drawing.Point(8, 6);
             this.gbOptions.Name = "gbOptions";
-            this.gbOptions.Size = new System.Drawing.Size(1061, 312);
+            this.gbOptions.Size = new System.Drawing.Size(1061, 342);
             this.gbOptions.TabIndex = 0;
             this.gbOptions.TabStop = false;
             this.gbOptions.Text = "Options";
@@ -265,6 +259,30 @@
             this.btnSelectPathTemplate.Text = "...";
             this.btnSelectPathTemplate.UseVisualStyleBackColor = true;
             this.btnSelectPathTemplate.Click += new System.EventHandler(this.BtnSelectPathTemplate_Click);
+            // 
+            // tbOptionsRenown
+            // 
+            this.tbOptionsRenown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "Renown", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbOptionsRenown.Location = new System.Drawing.Point(89, 312);
+            this.tbOptionsRenown.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.tbOptionsRenown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbOptionsRenown.Name = "tbOptionsRenown";
+            this.tbOptionsRenown.Size = new System.Drawing.Size(120, 20);
+            this.tbOptionsRenown.TabIndex = 2;
+            this.tbOptionsRenown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbOptionsRenown.Leave += new System.EventHandler(this.TbOptionsRankConduits_Leave);
             // 
             // tbOptionsRankConduits
             // 
@@ -289,6 +307,15 @@
             0,
             0});
             this.tbOptionsRankConduits.Leave += new System.EventHandler(this.TbOptionsRankConduits_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 314);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Renown";
             // 
             // tbOptionsGlobal
             // 
@@ -328,7 +355,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 50);
+            this.label4.Location = new System.Drawing.Point(6, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 0;
@@ -338,18 +365,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 620);
+            this.ClientSize = new System.Drawing.Size(1096, 598);
             this.Controls.Add(this.tcMain);
             this.Name = "CovenantProfileGenerator";
             this.Text = "Covenant Profile Generator";
             this.tcMain.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
-            this.tabGeneral.PerformLayout();
             this.gbOutput.ResumeLayout(false);
             this.gbOutput.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.gbOptions.ResumeLayout(false);
             this.gbOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbOptionsRenown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbOptionsRankConduits)).EndInit();
             this.ResumeLayout(false);
 
@@ -381,7 +408,8 @@
         private System.Windows.Forms.TextBox tbPathTemplate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGenerateProfiles;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown tbOptionsRenown;
+        private System.Windows.Forms.Label label7;
     }
 }
 

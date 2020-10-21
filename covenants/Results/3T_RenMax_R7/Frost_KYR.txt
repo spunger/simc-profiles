@@ -1,0 +1,228 @@
+
+ * Beta! Beta! Beta! Beta! Beta! Beta! 
+ * Not All classes are yet supported. 
+ * Some class models still need tweaking. 
+ * Some class action lists need tweaking. 
+ * Some class BiS gear setups need tweaking. 
+ * Some trinkets not yet implemented. 
+ * Constructive feedback regarding our output will shorten the Beta phase dramatically. 
+ * Beta! Beta! Beta! Beta! Beta! Beta! 
+
+DPS Ranking:
+   7916 100.0%  Raid
+   7916  100.0%  baseline
+
+HPS Ranking:
+      0 100.0%%  Raid
+
+Player: baseline human mage frost 60
+  DPS=7916.306139077922 DPS-Error=15.338446348693566/0.19% DPS-Range=965.3350682971695/12.19%
+  DPR=12.523808537209492 RPS-Out=630.9305265226322 RPS-In=629.1536244086102 Resource=mana Waiting=0.0 ApM=49.020456786664695
+  Talents: 2032021
+  Covenant: kyrian
+  Core Stats:    strength=204|198(198)  agility=312|306(306)  stamina=434|414(414)  intellect=1848|1700(1700)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=13.83%|13.83%(204)  versatility=5.10%|5.10%(204)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=1848|1700(0)  hit=15.00%|15.00%(0)  crit=25.40%|25.40%(714)  haste=23.18%|23.18%(765)  speed=23.18%|23.18%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=25.40%|25.40%(714)  expertise=7.50%|7.50%(0)  haste=23.18%|23.18%(765)  speed=23.18%|23.18%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=2.55%|2.55%(204)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/potion/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Priorities (actions.cds):
+    mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne/rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down
+    icy_veins,if=buff.rune_of_power.down/time_warp,if=runeforge.temporal_warp.equipped&time>10&(prev_off_gcd.icy_veins|target.time_to_die<30)
+    potion,if=prev_off_gcd.icy_veins|target.time_to_die<30/use_items/blood_fury/berserking/lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Actions:
+    blizzard                    Count=  39.0|  7.695sec  DPE=10652| 0.00%  DPET= 7520  DPR=   9  pDPS=   0
+    blizzard_shard              Count= 346.1|  0.859sec  DPE= 1201|17.59%  DPET=    0  DPR=   0  pDPS=1393  MissTick= 0.00%  Tick=   305|   255|   537  CritTick=   619|   510|  1073|30.45%
+    flurry                      Count=  22.5| 13.160sec  DPE= 7983| 0.00%  DPET= 7467  DPR=  16  pDPS=   0
+    flurry_bolt                 Count=  67.3|  4.267sec  DPE= 2095| 5.96%  DPET=    0  DPR=   0  pDPS= 472  Miss= 0.00%  Hit=  1230|  1027|  2013  Crit=  2516|  2054|  4320|67.27%
+    flurry_icicle               Count=  22.3| 13.214sec  DPE= 1730| 1.63%  DPET=    0  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=   478|   385|  1012  Crit=  1167|   770|  2023|56.63%
+    frostbolt                   Count=  75.9|  3.863sec  DPE= 3582| 6.75%  DPET= 2538  DPR=   4  pDPS= 535  Miss= 0.00%  Hit=  1500|  1273|  2496  Crit=  2998|  2547|  4991|38.82%
+    frostbolt_icicle            Count=  75.9|  3.878sec  DPE= 1477| 4.75%  DPET=    0  DPR=   0  pDPS= 376  Miss= 0.00%  Hit=   503|   385|  1012  Crit=  1085|   770|  2023|40.90%
+    frozen_orb                  Count=  13.6| 23.083sec  DPE=33831| 0.00%  DPET=31345  DPR=  68  pDPS=   0
+    frozen_orb_bolt             Count= 267.5|  1.098sec  DPE= 1722|19.49%  DPET=    0  DPR=   0  pDPS=1542  Miss= 0.00%  Hit=   437|   356|   749  Crit=   890|   712|  1498|30.23%
+    ice_lance                   Count=  77.4|  3.831sec  DPE=13096|42.88%  DPET=12206  DPR=  26  pDPS=3394  Miss= 0.00%  Hit=  2352|   866|  7627  Crit=  7850|  1732| 15254|76.54%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=    0  DPR=   0  pDPS=   0
+    potion                      Count=   1.5|  0.000sec  DPE=    0| 0.00%  DPET=    0  DPR=   0  pDPS=   0
+    radiant_spark               Count=   6.3| 48.994sec  DPE= 3555| 0.95%  DPET= 3298  DPR=   4  pDPS=  75  Miss= 0.00%  Hit=  1593|  1317|  1979  Crit=  3181|  2635|  3958|26.13%  TickCount=    50  MissTick= 0.00%  Tick=   157|     1|   215  CritTick=   314|     3|   429|25.22%  UpTime= 20.71%
+    rune_of_power               Count=   6.6| 46.555sec  DPE=    0| 0.00%  DPET=    0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/battlescarred_augmentation/famine_evaluator_and_snack_table/greater_flask_of_endless_fathoms/power_word_fortitude
+  Dynamic Buffs:
+    bloodlust                           : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
+    brain_freeze                        : start= 22.8 refresh=  0.3 interval= 13.0 trigger= 12.9 duration=  3.4 uptime= 26.14%
+    chain_reaction                      : start=  5.0 refresh= 72.3 interval= 61.6 trigger=  3.8 duration= 57.3 uptime= 95.33%
+    fingers_of_frost                    : start= 36.2 refresh= 15.7 interval=  8.3 trigger=  5.7 duration=  2.2 uptime= 26.88%  benefit= 63.30%
+    icicles                             : start= 40.2 refresh= 59.2 interval=  7.5 trigger=  3.0 duration=  4.0 uptime= 53.19%
+    icy_veins                           : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 48.4 uptime= 32.79%
+    rune_of_power                       : start=  8.6 refresh=  0.0 interval= 36.4 trigger= 39.5 duration= 14.7 uptime= 42.24%
+    superior_battle_potion_of_intellect : start=  1.5 refresh=  0.0 interval=306.2 trigger=  0.0 duration= 21.8 uptime= 10.72%
+  Up-Times:
+     23.76% : Mana Cap                      
+  Procs:
+     23.03397 |  12.84318sec : Brain Freeze
+     23.03397 |  12.84318sec : Brain Freeze from Frostbolt
+     22.49047 |  13.09780sec : Brain Freeze used
+     51.90141 |   5.88321sec : Fingers of Frost
+     11.43579 |  24.43245sec : Fingers of Frost from Frostbolt
+     13.56172 |  22.68912sec : Fingers of Frost from Frozen Orb Initial Impact
+     26.90389 |  10.76563sec : Fingers of Frost from Frozen Orb Tick
+     15.87407 |  17.50004sec : Fingers of Frost wasted due to Winter's Chill
+    134.57167 |   4.24653sec : Winter's Chill stacks applied
+     60.53190 |   4.74542sec : Winter's Chill stacks consumed
+     16.27009 |  17.58224sec : Winter's Chill stacks consumed by Frostbolt
+     44.26181 |   6.49895sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    188233.6 : mana_regen (mana)           (overflow=37.02%)
+  Waiting:  0.00%
+
+
+ *** Targets *** 
+
+Target: e1 humanoid enemy unknown 63
+  DTPS=4657.4738265988435 DTPS-Error=10.777168451658607/0.23% DTPS-Range=574.8149883936999/12.34%
+  DPR=0.0 RPS-Out=4326.417495734605 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
+  Talents: 0000000
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|1317184  mana=0|0
+  Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
+  Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
+  Defense Stats: armor=1071|1071(1071) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=3.00%|3.00%(0)  block=3.00%|3.00%(0) crit=0.00%|0.00%  versatility=0.00%|0.00%(0)
+  Priorities (actions.precombat):
+    snapshot_stats
+  Priorities (actions.default):
+
+  Actions:
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
+  Dynamic Buffs:
+    Health Decade (0 - 10)      : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 59.3 uptime= 14.03%
+    Health Decade (10 - 20)     : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.1 uptime=  8.50%
+    Health Decade (20 - 30)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.5 uptime=  9.50%
+    Health Decade (30 - 40)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.3 uptime=  9.58%
+    Health Decade (40 - 50)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.8 uptime= 10.76%
+    Health Decade (50 - 60)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 35.8 uptime= 12.13%
+    Health Decade (60 - 70)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 35.2 uptime= 11.93%
+    Health Decade (70 - 80)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.5 uptime= 10.65%
+    Health Decade (80 - 90)     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 19.5 uptime=  6.62%
+    Health Decade (90 - 100)    : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 19.5 uptime=  6.30%
+    radiant_spark_vulnerability : start=  6.3 refresh= 18.9 interval= 48.4 trigger= 10.7 duration=  3.0 uptime=  6.32%
+    winters_chill               : start= 22.5 refresh= 44.8 interval= 13.1 trigger=  4.2 duration=  3.4 uptime= 25.43%
+  Waiting:  0.00%
+
+Target: e2 humanoid enemy unknown 63
+  DTPS=2327.0747867352343 DTPS-Error=6.57827232192696/0.28% DTPS-Range=372.735016307578/16.02%
+  DPR=0.0 RPS-Out=2152.6075896963466 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
+  Talents: 0000000
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|742545  mana=0|0
+  Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
+  Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
+  Defense Stats: armor=1071|1071(1071) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=3.00%|3.00%(0)  block=3.00%|3.00%(0) crit=0.00%|0.00%  versatility=0.00%|0.00%(0)
+  Priorities (actions.precombat):
+    snapshot_stats
+  Priorities (actions.default):
+
+  Actions:
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
+  Dynamic Buffs:
+    Health Decade (0 - 10)   : start=  0.8 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 60.1 uptime= 14.48%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.1 uptime=  8.55%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.3 uptime=  9.50%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.4 uptime=  9.60%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.8 uptime= 10.76%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 34.9 uptime= 11.81%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 35.0 uptime= 11.86%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.1 uptime= 10.54%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 19.7 uptime=  6.66%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 19.3 uptime=  6.23%
+  Waiting:  0.00%
+
+Target: e3 humanoid enemy unknown 63
+  DTPS=931.7575257438746 DTPS-Error=1.3308096589655338/0.14% DTPS-Range=64.23379804004958/6.89%
+  DPR=0.0 RPS-Out=865.6040568512096 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
+  Talents: 0000000
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|271030  mana=0|0
+  Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
+  Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
+  Defense Stats: armor=1071|1071(1071) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=3.00%|3.00%(0)  block=3.00%|3.00%(0) crit=0.00%|0.00%  versatility=0.00%|0.00%(0)
+  Priorities (actions.precombat):
+    snapshot_stats
+  Priorities (actions.default):
+
+  Actions:
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
+  Dynamic Buffs:
+    Health Decade (0 - 10)   : start=  0.8 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 58.5 uptime= 14.20%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.4 uptime=  8.77%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.6 uptime=  9.64%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.1 uptime=  9.50%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 32.2 uptime= 10.91%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 34.8 uptime= 11.78%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 35.4 uptime= 11.99%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 32.1 uptime= 10.85%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 18.8 uptime=  6.38%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 18.6 uptime=  5.98%
+  Waiting:  0.00%
+
+
+Profilesets (median Damage per Second):
+      9796.814 : Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7
+      9794.294 : Pelagos - LGtP/FMantra/BfFriend/CMed/IP:7/IB:7/GS:7
+      9659.353 : Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7
+      9633.422 : Pelagos - LGtP/FMantra/BfFriend/CMed/UC:7/IB:7/GS:7
+      9393.739 : Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7
+      9389.568 : Pelagos - LGtP/FMantra/BfFriend/CMed/IB:7/IA:7/GS:7
+      9288.837 : Forgelite - FFilter/SClamps/RPlumage/BCtAction/IP:7/IB:7/GS:7
+      9276.569 : Kleia - Mentor/RAAccolade/EForward/VStrikes/IP:7/IB:7/GS:7
+      9164.012 : Forgelite - FFilter/SClamps/RPlumage/BCtAction/UC:7/IB:7/GS:7
+      9134.941 : Kleia - Mentor/RAAccolade/EForward/VStrikes/UC:7/IB:7/GS:7
+      9134.596 : Kleia - Mentor/PCourage/EForward/VStrikes/IB:7/GS:7
+      8889.982 : Kleia - Mentor/RAAccolade/EForward/VStrikes/IB:7/IA:7/GS:7
+      8887.687 : Forgelite - FFilter/SClamps/RPlumage/BCtAction/IB:7/IA:7/GS:7
+      8821.301 : Forgelite - FFilter/HoGenesis/RPlumage/BCtAction/IB:7/GS:7
+
+
+Baseline Performance:
+  RNG Engine    = xoshiro256+
+  Iterations    = 1211 (317, 292, 300, 302)
+  TotalEvents   = 76411126
+  MaxEventQueue = 67
+  TargetHealth  = 1317185
+  SimSeconds    = 361117.810
+  CpuSeconds    = 68.171875
+  WallSeconds   = 17.4063956
+  InitSeconds   = 0.1028466
+  MergeSeconds  = 0.0217319
+  AnalyzeSeconds= 0.0140387
+  SpeedUp       = 5315
+  EndTime       = 2020-10-17 17:19:43+0200 (1602947983)
+
+
+Waiting:
+    All players active 100% of the time.
+

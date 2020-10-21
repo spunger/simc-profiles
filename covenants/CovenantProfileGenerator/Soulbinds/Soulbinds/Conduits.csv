@@ -1,6 +1,6 @@
 ﻿Id,SpellId,Name,Code,Class,Spec,Type,MusthaveDefault,AllowedDefault,IgnoredDefault
 17,336460,Unrelenting Cold,UC,Mage,Frost,pc,0,0,0
-18,336472,Shivering Core,SC,Mage,Frost,pc,0,0,0
+18,336472,Shivering Core,SC,Mage,Frost,pc,0,0,1
 20,336522,Icy Propulsion,IP,Mage,Frost,pc,0,0,0
 21,336569,Ice Bite,IB,Mage,Frost,pc,1,0,0
 29,336777,Grounding Surge,GS,Mage,All,fc,0,1,0

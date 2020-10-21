@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 
 namespace CovenantProfileGenerator.Soulbinds
@@ -22,8 +23,6 @@ namespace CovenantProfileGenerator.Soulbinds
             options.IgnoredPotencyConduits = options.IgnoredPotencyConduits ?? Enumerable.Empty<Conduit>();
             options.IgnoredSoulbindAbilities = options.IgnoredSoulbindAbilities ?? Enumerable.Empty<SoulbindAbility>();
 
-            //var ignoredSoulbindAbilities = options.IgnoredSoulbindAbilities.Where(a => a.SoulbindCode == Code);
-
             var pathsGeneric = GetSoulbindPathsGeneric(options.Renown).Where(a=>!options.IgnoredSoulbindAbilities.Intersect(a).Any());
 
             var conduits = Data.GetPotencyConduitsBySpec(Covenant.Name, options.Class, options.Spec, options.RankConduits)
@@ -38,8 +37,7 @@ namespace CovenantProfileGenerator.Soulbinds
 
             foreach (var pathGeneric in pathsGeneric)
             {
-                var combinations = GetSoulbindConduitCombinations(pathGeneric.Where(a => a.Type != SoulbindAbilityType.Soulbind),
-                                                                  conduits)
+                var combinations = GetSoulbindConduitCombinations(pathGeneric.Where(a => a.Type != SoulbindAbilityType.Soulbind),conduits)
                     .Where(c => !mustHaveConduits.Except(c).Any());
 
                 foreach (var combination in combinations)
@@ -63,7 +61,8 @@ namespace CovenantProfileGenerator.Soulbinds
                         }
 
                     }
-                    paths.Add(path);
+                    if (!paths.Contains(path))
+                        paths.Add(path);
                 }
             }
             return paths.AsReadOnly();
@@ -171,23 +170,21 @@ namespace CovenantProfileGenerator.Soulbinds
             var ids = new List<string>();
 
             var grapRenown = Tree.Where(x => x.End.Renown <= renown);
+            var abilitiesRenown = Abilities.Where(x => x.Renown <= renown);
 
-            foreach (var edge in grapRenown)
-            {
-                ids.Add(edge.BeginId);
-                ids.Add(edge.EndId);
-            }
+            foreach (var ability in abilitiesRenown)
+                ids.Add(ability.Id);
 
-            ids = ids.Distinct().ToList();
+            ids = ids.ToList();
 
             var pathfinder = new Pathfinder(ids.Count);
 
             foreach (var edge in grapRenown)
                 pathfinder.AddEdge(ids.IndexOf(edge.BeginId), ids.IndexOf(edge.EndId));
 
-            foreach (var edgeBegin in grapRenown.Where(e => e.Begin.Tier == 1)) // multiple edges to begin
-                foreach (var edgeEnd in grapRenown.Where(e => e.End.Tier == grapRenown.Max(m => m.End.Tier))) // multiple edges to end
-                    foreach (var path in pathfinder.FindAllPaths(ids.IndexOf(edgeBegin.BeginId), ids.IndexOf(edgeEnd.EndId))) // find paths
+            foreach (var abilityBegin in abilitiesRenown.Where(a=>a.Tier == abilitiesRenown.Min(t=>t.Tier))) // multiple abilities to begin
+                foreach (var abilityEnd in abilitiesRenown.Where(a => a.Tier == abilitiesRenown.Max(t => t.Tier))) // multiple abilities to end
+                    foreach (var path in pathfinder.FindAllPaths(ids.IndexOf(abilityBegin.Id), ids.IndexOf(abilityEnd.Id))) // find paths
                         yield return new SoulbindPath(path.ConvertAll(id => Data.GetSoulbindAbilityById(ids[id])));
         }
         public override string ToString()

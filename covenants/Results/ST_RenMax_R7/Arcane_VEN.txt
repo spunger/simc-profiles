@@ -9,20 +9,20 @@
  * Beta! Beta! Beta! Beta! Beta! Beta! 
 
 DPS Ranking:
-   4423 100.0%  Raid
-   4423  100.0%  baseline
+   4565 100.0%  Raid
+   4565  100.0%  baseline
 
 HPS Ranking:
       0 100.0%%  Raid
 
 Player: baseline human mage arcane 60
-  DPS=4422.585189786325 DPS-Error=8.827055466644959/0.20% DPS-Range=738.8909327893773/16.71%
-  DPR=2.3483573088335374 RPS-Out=1876.6746000777184 RPS-In=1781.140436391782 Resource=mana Waiting=0.0 ApM=39.193759792981474
+  DPS=4565.355502778205 DPS-Error=9.073740705589312/0.20% DPS-Range=670.8189642969655/14.69%
+  DPR=2.2200418169762544 RPS-Out=2048.6629777783255 RPS-In=1966.7105852330953 Resource=mana Waiting=0.0 ApM=39.42865692742378
   Talents: 1032021
   Covenant: venthyr
-  Core Stats:    strength=198|198(198)  agility=306|306(306)  stamina=434|414(414)  intellect=1785|1700(1700)  spirit=0|0(0)  health=8680|8280  mana=58297|58297
+  Core Stats:    strength=204|198(198)  agility=312|306(306)  stamina=434|414(414)  intellect=1848|1700(1700)  spirit=0|0(0)  health=8680|8280  mana=58297|58297
   Generic Stats: mastery=16.59%|16.59%(204)  versatility=5.10%|5.10%(204)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
-  Spell Stats:   power=1785|1700(0)  hit=15.00%|15.00%(0)  crit=25.40%|25.40%(714)  haste=23.18%|23.18%(765)  speed=23.18%|23.18%  manareg=956|956(0)
+  Spell Stats:   power=1848|1700(0)  hit=15.00%|15.00%(0)  crit=25.40%|25.40%(714)  haste=23.18%|23.18%(765)  speed=23.18%|23.18%  manareg=1166|1166(0)
   Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=25.40%|25.40%(714)  expertise=7.50%|7.50%(0)  haste=23.18%|23.18%(765)  speed=23.18%|23.18%
   Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=2.55%|2.55%(204)
   Priorities (actions.precombat):
@@ -39,23 +39,24 @@ Player: baseline human mage arcane 60
     variable,name=barrage_mana_pct,op=set,value=80,if=covenant.night_fae.enabled/variable,name=ap_minimum_mana_pct,op=set,value=30
     variable,name=ap_minimum_mana_pct,op=set,value=50,if=runeforge.disciplinary_command.equipped
     variable,name=ap_minimum_mana_pct,op=set,value=50,if=runeforge.grisly_icicle.equipped/variable,name=aoe_totm_charges,op=set,value=2/flask/food
-    augmentation/arcane_familiar/arcane_intellect/conjure_mana_gem/snapshot_stats/mirror_image/potion/frostbolt,if=variable.prepull_evo=0
+    augmentation/arcane_familiar/arcane_intellect/conjure_mana_gem/snapshot_stats/mirror_image/frostbolt,if=variable.prepull_evo=0
     evocation,if=variable.prepull_evo=1
   Priorities (actions.default):
     counterspell,if=target.debuff.casting.react/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>2
     call_action_list,name=opener,if=variable.have_opened=0/call_action_list,name=cooldowns/call_action_list,name=rotation,if=variable.final_burn=0
-    call_action_list,name=final_burn,if=variable.final_burn=1/call_action_list,name=movement
+    call_action_list,name=final_burn,if=variable.final_burn=1/call_action_list,name=movement/call_action_list,name=items
   Priorities (actions.opener):
     variable,name=have_opened,op=set,value=1,if=prev_gcd.1.evocation
     lights_judgment,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
-    bag_of_tricks,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down/use_items,if=buff.arcane_power.up
-    berserking,if=buff.arcane_power.up/blood_fury,if=buff.arcane_power.up/fireblood,if=buff.arcane_power.up/ancestral_call,if=buff.arcane_power.up
+    bag_of_tricks,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
+    call_action_list,name=items,if=buff.arcane_power.up/potion,if=buff.arcane_power.up/berserking,if=buff.arcane_power.up
+    blood_fury,if=buff.arcane_power.up/fireblood,if=buff.arcane_power.up/ancestral_call,if=buff.arcane_power.up
     fire_blast,if=runeforge.disciplinary_command.equipped&buff.disciplinary_command_frost.up
     frost_nova,if=runeforge.grisly_icicle.equipped&mana.pct>95/mirrors_of_torment/deathborne/radiant_spark,if=mana.pct>40
-    cancel_action,if=action.shifting_power.channeling/shifting_power,if=soulbind.field_of_blossoms.enabled/touch_of_the_magi/arcane_power
-    rune_of_power,if=buff.rune_of_power.down
+    cancel_action,if=action.shifting_power.channeling&gcd.remains=0/shifting_power,if=soulbind.field_of_blossoms.enabled/touch_of_the_magi
+    arcane_power/rune_of_power,if=buff.rune_of_power.down
     use_mana_gem,if=(talent.enlightened.enabled&mana.pct<=80&mana.pct>=65)|(!talent.enlightened.enabled&mana.pct<=85)
-    berserking,if=buff.arcane_power.up/time_warp,if=runeforge.temporal_warp.equipped
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up
     presence_of_mind,if=debuff.touch_of_the_magi.up&debuff.touch_of_the_magi.remains<=buff.presence_of_mind.max_stack*action.arcane_blast.execute_time
     arcane_blast,if=dot.radiant_spark.remains>5|debuff.radiant_spark_vulnerability.stack>0
     arcane_blast,if=buff.presence_of_mind.up&debuff.touch_of_the_magi.up&debuff.touch_of_the_magi.remains<=action.arcane_blast.execute_time
@@ -67,8 +68,9 @@ Player: baseline human mage arcane 60
     arcane_barrage
   Priorities (actions.cooldowns):
     lights_judgment,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
-    bag_of_tricks,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down/use_items,if=buff.arcane_power.up
-    berserking,if=buff.arcane_power.up/blood_fury,if=buff.arcane_power.up/fireblood,if=buff.arcane_power.up/ancestral_call,if=buff.arcane_power.up
+    bag_of_tricks,if=buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down
+    call_action_list,name=items,if=buff.arcane_power.up/potion,if=buff.arcane_power.up/berserking,if=buff.arcane_power.up
+    blood_fury,if=buff.arcane_power.up/fireblood,if=buff.arcane_power.up/ancestral_call,if=buff.arcane_power.up
     frost_nova,if=runeforge.grisly_icicle.equipped&cooldown.arcane_power.remains>30&cooldown.touch_of_the_magi.remains=0&(buff.arcane_charge.stack<=2&((talent.rune_of_power.enabled&cooldown.rune_of_power.remains<=gcd&cooldown.arcane_power.remains>variable.totm_max_delay)|(!talent.rune_of_power.enabled&cooldown.arcane_power.remains>variable.totm_max_delay)|cooldown.arcane_power.remains<=gcd))
     frost_nova,if=runeforge.grisly_icicle.equipped&cooldown.arcane_power.remains=0&(!talent.enlightened.enabled|(talent.enlightened.enabled&mana.pct>=70))&((cooldown.touch_of_the_magi.remains>10&buff.arcane_charge.stack=buff.arcane_charge.max_stack)|(cooldown.touch_of_the_magi.remains=0&buff.arcane_charge.stack=0))&buff.rune_of_power.down&mana.pct>=variable.ap_minimum_mana_pct
     frostbolt,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_frost.down&(buff.arcane_power.down&buff.rune_of_power.down&debuff.touch_of_the_magi.down)&cooldown.touch_of_the_magi.remains=0&(buff.arcane_charge.stack<=2&((talent.rune_of_power.enabled&cooldown.rune_of_power.remains<=gcd&cooldown.arcane_power.remains>variable.totm_max_delay)|(!talent.rune_of_power.enabled&cooldown.arcane_power.remains>variable.totm_max_delay)|cooldown.arcane_power.remains<=gcd))
@@ -91,7 +93,8 @@ Player: baseline human mage arcane 60
     use_mana_gem,if=cooldown.evocation.remains>0&((talent.enlightened.enabled&mana.pct<=80&mana.pct>=65)|(!talent.enlightened.enabled&mana.pct<=85))
   Priorities (actions.rotation):
     variable,name=final_burn,op=set,value=1,if=buff.arcane_charge.stack=buff.arcane_charge.max_stack&!buff.rule_of_threes.up&target.time_to_die<=((mana%action.arcane_blast.cost)*action.arcane_blast.execute_time)
-    arcane_barrage,if=debuff.radiant_spark_vulnerability.stack=debuff.radiant_spark_vulnerability.max_stack&(buff.rune_of_power.down|buff.rune_of_power.remains<=gcd)
+    strict_sequence,if=debuff.radiant_spark_vulnerability.stack=debuff.radiant_spark_vulnerability.max_stack&buff.arcane_power.down&buff.rune_of_power.down,name=last_spark_stack:arcane_blast:arcane_barrage
+    arcane_barrage,if=debuff.radiant_spark_vulnerability.stack=debuff.radiant_spark_vulnerability.max_stack&(buff.arcane_power.down|buff.arcane_power.remains<=gcd)&(buff.rune_of_power.down|buff.rune_of_power.remains<=gcd)
     arcane_blast,if=dot.radiant_spark.remains>5|debuff.radiant_spark_vulnerability.stack>0
     arcane_blast,if=buff.presence_of_mind.up&debuff.touch_of_the_magi.up&debuff.touch_of_the_magi.remains<=action.arcane_blast.execute_time
     arcane_missiles,if=debuff.touch_of_the_magi.up&talent.arcane_echo.enabled&buff.deathborne.down&(debuff.touch_of_the_magi.remains>action.arcane_missiles.execute_time|cooldown.presence_of_mind.remains>0|covenant.kyrian.enabled),chain=1
@@ -114,57 +117,58 @@ Player: baseline human mage arcane 60
   Priorities (actions.final_burn):
     arcane_missiles,if=buff.clearcasting.react,chain=1/arcane_blast/arcane_barrage
   Actions:
-    agonizing_backlash           Count=   5.6| 52.593sec  DPE= 3101| 1.30%  DPET=   0  DPR=  0  pDPS=  57  Miss= 0.00%  Hit=  2468|  1182|  2482  Crit=  4940|  2364|  4964|25.59%
-    arcane_barrage               Count=  28.3| 10.000sec  DPE= 5907|12.59%  DPET=4933  DPR=  0  pDPS= 557  Miss= 0.00%  Hit=  4704|  2413| 18810  Crit=  9475|  4827| 33915|25.34%
-    arcane_blast                 Count= 107.6|  2.702sec  DPE= 4232|34.30%  DPET=3019  DPR=  1  pDPS=1517  Miss= 0.00%  Hit=  3377|   900|  7055  Crit=  6740|  1800| 14110|25.44%
-    arcane_echo                  Count= 132.2|  2.353sec  DPE=  445| 4.43%  DPET=   0  DPR=  0  pDPS= 196  Miss= 0.00%  Hit=   355|   215|   452  Crit=   710|   430|   903|25.38%
-    arcane_missiles              Count=  36.9|  8.047sec  DPE=12878|35.77%  DPET=7035  DPR=  5  pDPS=1581  TickCount=   250  MissTick= 0.00%  Tick=  1512|   999|  2098  CritTick=  3025|  1998|  4195|25.52%  UpTime= 20.76%
-    arcane_orb                   Count=  11.7| 24.451sec  DPE= 3346| 0.00%  DPET=2827  DPR=  7  pDPS=   0
-    arcane_orb_bolt              Count=  11.7| 24.452sec  DPE= 3347| 2.95%  DPET=   0  DPR=  0  pDPS= 130  Miss= 0.00%  Hit=  2669|  2449|  5142  Crit=  5333|  4897| 10284|25.48%
-    arcane_power                 Count=   2.8|130.035sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
-    evocation                    Count=   3.4| 93.292sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0  TickCount=    24  UpTime=  5.07%
-    frostbolt                    Count=   0.0|  0.000sec  DPE=    0| 0.10%  DPET=   0  DPR=  1  pDPS=   4  Miss= 0.00%  Hit=  1007|  1007|  1007  Crit=  2013|  2013|  2013|25.46%
-    mirror_image                 Count=   1.0|  0.000sec  DPE= 4466| 0.00%  DPET=   0  DPR=  0  pDPS=   0
-    mirrors_of_torment           Count=   2.8|129.916sec  DPE=13621| 0.00%  DPET=11152  DPR=  7  pDPS=   0
-    presence_of_mind             Count=   3.5| 93.929sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
-    rune_of_power                Count=   6.0| 50.417sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
-    tormenting_backlash          Count=   2.7|130.051sec  DPE= 7796| 1.59%  DPET=   0  DPR=  0  pDPS=  70  Miss= 0.00%  Hit=  6222|  2974|  6246  Crit= 12435|  8328| 12493|25.34%
-    touch_of_the_magi            Count=   6.2| 51.998sec  DPE=14348| 0.00%  DPET=12204  DPR=  6  pDPS=   0
-    touch_of_the_magi_explosion  Count=   6.2| 51.903sec  DPE=14348| 6.65%  DPET=   0  DPR=  0  pDPS= 294  Miss= 0.00%  Hit= 14384|   425| 34499
-    use_mana_gem                 Count=   2.8|124.312sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
-   mirror_image (DPS=111.641259080373)
-    frostbolt                    Count=  93.0|  1.248sec  DPE=   48| 0.34%  DPET=  38  DPR=  0  pDPS= 112  Miss= 0.00%  Hit=    38|    29|    41  Crit=    77|    59|    82|25.34%
+    agonizing_backlash           Count=   5.6| 52.926sec  DPE= 3291| 1.33%  DPET=   0  DPR=  0  pDPS=  61  Miss= 0.00%  Hit=  2632|  1224|  2757  Crit=  5264|  2447|  5515|25.04%
+    arcane_barrage               Count=  26.2| 10.801sec  DPE= 5124| 9.76%  DPET=4279  DPR=  0  pDPS= 446  Miss= 0.00%  Hit=  4093|  2788|  7915  Crit=  8176|  6011| 15831|25.36%
+    arcane_blast                 Count= 109.5|  2.668sec  DPE= 4621|36.81%  DPET=3353  DPR=  1  pDPS=1680  Miss= 0.00%  Hit=  3698|   932|  7838  Crit=  7361|  1864| 15675|25.22%
+    arcane_echo                  Count= 139.5|  2.257sec  DPE=  465| 4.72%  DPET=   0  DPR=  0  pDPS= 215  Miss= 0.00%  Hit=   371|   223|   502  Crit=   741|   445|  1004|25.34%
+    arcane_missiles              Count=  40.8|  7.281sec  DPE=12127|36.02%  DPET=6611  DPR=  5  pDPS=1644  TickCount=   277  MissTick= 0.00%  Tick=  1429|   940|  2119  CritTick=  2858|  1880|  4237|25.36%  UpTime= 23.03%
+    arcane_orb                   Count=  11.4| 24.966sec  DPE= 3409| 0.00%  DPET=2886  DPR=  7  pDPS=   0
+    arcane_orb_bolt              Count=  11.4| 24.967sec  DPE= 3410| 2.84%  DPET=   0  DPR=  0  pDPS= 130  Miss= 0.00%  Hit=  2724|  2535|  5323  Crit=  5447|  5070|  7616|25.19%
+    arcane_power                 Count=   2.8|130.164sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
+    evocation                    Count=   3.3| 95.236sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0  TickCount=    20  UpTime=  4.13%
+    frostbolt                    Count=   0.0|  0.000sec  DPE=    0| 0.09%  DPET=   0  DPR=  1  pDPS=   4  Miss= 0.00%  Hit=  1042|  1042|  1042  Crit=  2084|  2084|  2084|24.14%
+    mirror_image                 Count=   1.0|  0.000sec  DPE= 4853| 0.00%  DPET=   0  DPR=  0  pDPS=   0
+    mirrors_of_torment           Count=   2.8|130.276sec  DPE=14453| 0.00%  DPET=11832  DPR=  7  pDPS=   0
+    potion                       Count=   1.0|314.228sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
+    presence_of_mind             Count=   3.5| 93.512sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
+    rune_of_power                Count=   6.0| 50.320sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
+    tormenting_backlash          Count=   2.7|130.605sec  DPE= 8305| 1.64%  DPET=   0  DPR=  0  pDPS=  75  Miss= 0.00%  Hit=  6636|  4311|  6939  Crit= 13250|  8622| 13878|25.23%
+    touch_of_the_magi            Count=   6.1| 51.907sec  DPE=14406| 0.00%  DPET=12254  DPR=  6  pDPS=   0
+    touch_of_the_magi_explosion  Count=   6.1| 51.822sec  DPE=14406| 6.44%  DPET=   0  DPR=  0  pDPS= 294  Miss= 0.00%  Hit= 14438|   407| 35215
+    use_mana_gem                 Count=   2.8|127.846sec  DPE=    0| 0.00%  DPET=   0  DPR=  0  pDPS=   0
+   mirror_image (DPS=121.32023657778075)
+    frostbolt                    Count=  93.0|  1.248sec  DPE=   52| 0.35%  DPET=  41  DPR=  0  pDPS= 121  Miss= 0.00%  Hit=    42|    30|    45  Crit=    83|    61|    91|25.33%
 
   Constant Buffs:
-    arcane_intellect/battle_shout/power_word_fortitude
+    arcane_intellect/battle_shout/battlescarred_augmentation/famine_evaluator_and_snack_table/greater_flask_of_endless_fathoms/power_word_fortitude
   Dynamic Buffs:
-    arcane_charge    : start= 29.1 refresh=108.1 interval= 10.3 trigger=  2.2 duration=  7.8 uptime= 75.27%
-    arcane_harmony   : start= 12.7 refresh=237.5 interval= 24.0 trigger=  1.2 duration= 10.1 uptime= 42.95%
-    arcane_power     : start=  2.8 refresh=  0.0 interval=130.1 trigger=130.1 duration= 14.7 uptime= 13.67%
-    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.51%
-    clearcasting     : start= 18.5 refresh=  4.1 interval= 15.9 trigger= 13.0 duration=  5.1 uptime= 31.78%
-    evocation        : start=  3.4 refresh=  0.0 interval= 93.3 trigger= 93.3 duration=  4.5 uptime=  5.08%
-    presence_of_mind : start=  3.5 refresh=  0.0 interval= 93.9 trigger= 93.9 duration=  8.5 uptime=  9.94%  benefit=  9.69%
-    rune_of_power    : start=  8.8 refresh=  0.0 interval= 35.2 trigger= 35.2 duration= 14.7 uptime= 43.12%
+    arcane_charge                       : start= 27.0 refresh=111.5 interval= 11.1 trigger=  2.2 duration=  8.7 uptime= 78.13%
+    arcane_power                        : start=  2.8 refresh=  0.0 interval=130.3 trigger=130.3 duration= 14.7 uptime= 13.69%
+    bloodlust                           : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.46%
+    clearcasting                        : start= 20.3 refresh=  4.6 interval= 14.6 trigger= 11.8 duration=  5.1 uptime= 34.13%
+    evocation                           : start=  3.3 refresh=  0.0 interval= 95.3 trigger= 95.3 duration=  3.8 uptime=  4.14%
+    presence_of_mind                    : start=  3.5 refresh=  0.0 interval= 93.8 trigger= 93.8 duration=  8.9 uptime= 10.42%  benefit=  9.53%
+    rune_of_power                       : start=  8.8 refresh=  0.0 interval= 35.2 trigger= 35.2 duration= 14.7 uptime= 43.16%
+    superior_battle_potion_of_intellect : start=  1.0 refresh=  0.0 interval=320.3 trigger=320.3 duration= 25.0 uptime=  8.44%
   Benefits:
-      0.14% : Arcane Barrage Arcane Charge 1
-      1.34% : Arcane Barrage Arcane Charge 2
-     11.51% : Arcane Barrage Arcane Charge 3
-     87.01% : Arcane Barrage Arcane Charge 4
-     15.60% : Arcane Blast Arcane Charge 0  
-     12.98% : Arcane Blast Arcane Charge 1  
-     17.66% : Arcane Blast Arcane Charge 2  
-     16.04% : Arcane Blast Arcane Charge 3  
-     37.72% : Arcane Blast Arcane Charge 4  
+      0.01% : Arcane Barrage Arcane Charge 1
+      0.17% : Arcane Barrage Arcane Charge 2
+      1.76% : Arcane Barrage Arcane Charge 3
+     98.05% : Arcane Barrage Arcane Charge 4
+     12.35% : Arcane Blast Arcane Charge 0  
+     10.19% : Arcane Blast Arcane Charge 1  
+     17.13% : Arcane Blast Arcane Charge 2  
+     17.66% : Arcane Blast Arcane Charge 3  
+     42.68% : Arcane Blast Arcane Charge 4  
   Up-Times:
-      0.22% : Mana Cap                      
+      0.90% : Mana Cap                      
     100.00% : Conserve Phase                
   Gains:
-    286231.7 : mana_regen         (mana)         
-    149293.6 : Evocation          (mana)         
-     16527.6 : Mana Gem           (mana)         
-     63514.3 : Arcane Barrage     (mana)         
-     19244.9 : Mirrors of Torment (mana)         
+    347425.7 : mana_regen         (mana)         
+    148753.1 : Evocation          (mana)         
+     16252.3 : Mana Gem           (mana)         
+     60585.9 : Arcane Barrage     (mana)         
+     19087.0 : Mirrors of Torment (mana)           (overflow=1.19%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
@@ -172,10 +176,10 @@ Player: baseline human mage arcane 60
  *** Targets *** 
 
 Target: Fluffy_Pillow humanoid enemy unknown 63
-  DTPS=4422.585189786313 DTPS-Error=8.82705546664489/0.20% DTPS-Range=738.8909327893739/16.71%
-  DPR=0.0 RPS-Out=4189.600083899407 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
+  DTPS=4565.355502778205 DTPS-Error=9.07374070558931/0.20% DTPS-Range=670.8189642969667/14.69%
+  DPR=0.0 RPS-Out=4293.41052320005 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
   Talents: 0000000
-  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|1406266  mana=0|0
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|1493449  mana=0|0
   Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
   Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
   Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
@@ -189,153 +193,118 @@ Target: Fluffy_Pillow humanoid enemy unknown 63
   Constant Buffs:
     arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
   Dynamic Buffs:
-    Health Decade (0 - 10)   : start=  0.6 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 49.6 uptime=  9.73%
-    Health Decade (10 - 20)  : start=  0.8 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.6 uptime=  8.05%
-    Health Decade (20 - 30)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 34.7 uptime= 11.01%
-    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 37.6 uptime= 12.65%
-    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 30.4 uptime= 10.27%
-    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 32.0 uptime= 10.79%
-    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 39.0 uptime= 13.16%
-    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.52%
-    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 20.0 uptime=  6.76%
-    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 12.5 uptime=  4.06%
-    mirrors_of_torment       : start=  2.8 refresh=  0.0 interval=129.9 trigger=130.0 duration= 13.2 uptime= 12.42%
-    touch_of_the_magi        : start=  6.2 refresh=  0.0 interval= 51.9 trigger= 52.0 duration=  7.9 uptime= 16.25%
+    Health Decade (0 - 10)   : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 52.3 uptime= 11.03%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.8 uptime=  8.37%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 34.3 uptime= 11.11%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 36.8 uptime= 12.37%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.6 uptime=  9.98%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.8 uptime= 10.70%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 38.9 uptime= 13.10%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 39.5 uptime= 13.29%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 18.2 uptime=  6.12%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 12.3 uptime=  3.93%
+    mirrors_of_torment       : start=  2.8 refresh=  0.0 interval=130.2 trigger=130.4 duration= 13.2 uptime= 12.41%
+    touch_of_the_magi        : start=  6.1 refresh=  0.0 interval= 51.9 trigger= 51.9 duration=  7.9 uptime= 16.21%
   Waiting:  0.00%
 
 
 Profilesets (median Damage per Second):
-      4916.632 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/AProdigy:7/MBrand:7/GSurge:7
-      4877.247 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/AProdigy:7/MBrand:7/GSurge:7
-      4876.133 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/AProdigy:7/NPrecision:7/GSurge:7
-      4871.247 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/AProdigy:7/MBrand:7/GSurge:7
-      4858.155 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/SMalice:7/AProdigy:7/GSurge:7
-      4850.592 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/AProdigy:7/AotArchmage:7/GSurge:7
-      4849.386 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/AProdigy:7/NPrecision:7/GSurge:7
-      4839.065 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/AProdigy:7/MBrand:7/NPrecision:7
-      4827.946 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/MBrand:7/NPrecision:7/GSurge:7
-      4826.197 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/AProdigy:7/AotArchmage:7/GSurge:7
-      4825.735 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/AProdigy:7/NPrecision:7/GSurge:7
-      4824.844 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/MBrand:7/NPrecision:7/GSurge:7
-      4824.047 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/SMalice:7/MBrand:7/GSurge:7
-      4819.903 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/AProdigy:7/AotArchmage:7/MBrand:7
-      4813.961 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/AProdigy:7/MBrand:7
-      4813.126 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/SMalice:7/AProdigy:7/GSurge:7
-      4809.541 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/SMalice:7/AProdigy:7/GSurge:7
-      4807.821 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/AProdigy:7/AotArchmage:7/GSurge:7
-      4803.866 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/MBrand:7/NPrecision:7/GSurge:7
-      4803.164 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/AotArchmage:7/MBrand:7/GSurge:7
-      4800.435 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/AProdigy:7/MBrand:7/NPrecision:7/GSurge:7
-      4795.279 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/SMalice:7/MBrand:7/GSurge:7
-      4794.072 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/AotArchmage:7/MBrand:7/GSurge:7
-      4792.514 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/AProdigy:7/NPrecision:7
-      4785.174 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/SMalice:7/NPrecision:7/GSurge:7
-      4785.123 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/SMalice:7/MBrand:7/GSurge:7
-      4780.388 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/MBrand:7/NPrecision:7
-      4779.334 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/AotArchmage:7/MBrand:7/NPrecision:7
-      4778.750 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/AProdigy:7/AotArchmage:7/NPrecision:7
-      4778.505 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/AProdigy:7/MBrand:7/GSurge:7
-      4777.543 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/AProdigy:7/MBrand:7
-      4777.230 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/AProdigy:7/AotArchmage:7/MBrand:7/GSurge:7
-      4776.943 : Venthyr_Theotar-LGait/SShade/EIngredients/WProp/AProdigy:7/GSurge:7
-      4772.414 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/AotArchmage:7/MBrand:7
-      4766.054 : Venthyr_Theotar-LGait/SShade/EIngredients/WProp/MBrand:7/GSurge:7
-      4764.837 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/AProdigy:7/MBrand:7/GSurge:7
-      4764.179 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/AotArchmage:7/MBrand:7/GSurge:7
-      4761.587 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/SMalice:7/NPrecision:7/GSurge:7
-      4757.573 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/AotArchmage:7/NPrecision:7/GSurge:7
-      4753.328 : Venthyr_Theotar-WtShoes/SShade/EIngredients/WProp/SMalice:7/AotArchmage:7/GSurge:7
-      4752.515 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/AProdigy:7/AotArchmage:7
-      4747.624 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/AotArchmage:7/NPrecision:7/GSurge:7
-      4747.010 : Venthyr_Draven-ELeader/BfWar/MAOne/SIStone/AProdigy:7/GSurge:7
-      4744.508 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/AProdigy:7/AotArchmage:7/NPrecision:7/GSurge:7
-      4743.370 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/AProdigy:7/NPrecision:7/GSurge:7
-      4742.005 : Venthyr_Nadjia-AChaos/FiLPlaces/DDuelist/TSeeker/SMalice:7/AotArchmage:7/GSurge:7
-      4740.786 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/SMalice:7/NPrecision:7/GSurge:7
-      4734.721 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/AProdigy:7/NPrecision:7/GSurge:7
-      4734.640 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/AotArchmage:7/NPrecision:7/GSurge:7
-      4731.726 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/MBrand:7/NPrecision:7/GSurge:7
-      4731.148 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/AProdigy:7/NPrecision:7
-      4730.405 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/SMalice:7/AProdigy:7
-      4729.166 : Venthyr_Theotar-WtShoes/ToApprec/EIngredients/WProp/SMalice:7/AotArchmage:7/NPrecision:7
-      4724.057 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/AProdigy:7/MBrand:7/GSurge:7
-      4722.790 : Venthyr_Theotar-LGait/SShade/EIngredients/WProp/NPrecision:7/GSurge:7
-      4721.669 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/MBrand:7/NPrecision:7
-      4719.255 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/AProdigy:7/MBrand:7/NPrecision:7
-      4719.092 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/AotArchmage:7/MBrand:7
-      4718.029 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/SMalice:7/MBrand:7/GSurge:7
-      4717.883 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/SMalice:7/MBrand:7
-      4717.875 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/SMalice:7/AProdigy:7/GSurge:7
-      4717.606 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/AProdigy:7/AotArchmage:7/GSurge:7
-      4716.792 : Venthyr_Draven-ELeader/BfWar/MAOne/SIStone/MBrand:7/GSurge:7
-      4715.023 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/AotArchmage:7/MBrand:7/GSurge:7
-      4713.672 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/AProdigy:7/AotArchmage:7/GSurge:7
-      4712.242 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/AProdigy:7/AotArchmage:7
-      4708.054 : Venthyr_Draven-ELeader/BfWar/EGloom/SIStone/SMalice:7/AotArchmage:7/GSurge:7
-      4706.180 : Venthyr_Theotar-LGait/SShade/EIngredients/WProp/SMalice:7/GSurge:7
-      4698.386 : Venthyr_Theotar-LGait/SShade/EIngredients/WProp/AotArchmage:7/GSurge:7
-      4694.962 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/AProdigy:7/MBrand:7
-      4694.801 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/AProdigy:7/AotArchmage:7/MBrand:7
-      4691.478 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/AProdigy:7/NPrecision:7/GSurge:7
-      4688.502 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/MBrand:7/NPrecision:7/GSurge:7
-      4687.740 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/AotArchmage:7/MBrand:7/NPrecision:7/GSurge:7
-      4681.154 : Venthyr_Draven-ELeader/BfWar/MAOne/SIStone/NPrecision:7/GSurge:7
-      4678.875 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/SMalice:7/NPrecision:7/GSurge:7
-      4678.271 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/AotArchmage:7/MBrand:7/GSurge:7
-      4677.066 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/SMalice:7/NPrecision:7
-      4674.630 : Venthyr_Draven-ELeader/BfWar/MAOne/SIStone/SMalice:7/GSurge:7
-      4672.043 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/AProdigy:7/AotArchmage:7/NPrecision:7
-      4670.954 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/AProdigy:7/AotArchmage:7/GSurge:7
-      4668.876 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/AotArchmage:7/NPrecision:7/GSurge:7
-      4666.619 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/AotArchmage:7/NPrecision:7
-      4666.017 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/AProdigy:7/NPrecision:7
-      4665.212 : Venthyr_Theotar-LGait/RPalate/EIngredients/WProp/AProdigy:7/GSurge:7
-      4663.394 : Venthyr_Theotar-LGait/RPalate/EIngredients/WProp/MBrand:7/GSurge:7
-      4662.621 : Venthyr_Draven-ELeader/BfWar/MAOne/SIStone/AotArchmage:7/GSurge:7
-      4655.275 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/SMalice:7/AProdigy:7/GSurge:7
-      4652.420 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/AProdigy:7/MBrand:7
-      4650.759 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/AProdigy:7/AotArchmage:7
-      4648.704 : Venthyr_Theotar-LGait/ToApprec/EIngredients/WProp/SMalice:7/AotArchmage:7/GSurge:7
-      4641.515 : Venthyr_Theotar-WtShoes/RPalate/EIngredients/WProp/SMalice:7/AotArchmage:7
-      4635.515 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/MBrand:7/NPrecision:7/GSurge:7
-      4632.077 : Venthyr_Theotar-LGait/RPalate/EIngredients/WProp/NPrecision:7/GSurge:7
-      4630.004 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/MBrand:7/NPrecision:7
-      4626.191 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/AotArchmage:7/MBrand:7/NPrecision:7
-      4623.857 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/SMalice:7/MBrand:7/GSurge:7
-      4622.114 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/AotArchmage:7/MBrand:7/GSurge:7
-      4618.392 : Venthyr_Nadjia-AChaos/FiLPlaces/FPredic/TSeeker/SMalice:7/AotArchmage:7/NPrecision:7/GSurge:7
-      4617.407 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/AotArchmage:7/MBrand:7
-      4617.170 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/AProdigy:7/NPrecision:7
-      4607.840 : Venthyr_Theotar-LGait/RPalate/EIngredients/WProp/SMalice:7/GSurge:7
-      4601.749 : Venthyr_Theotar-LGait/RPalate/EIngredients/WProp/AotArchmage:7/GSurge:7
-      4593.647 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/AProdigy:7/AotArchmage:7
-      4588.767 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/MBrand:7/NPrecision:7
-      4588.587 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/SMalice:7/AProdigy:7
-      4575.622 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/SMalice:7/NPrecision:7/GSurge:7
-      4575.249 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/AotArchmage:7/NPrecision:7/GSurge:7
-      4574.614 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/SMalice:7/MBrand:7
-      4574.537 : Venthyr_Draven-ELeader/HYGround/EGloom/SIStone/SMalice:7/AotArchmage:7/NPrecision:7
-      4569.996 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/AotArchmage:7/MBrand:7
-      4561.042 : Venthyr_Nadjia-AChaos/FiLPlaces/EPreparation/TSeeker/SMalice:7/AotArchmage:7/GSurge:7
-      4531.108 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/SMalice:7/NPrecision:7
-      4528.813 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/AotArchmage:7/NPrecision:7
-      4498.363 : Venthyr_Draven-ELeader/HYGround/MAOne/SIStone/SMalice:7/AotArchmage:7
+      4996.939 : Nadjia - AChaos/FiLPlaces/DDuelist/TSeeker/AP:7/GS:7
+      4954.075 : Theotar - LGait/ToApprec/LotParty/WProp/AP:7/MB:7/GS:7
+      4950.860 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/AP:7/MB:7/GS:7
+      4940.808 : Theotar - LGait/SShade/LotParty/WProp/AP:7/GS:7
+      4937.430 : Theotar - LGait/ToApprec/LotParty/WProp/AP:7/NP:7/GS:7
+      4932.159 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/AP:7/NP:7/GS:7
+      4911.003 : Theotar - LGait/ToApprec/LotParty/WProp/AP:7/SM:7/GS:7
+      4894.383 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/AP:7/AA:7/GS:7
+      4892.987 : Theotar - LGait/ToApprec/LotParty/WProp/AP:7/AA:7/GS:7
+      4888.872 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/AP:7/SM:7/GS:7
+      4886.535 : Draven - ELeader/HYGround/EGloom/SIStone/AP:7/MB:7/GS:7
+      4877.898 : Draven - ELeader/HYGround/MAOne/SIStone/AP:7/MB:7
+      4865.317 : Draven - ELeader/HYGround/EGloom/SIStone/AP:7/NP:7/GS:7
+      4857.607 : Draven - ELeader/HYGround/MAOne/SIStone/AP:7/NP:7
+      4853.397 : Nadjia - AChaos/FiLPlaces/DDuelist/TSeeker/MB:7/GS:7
+      4846.857 : Theotar - LGait/RPalate/LotParty/WProp/AP:7/GS:7
+      4846.080 : Nadjia - AChaos/FiLPlaces/EPreparation/TSeeker/AP:7/GS:7
+      4835.938 : Theotar - LGait/SShade/LotParty/WProp/MB:7/GS:7
+      4834.232 : Nadjia - AChaos/FiLPlaces/DDuelist/TSeeker/NP:7/GS:7
+      4833.002 : Theotar - LGait/ToApprec/LotParty/WProp/NP:7/MB:7/GS:7
+      4829.526 : Draven - ELeader/HYGround/EGloom/SIStone/AP:7/SM:7/GS:7
+      4815.388 : Draven - ELeader/HYGround/EGloom/SIStone/AP:7/AA:7/GS:7
+      4809.563 : Draven - ELeader/HYGround/MAOne/SIStone/AP:7/AA:7
+      4809.172 : Draven - ELeader/HYGround/MAOne/SIStone/AP:7/SM:7
+      4804.202 : Theotar - LGait/ToApprec/LotParty/WProp/SM:7/MB:7/GS:7
+      4799.673 : Nadjia - AChaos/FiLPlaces/DDuelist/TSeeker/SM:7/GS:7
+      4797.974 : Theotar - LGait/ToApprec/LotParty/WProp/MB:7/AA:7/GS:7
+      4795.859 : Theotar - LGait/SShade/LotParty/WProp/NP:7/GS:7
+      4789.313 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/NP:7/MB:7/GS:7
+      4789.106 : Draven - ELeader/STactics/MAOne/SIStone/AP:7
+      4788.533 : Nadjia - AChaos/FiLPlaces/DDuelist/TSeeker/AA:7/GS:7
+      4782.668 : Theotar - LGait/SShade/LotParty/WProp/SM:7/GS:7
+      4778.815 : Theotar - LGait/ToApprec/LotParty/WProp/NP:7/SM:7/GS:7
+      4775.178 : Draven - ELeader/STactics/EGloom/SIStone/AP:7/GS:7
+      4774.749 : Draven - ELeader/BfWar/MAOne/SIStone/AP:7/GS:7
+      4769.225 : Draven - ELeader/BfWar/EGloom/SIStone/AP:7/GS:7
+      4768.883 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/SM:7/MB:7/GS:7
+      4765.200 : Theotar - LGait/RPalate/LotParty/WProp/MB:7/GS:7
+      4764.022 : Theotar - LGait/ToApprec/LotParty/WProp/NP:7/AA:7/GS:7
+      4763.931 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/MB:7/AA:7/GS:7
+      4761.361 : Theotar - LGait/SShade/LotParty/WProp/AA:7/GS:7
+      4748.122 : Draven - ELeader/HYGround/MAOne/SIStone/NP:7/MB:7
+      4747.303 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/NP:7/SM:7/GS:7
+      4745.418 : Theotar - LGait/ToApprec/LotParty/WProp/SM:7/AA:7/GS:7
+      4744.241 : Draven - ELeader/HYGround/EGloom/SIStone/NP:7/MB:7/GS:7
+      4728.526 : Theotar - LGait/RPalate/LotParty/WProp/NP:7/GS:7
+      4722.179 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/NP:7/AA:7/GS:7
+      4721.500 : Nadjia - AChaos/FiLPlaces/EPreparation/TSeeker/MB:7/GS:7
+      4720.879 : Draven - ELeader/HYGround/EGloom/SIStone/SM:7/MB:7/GS:7
+      4713.695 : Draven - ELeader/HYGround/MAOne/SIStone/SM:7/MB:7
+      4704.952 : Draven - ELeader/HYGround/EGloom/SIStone/MB:7/AA:7/GS:7
+      4701.251 : Nadjia - AChaos/FiLPlaces/FPredic/TSeeker/SM:7/AA:7/GS:7
+      4699.916 : Draven - ELeader/HYGround/MAOne/SIStone/MB:7/AA:7
+      4698.611 : Theotar - LGait/RPalate/LotParty/WProp/SM:7/GS:7
+      4697.909 : Draven - ELeader/HYGround/EGloom/SIStone/NP:7/SM:7/GS:7
+      4688.130 : Draven - ELeader/HYGround/MAOne/SIStone/NP:7/SM:7
+      4683.535 : Draven - ELeader/HYGround/EGloom/SIStone/NP:7/AA:7/GS:7
+      4682.331 : Nadjia - AChaos/FiLPlaces/EPreparation/TSeeker/NP:7/GS:7
+      4678.889 : Draven - ELeader/STactics/MAOne/SIStone/MB:7
+      4674.715 : Theotar - LGait/RPalate/LotParty/WProp/AA:7/GS:7
+      4674.505 : Draven - ELeader/STactics/EGloom/SIStone/MB:7/GS:7
+      4673.197 : Draven - ELeader/BfWar/EGloom/SIStone/MB:7/GS:7
+      4668.542 : Draven - ELeader/HYGround/MAOne/SIStone/NP:7/AA:7
+      4667.001 : Draven - ELeader/BfWar/MAOne/SIStone/MB:7/GS:7
+      4660.766 : Nadjia - AChaos/FiLPlaces/EPreparation/TSeeker/AA:7/GS:7
+      4660.152 : Nadjia - AChaos/FiLPlaces/EPreparation/TSeeker/SM:7/GS:7
+      4652.643 : Draven - ELeader/HYGround/MAOne/SIStone/SM:7/AA:7
+      4649.822 : Draven - ELeader/STactics/EGloom/SIStone/NP:7/GS:7
+      4643.352 : Draven - ELeader/STactics/MAOne/SIStone/NP:7
+      4642.626 : Draven - ELeader/HYGround/EGloom/SIStone/SM:7/AA:7/GS:7
+      4634.829 : Draven - ELeader/BfWar/MAOne/SIStone/NP:7/GS:7
+      4634.503 : Draven - ELeader/BfWar/EGloom/SIStone/NP:7/GS:7
+      4624.247 : Draven - ELeader/STactics/EGloom/SIStone/SM:7/GS:7
+      4622.602 : Draven - ELeader/BfWar/MAOne/SIStone/SM:7/GS:7
+      4620.334 : Draven - ELeader/BfWar/EGloom/SIStone/SM:7/GS:7
+      4614.311 : Draven - ELeader/STactics/MAOne/SIStone/SM:7
+      4600.769 : Draven - ELeader/STactics/EGloom/SIStone/AA:7/GS:7
+      4600.376 : Draven - ELeader/BfWar/MAOne/SIStone/AA:7/GS:7
+      4592.369 : Draven - ELeader/BfWar/EGloom/SIStone/AA:7/GS:7
+      4591.546 : Draven - ELeader/STactics/MAOne/SIStone/AA:7
 
 
 Baseline Performance:
   RNG Engine    = xoshiro256+
-  Iterations    = 2510 (625, 650, 614, 621)
-  TotalEvents   = 1645911334
-  MaxEventQueue = 32
-  TargetHealth  = 1406267
-  SimSeconds    = 752496.830
-  CpuSeconds    = 810.34375
-  WallSeconds   = 203.3163439
-  InitSeconds   = 1.6503511
-  MergeSeconds  = 0.1214185
-  AnalyzeSeconds= 0.1416442
-  SpeedUp       = 930
-  EndTime       = 2020-10-04 15:36:33+0200 (1601818593)
+  Iterations    = 1810 (472, 444, 440, 454)
+  TotalEvents   = 825072251
+  MaxEventQueue = 36
+  TargetHealth  = 1493450
+  SimSeconds    = 543746.647
+  CpuSeconds    = 524.984375
+  WallSeconds   = 132.1589457
+  InitSeconds   = 1.3992662
+  MergeSeconds  = 0.0927496
+  AnalyzeSeconds= 0.0720036
+  SpeedUp       = 1038
+  EndTime       = 2020-10-16 19:53:47+0200 (1602870827)
 
 
 Waiting:

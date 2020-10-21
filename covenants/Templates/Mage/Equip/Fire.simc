@@ -9,8 +9,9 @@ gear_haste_rating=750
 gear_crit_rating=700
 gear_mastery_rating=200
 gear_versatility_rating=200
-# SKB
-wrist=skb,bonus_id=6934
+
+wrist=firestorm,bonus_id=6932
+
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226

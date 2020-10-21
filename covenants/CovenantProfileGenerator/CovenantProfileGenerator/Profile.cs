@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using CovenantProfileGenerator.Soulbinds;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace CovenantProfileGenerator
@@ -11,7 +13,6 @@ namespace CovenantProfileGenerator
         private const string PATH_APL = "APL";
         private const string PATH_EQUIP = "Equip";
         private const string PATH_GENERAL = "General";
-        private const string PATH_SOULBINDS = "Soulbinds";
 
         private const string CODE_COVENANT_KYR = "KYR";
         private const string CODE_COVENANT_NEC = "NEC";
@@ -19,34 +20,96 @@ namespace CovenantProfileGenerator
         private const string CODE_COVENANT_VEN = "VEN";
 
         private readonly string pathTemplate;
-        private int rankConduits = 1;
+        private int rankConduits = 7;
+        private int renown = 39;
 
         public string Name { get; set; }
         public string GlobalOptions { get; set; }
-        
+
         public int RankConduits
         {
-            get => rankConduits; 
+            get => rankConduits;
             set
             {
                 int oldValue = rankConduits;
-                
-                if (oldValue != value)
-                    UpdateRankInSpecProfiles(value, oldValue);
-                
+
                 rankConduits = value;
+
+                if (oldValue != renown)
+                    UpdateSoulbinds();
             }
         }
-
-        private void UpdateRankInSpecProfiles(int newRank, int oldRank)
+        public int Renown
         {
+            get => renown;
+            set
+            {
+                int oldValue = renown;
+
+                renown = value;
+
+                if (oldValue != renown)
+                    UpdateSoulbinds();
+            }
+        }
+        private void UpdateSoulbinds()
+        {
+            var soulbinds = Data.GetSoulbinds();
+
+            var options = new SoulbindPathOptions()
+            {
+                Class = "Mage", // forgot to define class
+                Renown = Renown,
+                RankConduits = RankConduits,
+                IgnoredSoulbindAbilities = Data.GetSoulbindAbilities().Where(a => a.IgnoredDefault),
+                AllowedFinesseConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.FinesseConduit),
+                AllowedEnduranceConduits = Data.GetConduits().Where(x => x.AllowedDefault && x.Type == SoulbindAbilityType.EnduranceConduit),
+                IgnoredPotencyConduits = Data.GetConduits().Where(x => x.IgnoredDefault && x.Type == SoulbindAbilityType.PotencyConduit),
+                MustHavePotencyConduits = Data.GetConduits().Where(x => x.MusthaveDefault && x.Type == SoulbindAbilityType.PotencyConduit)
+            };
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var soulbind in soulbinds)
+                foreach (var path in soulbind.GetSoulbindPaths(options))
+                    sb.AppendLine(path.SimcProfilesetString);
+            
             foreach (var specProfile in SpecProfiles)
             {
-                specProfile.SoulbindsKyr = specProfile.SoulbindsKyr.Replace($":{oldRank}", $":{newRank}");
-                specProfile.SoulbindsNec = specProfile.SoulbindsNec.Replace($":{oldRank}", $":{newRank}");
-                specProfile.SoulbindsNightfae = specProfile.SoulbindsNightfae.Replace($":{oldRank}", $":{newRank}");
-                specProfile.SoulbindsVenthyr = specProfile.SoulbindsVenthyr.Replace($":{oldRank}", $":{newRank}");
+                options.Spec = specProfile.Name;
+
+                specProfile.SoulbindsKyr = BuildProfileSetsForCovenants(soulbinds, options, CODE_COVENANT_KYR);
+                specProfile.SoulbindsNec = BuildProfileSetsForCovenants(soulbinds, options, CODE_COVENANT_NEC);
+                specProfile.SoulbindsNightfae = BuildProfileSetsForCovenants(soulbinds, options, CODE_COVENANT_FAE);
+                specProfile.SoulbindsVenthyr = BuildProfileSetsForCovenants(soulbinds, options, CODE_COVENANT_VEN);
             }
+        }
+        private string BuildProfileSetsForCovenants(IEnumerable<Soulbind> soulbinds, SoulbindPathOptions options, string codeCovenant)
+        {
+            var soulbindsCovenant = soulbinds.Where(s => s.CovenantCode == codeCovenant);
+            StringBuilder sb = new StringBuilder();
+            
+            switch (codeCovenant)
+            {
+                case CODE_COVENANT_KYR:
+                    sb.AppendLine("covenant=kyrian");
+                    break;
+                case CODE_COVENANT_NEC:
+                    sb.AppendLine("covenant=necrolord");
+                    break;
+                case CODE_COVENANT_FAE:
+                    sb.AppendLine("covenant=night_fae");
+                    break;
+                case CODE_COVENANT_VEN:
+                    sb.AppendLine("covenant=venthyr");
+                    break;
+
+            }
+
+            foreach (var soulbind in soulbindsCovenant)
+                foreach (var path in soulbind.GetSoulbindPaths(options))
+                    sb.AppendLine(path.SimcProfilesetString);
+
+            return sb.ToString();
         }
 
         public string PathProfiles { get; set; }
@@ -75,17 +138,10 @@ namespace CovenantProfileGenerator
                     Apl = GetAplFromTemplate(spec),
                     General = GetGeneralFromTemplate(spec),
                     Equip = GetEquipFromTemplate(spec),
-                    SoulbindsKyr = GetSoulbindsFromTemplate(spec, CODE_COVENANT_KYR),
-                    SoulbindsNec = GetSoulbindsFromTemplate(spec, CODE_COVENANT_NEC),
-                    SoulbindsNightfae = GetSoulbindsFromTemplate(spec, CODE_COVENANT_FAE),
-                    SoulbindsVenthyr = GetSoulbindsFromTemplate(spec, CODE_COVENANT_VEN),
                 });
             }
-
+            UpdateSoulbinds();
         }
-
-        private string GetSoulbindsFromTemplate(string spec, string covenant)
-            => File.ReadAllText($@"{pathTemplate}{Path.DirectorySeparatorChar}{PATH_SOULBINDS}\{spec}_{covenant}.simc");
 
         private string GetEquipFromTemplate(string spec)
             => File.ReadAllText($@"{pathTemplate}{Path.DirectorySeparatorChar}{PATH_EQUIP}{Path.DirectorySeparatorChar}{spec}.simc");
@@ -106,7 +162,7 @@ namespace CovenantProfileGenerator
         {
             var files = new List<(string fileName, string content)>();
 
-            foreach(var specProfile in SpecProfiles)
+            foreach (var specProfile in SpecProfiles)
             {
                 files.Add((
                     $"{specProfile.Name}_{CODE_COVENANT_KYR}.simc",
@@ -124,11 +180,11 @@ namespace CovenantProfileGenerator
                     $"{specProfile.Name}_{CODE_COVENANT_VEN}.simc",
                     BuildProfile(specProfile, CODE_COVENANT_VEN)));
             }
-            
+
 
             string profilePath = $@"{this.PathProfiles}{Path.DirectorySeparatorChar}{this.Name}";
             var di = Directory.CreateDirectory(profilePath);
-            
+
             foreach (var (fileName, content) in files)
                 File.WriteAllText($@"{di.FullName}{Path.DirectorySeparatorChar}{fileName}", content);
 
@@ -173,7 +229,7 @@ namespace CovenantProfileGenerator
         {
             StringBuilder sb = new StringBuilder();
 
-            switch(covenant)
+            switch (covenant)
             {
                 case CODE_COVENANT_KYR:
                     sb.Append(spec.SoulbindsKyr);
@@ -195,12 +251,12 @@ namespace CovenantProfileGenerator
         {
             StringBuilder sb = new StringBuilder();
 
-            var files = Directory.GetFiles(path, "*.simc"); 
+            var files = Directory.GetFiles(path, "*.simc");
 
-            foreach(var file in files)
+            foreach (var file in files)
                 sb.AppendLine($"simc.exe {Path.GetFileName(file)}");
 
             return sb.ToString();
-        }   
+        }
     }
 }
