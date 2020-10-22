@@ -43,7 +43,7 @@ namespace CovenantProfileGenerator
         }
         private void TestSoulbinds()
         {
-            var dir = @"C:\Users\spung\repos\simc-profiles\covenants\Results\3T_RenMax_R7";
+            var dir = @"C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_RenMax_R7_Leggos";
             var files = Directory.GetFiles(dir, "*.json*");
 
             var results = new List<Result>();
@@ -65,20 +65,20 @@ namespace CovenantProfileGenerator
                 string legendary = "none";
                 var targets = simcResult.sim.targets.Count();
 
-                //switch (spec)
-                //{
-                //    case "Fire":
-                //        legendary = "Firestorm";
-                //        break;
-                //    case "Arcane":
-                //        legendary = "Harmony";
-                //        break;
-                //    case "Frost":
-                //        legendary = "Split Ice";
-                //        break;
-                //}
-                
-                foreach(var profileset in simcResult.sim.profilesets.results)
+                switch (spec)
+                {
+                    case "Fire":
+                        legendary = "Firestorm";
+                        break;
+                    case "Arcane":
+                        legendary = "Harmony";
+                        break;
+                    case "Frost":
+                        legendary = "Split Ice";
+                        break;
+                }
+
+                foreach (var profileset in simcResult.sim.profilesets.results)
                 {
                     results.Add(new Result()
                     {

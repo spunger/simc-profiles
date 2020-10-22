@@ -4,7 +4,7 @@ gear_crit_rating=700
 gear_mastery_rating=200
 gear_versatility_rating=200
 
-wrist=slick_ice,bonus_id=6823
+# wrist=slick_ice,bonus_id=6823
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226

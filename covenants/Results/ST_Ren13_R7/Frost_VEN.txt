@@ -9,15 +9,15 @@
  * Beta! Beta! Beta! Beta! Beta! Beta! 
 
 DPS Ranking:
-   5163 100.0%  Raid
-   5163  100.0%  baseline
+   4839 100.0%  Raid
+   4839  100.0%  baseline
 
 HPS Ranking:
       0 100.0%%  Raid
 
 Player: baseline human mage frost 60
-  DPS=5162.689359660951 DPS-Error=10.026875065499148/0.19% DPS-Range=670.2205096721318/12.98%
-  DPR=7.9043594042807195 RPS-Out=651.4264922688905 RPS-In=649.4357548422335 Resource=mana Waiting=0.0 ApM=54.66665567108553
+  DPS=4839.493790625286 DPS-Error=9.58991230250227/0.20% DPS-Range=630.6056371049176/13.03%
+  DPR=8.109666885245579 RPS-Out=595.5113737123885 RPS-In=593.5971967333685 Resource=mana Waiting=0.0 ApM=50.50282325239652
   Talents: 2032021
   Covenant: venthyr
   Core Stats:    strength=204|198(198)  agility=312|306(306)  stamina=434|414(414)  intellect=1848|1700(1700)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
@@ -49,64 +49,60 @@ Player: baseline human mage frost 60
     icy_veins,if=buff.rune_of_power.down/time_warp,if=runeforge.temporal_warp.equipped&time>10&(prev_off_gcd.icy_veins|target.time_to_die<30)
     potion,if=prev_off_gcd.icy_veins|target.time_to_die<30/use_items/blood_fury/berserking/lights_judgment/fireblood/ancestral_call/bag_of_tricks
   Actions:
-    agonizing_backlash          Count=   7.2| 40.249sec  DPE=1606| 0.75%  DPET=   0  DPR=   0  pDPS=  39  Miss= 0.00%  Hit=  1283|  1040|  1562  Crit=  2557|  2080|  3125|25.35%
-    flurry                      Count=  40.8|  7.288sec  DPE=7168| 0.00%  DPET=6881  DPR=  14  pDPS=   0
-    flurry_bolt                 Count= 122.0|  2.395sec  DPE=2039|16.14%  DPET=   0  DPR=   0  pDPS= 833  Miss= 0.00%  Hit=  1222|  1027|  1543  Crit=  2437|  2054|  3086|67.21%
-    flurry_icicle               Count=  40.5|  7.298sec  DPE=1073| 2.82%  DPET=   0  DPR=   0  pDPS= 146  Miss= 0.00%  Hit=   571|   481|   723  Crit=  1145|   962|  1445|88.05%
-    frostbolt                   Count= 113.9|  2.582sec  DPE=3090|15.88%  DPET=2606  DPR=   3  pDPS= 821  Miss= 0.00%  Hit=  1481|  1273|  1913  Crit=  2991|  2547|  3826|43.24%
-    frostbolt_icicle            Count= 113.9|  2.598sec  DPE= 943| 6.97%  DPET=   0  DPR=   0  pDPS= 360  Miss= 0.00%  Hit=   566|   481|   723  Crit=  1128|   962|  1445|67.55%
-    frozen_orb                  Count=   5.4| 60.604sec  DPE=12913| 0.00%  DPET=11719  DPR=  26  pDPS=   0
-    frozen_orb_bolt             Count= 106.8|  2.618sec  DPE= 658| 4.56%  DPET=   0  DPR=   0  pDPS= 235  Miss= 0.00%  Hit=   464|   356|   535  Crit=   935|   712|  1070|41.15%
-    ice_lance                   Count=  99.3|  2.995sec  DPE=8078|52.04%  DPET=7706  DPR=  16  pDPS=2686  Miss= 0.00%  Hit=  4302|  3153|  5448  Crit=  8603|  6307| 10896|88.12%
+    agonizing_backlash          Count=   7.2| 40.042sec  DPE=1604| 0.80%  DPET=   0  DPR=   0  pDPS=  39  Miss= 0.00%  Hit=  1282|  1040|  1562  Crit=  2547|  2080|  3125|25.43%
+    flurry                      Count=  38.4|  7.688sec  DPE=7180| 0.00%  DPET=6803  DPR=  14  pDPS=   0
+    flurry_bolt                 Count= 115.1|  2.522sec  DPE=2042|16.28%  DPET=   0  DPR=   0  pDPS= 788  Miss= 0.00%  Hit=  1224|  1027|  1543  Crit=  2444|  2054|  3086|67.03%
+    flurry_icicle               Count=  38.2|  7.694sec  DPE=1075| 2.85%  DPET=   0  DPR=   0  pDPS= 138  Miss= 0.00%  Hit=   574|   481|   723  Crit=  1148|   962|  1445|87.99%
+    frostbolt                   Count= 101.1|  2.914sec  DPE=3144|15.37%  DPET=2246  DPR=   3  pDPS= 744  Miss= 0.00%  Hit=  1485|  1273|  1913  Crit=  2993|  2547|  3826|46.00%
+    frostbolt_icicle            Count= 101.1|  2.934sec  DPE= 949| 6.65%  DPET=   0  DPR=   0  pDPS= 322  Miss= 0.00%  Hit=   568|   481|   723  Crit=  1133|   962|  1445|68.04%
+    frozen_orb                  Count=   5.4| 60.616sec  DPE=12863| 0.00%  DPET=11545  DPR=  26  pDPS=   0
+    frozen_orb_bolt             Count= 106.5|  2.617sec  DPE= 657| 4.85%  DPET=   0  DPR=   0  pDPS= 235  Miss= 0.00%  Hit=   464|   356|   535  Crit=   935|   712|  1070|40.96%
+    ice_lance                   Count=  93.3|  3.186sec  DPE=8088|52.30%  DPET=7623  DPR=  16  pDPS=2530  Miss= 0.00%  Hit=  4310|  3153|  5448  Crit=  8615|  6307| 10896|88.14%
     icy_veins                   Count=   2.0|  0.000sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    mirrors_of_torment          Count=   3.7| 92.686sec  DPE=6747| 0.00%  DPET=6360  DPR=   3  pDPS=   0
+    mirrors_of_torment          Count=   3.6| 92.657sec  DPE=6762| 0.00%  DPET=6376  DPR=   3  pDPS=   0
     potion                      Count=   1.5|  0.000sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    rune_of_power               Count=   6.6| 46.500sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    tormenting_backlash         Count=   3.5| 92.688sec  DPE=3676| 0.85%  DPET=   0  DPR=   0  pDPS=  44  Miss= 0.00%  Hit=  2944|  2618|  3932  Crit=  5887|  5235|  7864|24.86%
+    rune_of_power               Count=   6.6| 46.539sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    tormenting_backlash         Count=   3.5| 92.654sec  DPE=3686| 0.90%  DPET=   0  DPR=   0  pDPS=  44  Miss= 0.00%  Hit=  2930|  2618|  3932  Crit=  5860|  5235|  7864|25.79%
 
   Constant Buffs:
-    arcane_intellect/battle_shout/power_word_fortitude
+    arcane_intellect/battle_shout/battlescarred_augmentation/famine_evaluator_and_snack_table/greater_flask_of_endless_fathoms/power_word_fortitude
   Dynamic Buffs:
-    battlescarred_augmentation          : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=299.3 uptime=100.00%
-    bloodlust                           : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    brain_freeze                        : start= 41.1 refresh=  4.2 interval=  7.2 trigger=  6.6 duration=  2.4 uptime= 32.42%
-    chain_reaction                      : start=  3.3 refresh= 95.8 interval= 89.9 trigger=  3.0 duration= 89.6 uptime= 97.32%
-    famine_evaluator_and_snack_table    : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=299.3 uptime=100.00%
-    fingers_of_frost                    : start= 27.1 refresh=  6.3 interval= 10.9 trigger=  8.8 duration=  1.6 uptime= 14.37%  benefit= 32.91%
-    greater_flask_of_endless_fathoms    : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=299.3 uptime=100.00%
-    icicles                             : start= 52.7 refresh=103.0 interval=  5.7 trigger=  1.9 duration=  3.3 uptime= 57.43%
-    icy_veins                           : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 57.1 uptime= 38.64%
-    rune_of_power                       : start=  8.6 refresh=  0.0 interval= 36.4 trigger= 39.5 duration= 14.7 uptime= 42.37%
-    slick_ice                           : start=  2.0 refresh= 58.2 interval=178.7 trigger=  3.9 duration= 52.8 uptime= 35.75%
-    superior_battle_potion_of_intellect : start=  1.5 refresh=  0.0 interval=306.6 trigger=  0.0 duration= 21.9 uptime= 10.79%
+    bloodlust                           : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.58%
+    brain_freeze                        : start= 38.8 refresh=  2.8 interval=  7.7 trigger=  7.2 duration=  2.6 uptime= 33.14%
+    chain_reaction                      : start=  3.7 refresh= 89.4 interval= 80.0 trigger=  3.2 duration= 78.8 uptime= 96.90%
+    fingers_of_frost                    : start= 25.2 refresh=  6.1 interval= 11.8 trigger=  9.5 duration=  1.6 uptime= 13.86%  benefit= 32.72%
+    icicles                             : start= 49.4 refresh= 91.2 interval=  6.1 trigger=  2.1 duration=  3.4 uptime= 56.04%
+    icy_veins                           : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 53.5 uptime= 36.31%
+    rune_of_power                       : start=  8.6 refresh=  0.0 interval= 36.4 trigger= 39.5 duration= 14.7 uptime= 42.31%
+    superior_battle_potion_of_intellect : start=  1.5 refresh=  0.0 interval=307.1 trigger=  0.0 duration= 21.9 uptime= 10.80%
   Up-Times:
-     19.35% : Mana Cap                      
+     21.81% : Mana Cap                      
   Procs:
-     45.27667 |   6.54460sec : Brain Freeze
-     34.50703 |   8.50580sec : Brain Freeze from Frostbolt
-     10.76964 |  26.16427sec : Brain Freeze from Mirrors of Torment
-     40.75850 |   7.26476sec : Brain Freeze used
-     33.46835 |   8.96224sec : Fingers of Frost
-     17.33470 |  16.30056sec : Fingers of Frost from Frostbolt
-      5.41852 |  60.67864sec : Fingers of Frost from Frozen Orb Initial Impact
-     10.71512 |  25.94609sec : Fingers of Frost from Frozen Orb Tick
-     14.42380 |  19.46222sec : Fingers of Frost wasted due to Winter's Chill
-    243.98593 |   2.38736sec : Winter's Chill stacks applied
-    113.43318 |   2.57643sec : Winter's Chill stacks consumed
-     32.47831 |   9.02910sec : Winter's Chill stacks consumed by Frostbolt
-     80.95487 |   3.60958sec : Winter's Chill stacks consumed by Ice Lance
+     41.63365 |   7.12716sec : Brain Freeze
+     30.88159 |   9.53585sec : Brain Freeze from Frostbolt
+     10.75205 |  26.14036sec : Brain Freeze from Mirrors of Torment
+     38.44959 |   7.70073sec : Brain Freeze used
+     31.35053 |   9.57629sec : Fingers of Frost
+     15.21747 |  18.56048sec : Fingers of Frost from Frostbolt
+      5.41090 |  60.71955sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.72216 |  25.82905sec : Fingers of Frost from Frozen Orb Tick
+     13.63130 |  20.58511sec : Fingers of Frost wasted due to Winter's Chill
+    230.16764 |   2.52813sec : Winter's Chill stacks applied
+    109.95252 |   2.65509sec : Winter's Chill stacks consumed
+     33.61782 |   8.70200sec : Winter's Chill stacks consumed by Frostbolt
+     76.33470 |   3.82403sec : Winter's Chill stacks consumed by Ice Lance
   Gains:
-    194383.6 : mana_regen (mana)           (overflow=34.95%)
+    177376.9 : mana_regen (mana)           (overflow=40.54%)
   Waiting:  0.00%
 
 
  *** Targets *** 
 
 Target: Fluffy_Pillow humanoid enemy unknown 63
-  DTPS=5162.689359660949 DTPS-Error=10.026875065499135/0.19% DTPS-Range=670.2205096721327/12.98%
-  DPR=0.0 RPS-Out=4867.802899965523 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
+  DTPS=4839.4937906252835 DTPS-Error=9.589912302502253/0.20% DTPS-Range=630.6056371049167/13.03%
+  DPR=0.0 RPS-Out=4592.895123957652 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
   Talents: 0000000
-  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|1881731  mana=0|0
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|1250020  mana=0|0
   Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
   Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
   Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
@@ -120,49 +116,53 @@ Target: Fluffy_Pillow humanoid enemy unknown 63
   Constant Buffs:
     arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
   Dynamic Buffs:
-    Health Decade (0 - 10)   : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 56.5 uptime= 12.37%
-    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.1 uptime=  8.32%
-    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 27.6 uptime=  9.20%
-    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.0 uptime=  9.48%
-    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 34.2 uptime= 11.58%
-    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 39.3 uptime= 13.33%
-    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 36.7 uptime= 12.44%
-    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.0 uptime= 10.51%
-    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 21.1 uptime=  7.15%
-    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 17.3 uptime=  5.65%
-    mirrors_of_torment       : start=  3.7 refresh=  0.0 interval= 92.6 trigger= 92.7 duration= 13.3 uptime= 16.21%
-    winters_chill            : start= 40.7 refresh= 81.3 interval=  7.3 trigger=  2.4 duration=  2.2 uptime= 30.34%
+    Health Decade (0 - 10)   : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 53.8 uptime= 11.09%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.5 uptime=  8.27%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.4 uptime=  9.71%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.7 uptime= 10.07%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 33.5 uptime= 11.37%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 37.6 uptime= 12.77%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 35.8 uptime= 12.15%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 34.0 uptime= 11.54%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 21.9 uptime=  7.44%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 17.2 uptime=  5.60%
+    mirrors_of_torment       : start=  3.6 refresh=  0.0 interval= 92.6 trigger= 92.7 duration= 13.3 uptime= 16.22%
+    winters_chill            : start= 38.4 refresh= 76.7 interval=  7.7 trigger=  2.5 duration=  2.3 uptime= 29.04%
   Waiting:  0.00%
 
 
 Profilesets (median Damage per Second):
-      6402.834 : Draven - ELeader/HYGround/IP:7/IB:7
-      6397.378 : Theotar - LGait/ToApprec/IP:7/IB:7/GS:7
-      5957.728 : Theotar - LGait/ToApprec/IB:7/SM:7/GS:7
-      5953.935 : Draven - ELeader/HYGround/IB:7/SM:7
-      5952.405 : Theotar - LGait/SShade/IB:7/GS:7
-      5935.745 : Theotar - LGait/ToApprec/UC:7/IB:7/GS:7
-      5921.839 : Draven - ELeader/HYGround/UC:7/IB:7
-      5894.777 : Nadjia - AChaos/FiLPlaces/IB:7/GS:7
-      5877.473 : Theotar - LGait/RPalate/IB:7/GS:7
-      5872.745 : Draven - ELeader/STactics/IB:7
-      5864.276 : Draven - ELeader/BfWar/IB:7/GS:7
+      5941.800 : Nadjia - TSeeker/AChaos/FiLPlaces/IB:7/GS:7
+      5931.657 : Theotar - SShade/LGait/LotParty/IB:7/GS:7
+      5836.555 : Draven - SIStone/EGloom/ELeader/IB:7/GS:7
+      5421.943 : Nadjia - TSeeker/AChaos/FiLPlaces/IP:7/GS:7
+      5389.352 : Theotar - SShade/LGait/LotParty/IP:7/GS:7
+      5289.884 : Draven - SIStone/EGloom/ELeader/IP:7/GS:7
+      5024.004 : Theotar - SShade/LGait/LotParty/SM:7/GS:7
+      5023.299 : Nadjia - TSeeker/AChaos/FiLPlaces/SM:7/GS:7
+      4979.739 : Theotar - SShade/LGait/LotParty/UC:7/GS:7
+      4966.210 : Nadjia - TSeeker/AChaos/FiLPlaces/UC:7/GS:7
+      4949.400 : Draven - SIStone/EGloom/ELeader/SM:7/GS:7
+      4926.635 : Theotar - SShade/LGait/LotParty/SC:7/GS:7
+      4908.504 : Nadjia - TSeeker/AChaos/FiLPlaces/SC:7/GS:7
+      4888.558 : Draven - SIStone/EGloom/ELeader/UC:7/GS:7
+      4830.408 : Draven - SIStone/EGloom/ELeader/SC:7/GS:7
 
 
 Baseline Performance:
   RNG Engine    = xoshiro256+
-  Iterations    = 1710 (437, 421, 431, 421)
-  TotalEvents   = 53567879
-  MaxEventQueue = 87
-  TargetHealth  = 1881732
-  SimSeconds    = 510629.371
-  CpuSeconds    = 35.453125
-  WallSeconds   = 8.9969216
-  InitSeconds   = 0.0606388
-  MergeSeconds  = 0.0119837
-  AnalyzeSeconds= 0.0104031
-  SpeedUp       = 14437
-  EndTime       = 2020-10-17 14:00:10+0200 (1602936010)
+  Iterations    = 1710 (433, 435, 427, 415)
+  TotalEvents   = 68682195
+  MaxEventQueue = 75
+  TargetHealth  = 1250021
+  SimSeconds    = 509777.837
+  CpuSeconds    = 55.234375
+  WallSeconds   = 13.9572855
+  InitSeconds   = 0.1123217
+  MergeSeconds  = 0.0176371
+  AnalyzeSeconds= 0.0209202
+  SpeedUp       = 9251
+  EndTime       = 2020-10-22 10:29:09+0200 (1603355349)
 
 
 Waiting:

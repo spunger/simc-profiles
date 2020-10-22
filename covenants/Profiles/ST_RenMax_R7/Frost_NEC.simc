@@ -1,6 +1,6 @@
-output=C:\Users\spung\repos\simc-profiles\covenants\Results\ST_RenMax_R7\Frost_NEC.txt
-json2=C:\Users\spung\repos\simc-profiles\covenants\Results\ST_RenMax_R7\Frost_NEC.json
-html=C:\Users\spung\repos\simc-profiles\covenants\Results\ST_RenMax_R7\Frost_NEC.html
+output=C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_RenMax_R7\Frost_NEC.txt
+json2=C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_RenMax_R7\Frost_NEC.json
+html=C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_RenMax_R7\Frost_NEC.html
 
 target_error=0.2
 threads=4
@@ -25,8 +25,7 @@ gear_crit_rating=700
 gear_mastery_rating=200
 gear_versatility_rating=200
 
-# SKB
-# wrist=cold_front,bonus_id=6828
+# wrist=slick_ice,bonus_id=6823
 
 # Cocoonsilk Cowl
 #head=,id=178693,bonus_id=6536/6652/1543/6646,ilevel=226
@@ -147,53 +146,44 @@ actions.movement+=/fire_blast
 actions.movement+=/ice_lance
 
 covenant=necrolord
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/SC:7"+=soulbind=323074/323091/323081/323095/17:7/18:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IP:7"+=soulbind=323074/323091/323081/323095/17:7/20:7
 profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7"+=soulbind=323074/323091/323081/323095/17:7/21:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/SC:7/IP:7"+=soulbind=323074/323091/323081/323095/18:7/20:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/SC:7/IB:7"+=soulbind=323074/323091/323081/323095/18:7/21:7
 profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7"+=soulbind=323074/323091/323081/323095/20:7/21:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/SC:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/18:7/29:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IP:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/20:7/29:7
 profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/21:7/29:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/SC:7/IP:7/GS:7"+=soulbind=323074/323091/323081/323095/18:7/20:7/29:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/SC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/18:7/21:7/29:7
 profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/20:7/21:7/29:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/UC:7/GS:7"+=soulbind=323074/323090/323081/323095/17:7/29:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/SC:7/GS:7"+=soulbind=323074/323090/323081/323095/18:7/29:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IP:7/GS:7"+=soulbind=323074/323090/323081/323095/20:7/29:7
 profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7"+=soulbind=323074/323091/323081/323095/17:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7"+=soulbind=323074/323091/323081/323095/20:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/20:7/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7"+=soulbind=323074/323091/323081/323095/17:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7"+=soulbind=323074/323091/323081/323095/20:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/20:7/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7"+=soulbind=323074/323091/323081/323095/17:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7"+=soulbind=323074/323091/323081/323095/20:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/20:7/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7"+=soulbind=323074/323091/323081/323095/17:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7"+=soulbind=323074/323091/323081/323095/20:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/20:7/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7"+=soulbind=323074/323091/323081/323095/17:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7"+=soulbind=323074/323091/323081/323095/20:7/21:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/UC:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/17:7/21:7/29:7
-profileset."Mari - VSolvvent/OFCoat/PCSlime/UForm/IP:7/IB:7/GS:7"+=soulbind=323074/323091/323081/323095/20:7/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Mari - VSolvvent/PPStrike/PCSlime/UForm/IB:7/GS:7"+=soulbind=323074/323090/323081/323095/21:7/29:7
-profileset."Emeni - EMSkin/GnChomp/CLegs/LbExample/IB:7/GS:7"+=soulbind=323921/323919/324440/342156/21:7/29:7
-profileset."Emeni - EMSkin/GrToes/CLegs/LbExample/UC:7/IB:7/GS:7"+=soulbind=323921/323918/324440/342156/17:7/21:7/29:7
-profileset."Emeni - EMSkin/GrToes/CLegs/LbExample/IP:7/IB:7/GS:7"+=soulbind=323921/323918/324440/342156/20:7/21:7/29:7
-profileset."Emeni - EMSkin/GnChomp/CLegs/LbExample/IB:7/GS:7"+=soulbind=323921/323919/324440/342156/21:7/29:7
-profileset."Emeni - EMSkin/GrToes/CLegs/LbExample/UC:7/IB:7/GS:7"+=soulbind=323921/323918/324440/342156/17:7/21:7/29:7
-profileset."Emeni - EMSkin/GrToes/CLegs/LbExample/IP:7/IB:7/GS:7"+=soulbind=323921/323918/324440/342156/20:7/21:7/29:7
-profileset."Heirmir - RFlesh/HAMGemstone/RSpurs/FReveries/IB:7/GS:7"+=soulbind=326507/326572/326512/326514/21:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/RSpurs/FReveries/UC:7/IB:7/GS:7"+=soulbind=326507/326511/326512/326514/17:7/21:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/RSpurs/FReveries/IP:7/IB:7/GS:7"+=soulbind=326507/326511/326512/326514/20:7/21:7/29:7
-profileset."Heirmir - RFlesh/HAMGemstone/RSpurs/FReveries/IB:7/GS:7"+=soulbind=326507/326572/326512/326514/21:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/RSpurs/FReveries/UC:7/IB:7/GS:7"+=soulbind=326507/326511/326512/326514/17:7/21:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/RSpurs/FReveries/IP:7/IB:7/GS:7"+=soulbind=326507/326511/326512/326514/20:7/21:7/29:7
-profileset."Heirmir - SSpaul/HAGstomp/RSpurs/FReveries/IB:7/GS:7"+=soulbind=326504/326511/326512/326514/21:7/29:7
-profileset."Heirmir - SSpaul/HAGstomp/RSpurs/FReveries/IB:7/GS:7"+=soulbind=326504/326511/326512/326514/21:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GrToes/UC:7/SC:7/GS:7"+=soulbind=342156/323921/324440/323918/17:7/18:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GrToes/UC:7/IP:7/GS:7"+=soulbind=342156/323921/324440/323918/17:7/20:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GrToes/UC:7/IB:7/GS:7"+=soulbind=342156/323921/324440/323918/17:7/21:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GrToes/SC:7/IP:7/GS:7"+=soulbind=342156/323921/324440/323918/18:7/20:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GrToes/SC:7/IB:7/GS:7"+=soulbind=342156/323921/324440/323918/18:7/21:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GrToes/IP:7/IB:7/GS:7"+=soulbind=342156/323921/324440/323918/20:7/21:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GnChomp/UC:7/GS:7"+=soulbind=342156/323921/324440/323919/17:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GnChomp/SC:7/GS:7"+=soulbind=342156/323921/324440/323919/18:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GnChomp/IP:7/GS:7"+=soulbind=342156/323921/324440/323919/20:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/GnChomp/IB:7/GS:7"+=soulbind=342156/323921/324440/323919/21:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAGstomp/UC:7/SC:7/GS:7"+=soulbind=326514/326507/326512/326511/17:7/18:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAGstomp/UC:7/IP:7/GS:7"+=soulbind=326514/326507/326512/326511/17:7/20:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAGstomp/UC:7/IB:7/GS:7"+=soulbind=326514/326507/326512/326511/17:7/21:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAGstomp/SC:7/IP:7/GS:7"+=soulbind=326514/326507/326512/326511/18:7/20:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAGstomp/SC:7/IB:7/GS:7"+=soulbind=326514/326507/326512/326511/18:7/21:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAGstomp/IP:7/IB:7/GS:7"+=soulbind=326514/326507/326512/326511/20:7/21:7/29:7
+profileset."Heirmir - FReveries/SSpaul/RSpurs/HAGstomp/UC:7/GS:7"+=soulbind=326514/326504/326512/326511/17:7/29:7
+profileset."Heirmir - FReveries/SSpaul/RSpurs/HAGstomp/SC:7/GS:7"+=soulbind=326514/326504/326512/326511/18:7/29:7
+profileset."Heirmir - FReveries/SSpaul/RSpurs/HAGstomp/IP:7/GS:7"+=soulbind=326514/326504/326512/326511/20:7/29:7
+profileset."Heirmir - FReveries/SSpaul/RSpurs/HAGstomp/IB:7/GS:7"+=soulbind=326514/326504/326512/326511/21:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAMGemstone/UC:7/GS:7"+=soulbind=326514/326507/326512/326572/17:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAMGemstone/SC:7/GS:7"+=soulbind=326514/326507/326512/326572/18:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAMGemstone/IP:7/GS:7"+=soulbind=326514/326507/326512/326572/20:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/HAMGemstone/IB:7/GS:7"+=soulbind=326514/326507/326512/326572/21:7/29:7
+profileset."Heirmir - FReveries/SSpaul/RSpurs/HAMGemstone/GS:7"+=soulbind=326514/326504/326512/326572/29:7

@@ -10,7 +10,7 @@ gear_crit_rating=700
 gear_mastery_rating=200
 gear_versatility_rating=200
 
-wrist=firestorm,bonus_id=6932
+# wrist=firestorm,bonus_id=6932
 
 
 # Cocoonsilk Cowl

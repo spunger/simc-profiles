@@ -1,11 +1,11 @@
 ﻿Id,SpellId,Name,Code,Class,Spec,Type,MusthaveDefault,AllowedDefault,IgnoredDefault
 17,336460,Unrelenting Cold,UC,Mage,Frost,pc,0,0,0
-18,336472,Shivering Core,SC,Mage,Frost,pc,0,0,1
+18,336472,Shivering Core,SC,Mage,Frost,pc,0,0,0
 20,336522,Icy Propulsion,IP,Mage,Frost,pc,0,0,0
-21,336569,Ice Bite,IB,Mage,Frost,pc,1,0,0
+21,336569,Ice Bite,IB,Mage,Frost,pc,0,0,0
 29,336777,Grounding Surge,GS,Mage,All,fc,0,1,0
 30,336821,Infernal Cascade,IC,Mage,Fire,pc,0,0,0
-32,336852,Master Flame,MF,Mage,Fire,pc,0,0,1
+32,336852,Master Flame,MF,Mage,Fire,pc,0,0,0
 34,336873,Arcane Prodigy,AP,Mage,Arcane,pc,0,0,0
 36,336886,Nether Precision,NP,Mage,Arcane,pc,0,0,0
 38,336992,Discipline of the Grove,DG,Covenant,Night Fae,pc,0,0,0

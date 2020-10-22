@@ -1,6 +1,6 @@
-output=C:\Users\spung\repos\simc-profiles\covenants\Results\ST_Ren13_R7\Fire_NEC.txt
-json2=C:\Users\spung\repos\simc-profiles\covenants\Results\ST_Ren13_R7\Fire_NEC.json
-html=C:\Users\spung\repos\simc-profiles\covenants\Results\ST_Ren13_R7\Fire_NEC.html
+output=C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_Ren13_R7\Fire_NEC.txt
+json2=C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_Ren13_R7\Fire_NEC.json
+html=C:\Users\SpanierTh\source\repos\simc-profiles\covenants\Results\ST_Ren13_R7\Fire_NEC.html
 
 target_error=0.2
 threads=4
@@ -15,7 +15,7 @@ spec=fire
 role=spell
 race=human
 position=back
-talents=3231122
+talents=3031022
 
 #external_buffs.focus_magic=1
 
@@ -31,7 +31,7 @@ gear_crit_rating=700
 gear_mastery_rating=200
 gear_versatility_rating=200
 
-wrist=firestorm,bonus_id=6932
+# wrist=firestorm,bonus_id=6932
 
 
 # Cocoonsilk Cowl
@@ -107,7 +107,7 @@ actions+=/radiant_spark,if=(buff.combustion.down&buff.rune_of_power.down&(cooldo
 actions+=/deathborne,if=buff.combustion.down&buff.rune_of_power.down&cooldown.combustion.remains<execute_time
 actions+=/mirror_image,if=buff.combustion.down&debuff.radiant_spark_vulnerability.down
 actions+=/use_item,name=azsharas_font_of_power,if=variable.time_to_combustion<=5+15*variable.font_double_on_use&variable.time_to_combustion>0&!variable.disable_combustion
-actions+=/guardian_of_azeroth,if=(variable.time_to_combustion<10|target.time_to_die<variable.time_to_combustion)&!variable.disable_combustion
+actions+=/guardian_of_azeroth,if=(variable.time_to_combustion<10|fight_remains<variable.time_to_combustion)&!variable.disable_combustion
 actions+=/concentrated_flame
 actions+=/reaping_flames
 actions+=/focused_azerite_beam
@@ -118,12 +118,12 @@ actions+=/the_unbound_force
 actions+=/counterspell,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down&cooldown.combustion.remains>30&!buff.disciplinary_command.up
 actions+=/arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down&cooldown.combustion.remains>30&!buff.disciplinary_command.up
 actions+=/frostbolt,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_frost.down&cooldown.combustion.remains>30&!buff.disciplinary_command.up
-actions+=/rune_of_power,if=buff.rune_of_power.down&(variable.time_to_combustion>buff.rune_of_power.duration&variable.time_to_combustion>action.fire_blast.full_recharge_time|variable.time_to_combustion>target.time_to_die|variable.disable_combustion)
+actions+=/rune_of_power,if=buff.rune_of_power.down&(variable.time_to_combustion>buff.rune_of_power.duration&variable.time_to_combustion>action.fire_blast.full_recharge_time|variable.time_to_combustion>fight_remains|variable.disable_combustion)
 actions+=/call_action_list,name=combustion_phase,if=!variable.disable_combustion&variable.time_to_combustion<=0
 # TODO: The 15 near the end of this condition is an arbitrary condition for checking if Shifting Power will be up soon. Find a more accurate way to know that Shifting Power will probably be used before the SKB proc.
-actions+=/variable,name=fire_blast_pooling,value=!variable.disable_combustion&variable.time_to_combustion<action.fire_blast.full_recharge_time-variable.shifting_power_reduction*(cooldown.shifting_power.remains<variable.time_to_combustion)&variable.time_to_combustion<target.time_to_die|runeforge.sun_kings_blessing.equipped&action.fire_blast.charges_fractional<action.fire_blast.max_charges-0.5&(cooldown.shifting_power.remains>15|!covenant.night_fae.enabled)
+actions+=/variable,name=fire_blast_pooling,value=!variable.disable_combustion&variable.time_to_combustion<action.fire_blast.full_recharge_time-variable.shifting_power_reduction*(cooldown.shifting_power.remains<variable.time_to_combustion)&variable.time_to_combustion<fight_remains|runeforge.sun_kings_blessing.equipped&action.fire_blast.charges_fractional<action.fire_blast.max_charges-0.5&(cooldown.shifting_power.remains>15|!covenant.night_fae.enabled)
 actions+=/call_action_list,name=rop_phase,if=buff.rune_of_power.up&(variable.time_to_combustion>0|variable.disable_combustion)
-actions+=/variable,name=phoenix_pooling,value=!variable.disable_combustion&variable.time_to_combustion<action.phoenix_flames.full_recharge_time&variable.time_to_combustion<target.time_to_die|runeforge.sun_kings_blessing.equipped
+actions+=/variable,name=phoenix_pooling,value=!variable.disable_combustion&variable.time_to_combustion<action.phoenix_flames.full_recharge_time&variable.time_to_combustion<fight_remains|runeforge.sun_kings_blessing.equipped
 # When Hardcasting Flame Strike, Fire Blasts should be used to generate Hot Streaks and to extend Blaster Master.
 actions+=/fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
 # During Firestarter, Fire Blasts are used similarly to during Combustion. Generally, they are used to generate Hot Streaks when crits will not be wasted and with Blaster Master, they should be spread out to maintain the Blaster Master buff.
@@ -131,13 +131,13 @@ actions+=/fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&cha
 actions+=/call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
 
 actions.active_talents=living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
-actions.active_talents+=/meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|target.time_to_die<variable.time_to_combustion|variable.disable_combustion
+actions.active_talents+=/meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
 actions.active_talents+=/dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
 
 actions.combustion_phase=lights_judgment,if=buff.combustion.down
 # Estimate how long Combustion will last thanks to Sun King's Blessing to determine how Fire Blasts should be used.
 actions.combustion_phase+=/variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
-actions.combustion_phase+=/variable,name=extended_combustion_remains,op=add,value=5,if=buff.sun_kings_blessing_ready.up|variable.extended_combustion_remains>1.5*gcd.max*(buff.sun_kings_blessing.max_stack-buff.sun_kings_blessing.stack)
+actions.combustion_phase+=/variable,name=extended_combustion_remains,op=add,value=dbc.effect.828420.base_value,if=buff.sun_kings_blessing_ready.up|variable.extended_combustion_remains>1.5*gcd.max*(buff.sun_kings_blessing.max_stack-buff.sun_kings_blessing.stack)
 actions.combustion_phase+=/bag_of_tricks,if=buff.combustion.down
 actions.combustion_phase+=/living_bomb,if=active_enemies>1&buff.combustion.down
 actions.combustion_phase+=/mirrors_of_torment,if=buff.combustion.down&buff.rune_of_power.down
@@ -165,9 +165,9 @@ actions.combustion_phase+=/time_warp,if=runeforge.temporal_warp.equipped&buff.co
 actions.combustion_phase+=/flamestrike,if=(buff.hot_streak.react|buff.firestorm.react)&active_enemies>=variable.combustion_flamestrike
 actions.combustion_phase+=/pyroblast,if=buff.sun_kings_blessing_ready.up&buff.sun_kings_blessing_ready.remains>cast_time
 actions.combustion_phase+=/pyroblast,if=buff.firestorm.react
-actions.combustion_phase+=/pyroblast,if=buff.pyroclasm.react&buff.pyroclasm.remains>cast_time&(buff.combustion.remains>cast_time|buff.combustion.down)
+actions.combustion_phase+=/pyroblast,if=buff.pyroclasm.react&buff.pyroclasm.remains>cast_time&(buff.combustion.remains>cast_time|buff.combustion.down)&active_enemies<variable.combustion_flamestrike
 actions.combustion_phase+=/pyroblast,if=buff.hot_streak.react&buff.combustion.up
-actions.combustion_phase+=/pyroblast,if=prev_gcd.1.scorch&buff.heating_up.react
+actions.combustion_phase+=/pyroblast,if=prev_gcd.1.scorch&buff.heating_up.react&active_enemies<variable.combustion_flamestrike
 actions.combustion_phase+=/phoenix_flames,if=buff.combustion.up&((action.fire_blast.charges<1&talent.pyroclasm.enabled&active_enemies=1)|!talent.pyroclasm.enabled|active_enemies>1)
 actions.combustion_phase+=/fireball,if=buff.combustion.down&cooldown.combustion.remains<cast_time&!conduit.flame_accretion.enabled
 actions.combustion_phase+=/scorch,if=buff.combustion.remains>cast_time&buff.combustion.up|buff.combustion.down&cooldown.combustion.remains<cast_time
@@ -212,25 +212,22 @@ actions.standard_rotation+=/fireball
 actions.standard_rotation+=/scorch
 
 covenant=necrolord
-profileset."Mari - VSolvvent/OFCoat/IC:7/FA:7"+=soulbind=323074/323091/30:7/53:7
-profileset."Mari - VSolvvent/OFCoat/IC:7/CD:7"+=soulbind=323074/323091/30:7/264:7
-profileset."Mari - VSolvvent/OFCoat/FA:7/CD:7"+=soulbind=323074/323091/53:7/264:7
-profileset."Mari - VSolvvent/PPStrike/IC:7/GS:7"+=soulbind=323074/323090/30:7/29:7
-profileset."Mari - VSolvvent/PPStrike/FA:7/GS:7"+=soulbind=323074/323090/53:7/29:7
-profileset."Mari - VSolvvent/PPStrike/CD:7/GS:7"+=soulbind=323074/323090/264:7/29:7
-profileset."Emeni - EMSkin/GrToes/IC:7/FA:7/GS:7"+=soulbind=323921/323918/30:7/53:7/29:7
-profileset."Emeni - EMSkin/GrToes/IC:7/CD:7/GS:7"+=soulbind=323921/323918/30:7/264:7/29:7
-profileset."Emeni - EMSkin/GrToes/FA:7/CD:7/GS:7"+=soulbind=323921/323918/53:7/264:7/29:7
-profileset."Emeni - EMSkin/GnChomp/IC:7/GS:7"+=soulbind=323921/323919/30:7/29:7
-profileset."Emeni - EMSkin/GnChomp/FA:7/GS:7"+=soulbind=323921/323919/53:7/29:7
-profileset."Emeni - EMSkin/GnChomp/CD:7/GS:7"+=soulbind=323921/323919/264:7/29:7
-profileset."Heirmir - SSpaul/HAMGemstone/GS:7"+=soulbind=326504/326572/29:7
-profileset."Heirmir - SSpaul/HAGstomp/IC:7/GS:7"+=soulbind=326504/326511/30:7/29:7
-profileset."Heirmir - SSpaul/HAGstomp/FA:7/GS:7"+=soulbind=326504/326511/53:7/29:7
-profileset."Heirmir - SSpaul/HAGstomp/CD:7/GS:7"+=soulbind=326504/326511/264:7/29:7
-profileset."Heirmir - RFlesh/HAMGemstone/IC:7/GS:7"+=soulbind=326507/326572/30:7/29:7
-profileset."Heirmir - RFlesh/HAMGemstone/FA:7/GS:7"+=soulbind=326507/326572/53:7/29:7
-profileset."Heirmir - RFlesh/HAMGemstone/CD:7/GS:7"+=soulbind=326507/326572/264:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/IC:7/FA:7/GS:7"+=soulbind=326507/326511/30:7/53:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/IC:7/CD:7/GS:7"+=soulbind=326507/326511/30:7/264:7/29:7
-profileset."Heirmir - RFlesh/HAGstomp/FA:7/CD:7/GS:7"+=soulbind=326507/326511/53:7/264:7/29:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/IC:7/MF:7"+=soulbind=323074/323091/323081/30:7/32:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/IC:7/FA:7"+=soulbind=323074/323091/323081/30:7/53:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/IC:7/CD:7"+=soulbind=323074/323091/323081/30:7/264:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/MF:7/FA:7"+=soulbind=323074/323091/323081/32:7/53:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/MF:7/CD:7"+=soulbind=323074/323091/323081/32:7/264:7
+profileset."Mari - VSolvvent/OFCoat/PCSlime/FA:7/CD:7"+=soulbind=323074/323091/323081/53:7/264:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/IC:7/GS:7"+=soulbind=323074/323090/323081/30:7/29:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/MF:7/GS:7"+=soulbind=323074/323090/323081/32:7/29:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/FA:7/GS:7"+=soulbind=323074/323090/323081/53:7/29:7
+profileset."Mari - VSolvvent/PPStrike/PCSlime/CD:7/GS:7"+=soulbind=323074/323090/323081/264:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/IC:7/GS:7"+=soulbind=342156/323921/324440/30:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/MF:7/GS:7"+=soulbind=342156/323921/324440/32:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/FA:7/GS:7"+=soulbind=342156/323921/324440/53:7/29:7
+profileset."Emeni - LbExample/EMSkin/CLegs/CD:7/GS:7"+=soulbind=342156/323921/324440/264:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/IC:7/GS:7"+=soulbind=326514/326507/326512/30:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/MF:7/GS:7"+=soulbind=326514/326507/326512/32:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/FA:7/GS:7"+=soulbind=326514/326507/326512/53:7/29:7
+profileset."Heirmir - FReveries/RFlesh/RSpurs/CD:7/GS:7"+=soulbind=326514/326507/326512/264:7/29:7
+profileset."Heirmir - FReveries/SSpaul/RSpurs/GS:7"+=soulbind=326514/326504/326512/29:7
